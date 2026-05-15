@@ -1,199 +1,366 @@
-# NexGen
+# NextGen Backend Platform
 
-**Verzija:** 1.0.0
-**Domena:** Zaledni sistemi
-**Avtor:** MIA BUILD
-**Datum:** 2024-12-24
-
----
-
-## Opis
-
-MIA BUILD project: NexGen
-
-Ta projekt je del domene **Zaledni sistemi** (ZALEDNI_SISTEMI).
-
-Strezniška logika in API-ji za enterprise aplikacije z visoko razpolozljivostjo.
+**Version:** 2.0.1  
+**Type:** Enterprise Backend API System  
+**Author:** MIA BUILD  
+**License:** MIT
 
 ---
 
-## Domensko-specificne lastnosti
+## 🚀 Overview
 
-### Kategorije
-- API razvoj (REST, GraphQL, gRPC, WebSocket)
-- Vmesna programska oprema (Express, Fastify, NestJS, Koa)
-- Mikrostoritve (Docker, Kubernetes, Service Mesh)
-- Sporocilni sistemi (RabbitMQ, Kafka, Redis Pub/Sub)
+NextGen Backend is a professional, production-ready backend API system designed for enterprise applications requiring high availability, security, and scalability. Built with modern best practices for REST APIs, microservices, and distributed systems.
 
-### Kljucni koncepti
-- REST API dizajn (Richardson Maturity Model Level 3)
-- GraphQL sheme in resolverji
-- gRPC protokolni bufferji in streaming
-- Middleware verige in interceptorji
-- Controller-Service-Repository vzorec
-- CQRS (Command Query Responsibility Segregation)
-- Event Sourcing za audit trail
-- Saga vzorec za distribuirane transakcije
+### Key Features
 
-### Moduli
-- Koncne tocke (HTTP handlers, route definitions)
-- Shema validacija (Zod, Joi, class-validator)
-- JWT avtentikacija in avtorizacija
-- Rate limiting in throttling
-- Request/Response transformacije
-- Error handling middleware
-- Health check endpoints
-- OpenAPI/Swagger dokumentacija
-
-### Arhitekturni vzorci za zaledne sisteme
-- Hexagonal Architecture (Ports & Adapters)
-- Clean Architecture
-- Onion Architecture
-- Vertical Slice Architecture
-- Modular Monolith
-
-### Skalabilnost
-- Horizontalno skaliranje z load balancerji
-- Connection pooling za baze podatkov
-- Caching strategije (Redis, Memcached)
-- CDN integracija za staticne vsebine
-- Database sharding in replikacija
-
-### Varnostni mehanizmi za zaledne sisteme
-- OAuth 2.0 / OpenID Connect implementacija
-- API key management
-- CORS konfiguracija
-- Helmet.js varnostne glave
-- SQL injection prevencija
-- XSS prevencija
-- CSRF tokeni
-- Rate limiting proti DDoS
+- **RESTful API** with Express.js
+- **GraphQL Support** with Apollo Server
+- **gRPC Services** for inter-service communication
+- **Real-time** WebSocket support
+- **Rate Limiting** & throttling
+- **CORS** & security headers
+- **JWT Authentication** & authorization
+- **Configuration API** for runtime settings
+- **System Metrics** monitoring
+- **Professional UI** for dashboard & testing
 
 ---
 
-## Skladnost
+## 📋 Use Cases
 
-Ta projekt je skladen z naslednjimi industrijskimi in vojaskimi standardi:
+NextGen Backend is ideal for:
 
-| Standard | Opis | Status |
-|----------|------|--------|
-| DO-178C | Programska oprema za letalstvo | SKLADEN |
-| IEC 61508 | Funkcionalna varnost | SKLADEN |
-| ISO 26262 | Varnost avtomobilske programske opreme | SKLADEN |
-| MIL-STD-882E | Vojaska varnost sistema | SKLADEN |
+### 1. **Web Application Backends**
+- E-commerce platforms
+- Content management systems (CMS)
+- Social media platforms
+- SaaS applications
 
-**Nivo varnostne integritete:** SIL-2
+### 2. **Mobile App Backends**
+- REST API for iOS/Android apps
+- Real-time features with WebSocket
+- Push notification services
+
+### 3. **Microservices Architecture**
+- Service-to-service communication
+- API Gateway implementation
+- Event-driven systems
+
+### 4. **Enterprise Systems**
+- ERP & CRM systems
+- Financial services
+- Healthcare platforms
+- Government applications
+
+### 5. **IoT Platforms**
+- Device management
+- Sensor data ingestion
+- Real-time analytics
+
+### 6. **E-commerce & Retail**
+- Product catalog APIs
+- Order management
+- Payment processing integration
 
 ---
 
-## Struktura projekta za ZALEDNI_SISTEMI
+## 🏗️ Architecture
 
 ```
-NexGen/
-├── src/                    # Izvorna koda za Zaledni sistemi
-│   ├── jedro.ts           # Jedro sistema
-│   └── index.ts           # Vstopna tocka
-├── testi/                  # Testi
-│   └── jedro.test.ts      # Testi jedra
-├── dokumentacija/          # Dokumentacija
-│   ├── SPECIFIKACIJA_ZAHTEV.md
-│   ├── NACRT_VERIFIKACIJE.md
-│   ├── ARHITEKTURNI_OPIS.md
-│   └── POLITIKA_KODIRANJA.md
-├── evidence/               # Dokazila
-├── konfiguracija/          # Konfiguracija
-│   └── varnost.json
-├── package.json
-├── tsconfig.json
-└── README.md
+NextGen Backend/
+├── src/
+│   ├── api/              # REST & GraphQL controllers
+│   ├── core/             # Core business logic
+│   ├── config/            # Configuration management
+│   ├── security/         # Auth & encryption
+│   ├── resilience/       # Circuit breakers, retries
+│   ├── messaging/         # Event bus & queues
+│   ├── monitoring/        # Health & metrics
+│   ├── storage/           # Database & file storage
+│   └── workflow/          # Business workflows
+├── packages/
+│   ├── api/              # Express API server
+│   ├── ui/                # Web dashboard
+│   └── core/              # Shared utilities
+└── dist/                  # Compiled JavaScript
 ```
 
 ---
 
-## Moduli za Zaledni sistemi
+## 🚦 Quick Start
 
-Vsi izbrani moduli
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
----
-
-## Funkcije za Zaledni sistemi
-
-Vse izbrane funkcije
-
----
-
-## Namestitev
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/DanijelTech/Backend---developed-with-MiaBuild.git
+cd Backend---developed-with-MiaBuild
+
+# Install dependencies
 npm install
-npm run typecheck
+
+# Build the project
+npm run build
+
+# Start the server
+npm start
+```
+
+### Development Mode
+
+```bash
+# Run with hot reload
+npm run dev
+
+# Run tests
+npm test
+```
+
+### Docker
+
+```bash
+# Build Docker image
+docker build -t nextgen-backend .
+
+# Run container
+docker run -p 3000:3000 nextgen-backend
+```
+
+---
+
+## 📖 API Documentation
+
+### Base URL
+```
+http://localhost:3000
+```
+
+### Core Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | Health check |
+| GET | `/api/v1/status` | API status |
+| GET | `/api/v1/info` | System info |
+| GET | `/api/v1/config` | Get configuration |
+| PUT | `/api/v1/config` | Update configuration |
+| GET | `/api/v1/metrics` | System metrics |
+| GET | `/api/v1/env` | Environment variables |
+| GET | `/api/v1/users` | List users |
+| POST | `/api/v1/users` | Create user |
+| GET | `/api/v1/users/:id` | Get user |
+| PUT | `/api/v1/users/:id` | Update user |
+| DELETE | `/api/v1/users/:id` | Delete user |
+
+### Example Requests
+
+#### Health Check
+```bash
+curl http://localhost:3000/health
+```
+
+#### Get Metrics
+```bash
+curl http://localhost:3000/api/v1/metrics
+```
+
+#### Create User
+```bash
+curl -X POST http://localhost:3000/api/v1/users \
+  -H "Content-Type: application/json" \
+  -d '{"username": "john", "email": "john@example.com"}'
+```
+
+---
+
+## 🎨 Web Dashboard
+
+Access the professional web UI at:
+```
+http://localhost:3000
+```
+
+### Dashboard Tabs
+
+| Tab | Description |
+|-----|-------------|
+| **Home** | System status dashboard |
+| **Users** | User management |
+| **API** | API endpoint testing |
+| **Config** | Runtime configuration |
+| **Settings** | UI preferences |
+| **Metrics** | Live metrics console |
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+```bash
+# Server
+PORT=3000
+NODE_ENV=production
+
+# Security
+JWT_SECRET=your-secret-key
+JWT_EXPIRY=24h
+
+# Database
+DATABASE_URL=postgresql://localhost:5432/nextgen
+
+# Redis
+REDIS_URL=redis://localhost:6379
+```
+
+### Runtime Configuration
+
+Access configuration via API:
+```bash
+# Get config
+curl http://localhost:3000/api/v1/config
+
+# Update config
+curl -X PUT http://localhost:3000/api/v1/config \
+  -H "Content-Type: application/json" \
+  -d '{"rateLimit": {"enabled": true, "max": 100}}'
+```
+
+---
+
+## 🔒 Security
+
+- JWT token authentication
+- Role-based access control (RBAC)
+- Rate limiting & throttling
+- CORS configuration
+- Security headers (Helmet.js)
+- Input validation & sanitization
+- SQL injection prevention
+- XSS protection
+
+---
+
+## 📦 Deployment
+
+### Production Checklist
+
+1. Set `NODE_ENV=production`
+2. Configure JWT_SECRET
+3. Set up database connection
+4. Enable rate limiting
+5. Configure CORS
+6. Set up monitoring
+7. Enable SSL/TLS
+
+### Docker Compose
+
+```yaml
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./config:/app/config
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run specific test
+npm test -- --grep "users"
+
+# Coverage
+npm test -- --coverage
+```
+
+---
+
+## 📈 Monitoring
+
+### System Metrics
+
+- Uptime
+- Memory usage
+- Request count
+- Response times
+- Error rates
+
+### Health Checks
+
+```bash
+curl http://localhost:3000/health
+```
+
+---
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**Port already in use:**
+```bash
+# Find process using port 3000
+lsof -i :3000
+# Kill process
+kill -9 <PID>
+```
+
+**Build errors:**
+```bash
+# Clean and rebuild
+npm run clean
 npm run build
 ```
 
----
-
-## Varnostni koraki za ZALEDNI_SISTEMI
-
+**Dependencies issues:**
 ```bash
-npm run security:scan
-npm run security:sbom
-npm run security:sign
+# Reinstall
+rm -rf node_modules
+npm install
 ```
 
 ---
 
-## Verifikacija za Zaledni sistemi
+## 📞 Support
 
-```bash
-npm run verify
-```
-
-To izvede:
-1. Staticno analizo (ESLint)
-2. Preverjanje tipov (TypeScript)
-3. Enotne teste (Jest)
-4. Preverjanje pokritosti (>= 80%)
+- GitHub Issues: https://github.com/DanijelTech/Backend---developed-with-MiaBuild/issues
+- Documentation: https://github.com/DanijelTech/Backend---developed-with-MiaBuild#readme
 
 ---
 
-## Deterministicnost
+## 📄 License
 
-Ta projekt zagotavlja deterministicno gradnjo:
-
-- Brez uporabe nekontroliranega casa v produkcijski logiki
-- Brez nakljucnih vrednosti brez seed-a
-- Brez omreznih klicev med gradnjo
-- Fiksne verzije odvisnosti
+MIT License - see LICENSE file for details.
 
 ---
 
-## Licenca
-
-MIT
-
----
-
-## Kontakt
-
-**Avtor:** MIA BUILD
-**Leto:** 2024
-**Domena:** Zaledni sistemi
-
----
-
-## Screenshots (v2.0.0)
+## Screenshots (v2.0.1)
 
 ### 1. Home
 ![Home](screenshots/01-home.png)
-Status kartice: API Status, Environment, Version, Uptime, Requests, Memory
+Status dashboard: API Status, Environment, Version, Uptime, Requests, Memory
 
 ### 2. Users
 ![Users](screenshots/02-users.png)
-User Management: dodajanje, pregled, brisanje uporabnikov
+User Management: CRUD operations for users
 
 ### 3. API
 ![API](screenshots/03-api.png)
-API Endpoints + Console za testiranje
+API Endpoints + Console for testing
 
 ### 4. Config
 ![Config](screenshots/04-config.png)
@@ -206,43 +373,3 @@ UI Settings: Theme, Accent Color, Auto Refresh, Notifications, Data
 ### 6. Metrics
 ![Metrics](screenshots/06-metrics.png)
 System Metrics + Live Console
-
----
-
-## Nova Funkcionalnost (v1.1.0)
-
-### API Endpoints
-| Endpoint | Metoda | Opis |
-|----------|-------|------|
-| `/health` | GET | Health check |
-| `/api/v1/status` | GET | API status |
-| `/api/v1/info` | GET | API info |
-| `/api/v1/config` | GET/PUT | Runtime konfiguracija |
-| `/api/v1/metrics` | GET | Sistemski metriki |
-| `/api/v1/env` | GET | Environment spremenljivke |
-| `/api/v1/users` | GET/POST | Uporabniki CRUD |
-| `/api/v1/users/:id` | GET/PUT/DELETE | Posamezen uporabnik |
-
-### API Funkcionalnosti
-- ✅ Rate Limiting (konfigurabilno)
-- ✅ CORS konfiguracija
-- ✅ JSON logging z request ID
-- ✅ Runtime config preko API
-- ✅ Sistemski metriki
-- ✅ Input validacija
-- ✅ Error handling
-
-### UI Sekcije
-- **Home** - Status kartice (API, Environment, Uptime, Memory, Requests)
-- **Users** - User CRUD
-- **API** - Seznam endpointov + Console
-- **Config** - Runtime konfiguracija
-- **Settings** - UI nastavitve
-- **Metrics** - Sistemski metriki + Live console
-
-### UI Nastavitve
-- Theme (dark/light/auto)
-- Accent color picker
-- Auto refresh (5-300s interval)
-- Notifications (success/error)
-- Persist local data
