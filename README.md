@@ -183,22 +183,54 @@ MIT
 
 ## Screenshots
 
-### 1. Home / Features
-![Home](screenshots/01-home.png)
-Glavna stran s status kartami in API end-pointi
+### 1. Home / Features (UPGRADED)
+![Home](screenshots/01-home-upgraded.png)
+Glavna stran s status kartami, uptime, memory, requests
 
-### 2. Settings
-![Settings](screenshots/02-settings.png)
-Nastavitve: API Configuration, UI Appearance, Data Storage, Notifications
-
-### 3. Documentation
-![Documentation](screenshots/03-docs.png)
-Dokumentacija: Getting Started, API Reference, Authentication, Deployment, Monitoring, Security
-
-### 4. API Endpoints
+### 2. API Endpoints
 ![API](screenshots/04-api.png)
 Seznam vseh API endpointov
 
-### 5. User Management
+### 3. User Management
 ![Users](screenshots/05-users.png)
 Uporabniška tabela z CRUD operacijami
+
+---
+
+## Nova Funkcionalnost (v1.1.0)
+
+### API Endpoints
+| Endpoint | Metoda | Opis |
+|----------|-------|------|
+| `/health` | GET | Health check |
+| `/api/v1/status` | GET | API status |
+| `/api/v1/info` | GET | API info |
+| `/api/v1/config` | GET/PUT | Runtime konfiguracija |
+| `/api/v1/metrics` | GET | Sistemski metriki |
+| `/api/v1/env` | GET | Environment spremenljivke |
+| `/api/v1/users` | GET/POST | Uporabniki CRUD |
+| `/api/v1/users/:id` | GET/PUT/DELETE | Posamezen uporabnik |
+
+### API Funkcionalnosti
+- ✅ Rate Limiting (konfigurabilno)
+- ✅ CORS konfiguracija
+- ✅ JSON logging z request ID
+- ✅ Runtime config preko API
+- ✅ Sistemski metriki
+- ✅ Input validacija
+- ✅ Error handling
+
+### UI Sekcije
+- **Home** - Status kartice (API, Environment, Uptime, Memory, Requests)
+- **Users** - User CRUD
+- **API** - Seznam endpointov + Console
+- **Config** - Runtime konfiguracija
+- **Settings** - UI nastavitve
+- **Metrics** - Sistemski metriki + Live console
+
+### UI Nastavitve
+- Theme (dark/light/auto)
+- Accent color picker
+- Auto refresh (5-300s interval)
+- Notifications (success/error)
+- Persist local data
