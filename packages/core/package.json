@@ -1,0 +1,36 @@
+{
+  "name": "@mia/core",
+  "version": "1.0.0",
+  "description": "Core utilities for MiaBuild applications - Clock, Logger, Metrics, Hash",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./clock": "./dist/clock.js",
+    "./logger": "./dist/logger.js",
+    "./metrics": "./dist/metrics.js",
+    "./hash": "./dist/hash.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "mia",
+    "core",
+    "utilities",
+    "clock",
+    "logger",
+    "metrics",
+    "hash"
+  ],
+  "author": "MiaBuild",
+  "license": "MIT"
+}

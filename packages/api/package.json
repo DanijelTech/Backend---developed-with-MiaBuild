@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "testni-okvir",
+    "test": "echo \"No tests yet\" && exit 0",
     "seed": "node src/seed.js"
   },
   "dependencies": {

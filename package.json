@@ -1,5 +1,5 @@
 {
-  "name": "{{IME_PROJEKTA_SLUG}}",
+  "name": "nexgen-backend",
   "version": "1.0.0",
   "description": "MIA BUILD project: NexGen - Domena: Zaledni sistemi",
   "main": "dist/index.js",
