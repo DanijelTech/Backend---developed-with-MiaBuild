@@ -25,7 +25,7 @@
 
 export * from './jedro';
 
-import { JEDRO_MEHANIZEM, DOMENA_ZALEDNI_SISTEMI_KONSTANTE } from './jedro';
+import { JEDRO_MEHANIZEM } from './jedro';
 
 /**
  * Domensko-specificne konstante za Zaledni sistemi

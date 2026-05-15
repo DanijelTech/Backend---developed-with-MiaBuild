@@ -20,22 +20,22 @@ import { getClock, Clock } from '@mia/core/clock';
 const clock: Clock = getClock();
 
 // ============================================================================
-// DOMENSKO-SPECIFICNI TIPI ZA ZALEDNI_SISTEMI
+// DOMENSKO-SPECIFICNI TIPI ZA BACKEND_SYSTEMS
 // ============================================================================
 
 /**
  * Domensko-specificni tipi za Zaledni sistemi
- * Domena: ZALEDNI_SISTEMI
+ * Domena: BACKEND_SYSTEMS
  */
 export interface ZALEDNISISTEMIKonfiguracija {
-    readonly domena: 'ZALEDNI_SISTEMI';
+    readonly domena: 'BACKEND_SYSTEMS';
     readonly kategorije: readonly ['API razvoj', 'Vmesna programska oprema'];
     readonly moduli: readonly ['Koncne tocke', 'Shema', 'JWT'];
     readonly funkcije: readonly ['Ustvari', 'Preberi', 'Posodobi', 'Izbrisi', 'Poizvedba'];
     readonly kljucniBesede: readonly ['REST', 'GraphQL', 'gRPC', 'middleware', 'controller'];
 }
 
-export const DOMENA_ZALEDNI_SISTEMI_KONSTANTE = {
+export const BACKEND_SYSTEMS_CONSTANTS = {
     IME: 'Zaledni sistemi',
     OPIS: 'Strezniška logika in API-ji',
     KATEGORIJE: ['API razvoj', 'Vmesna programska oprema'] as const,
@@ -56,13 +56,13 @@ export const DOMENA_ZALEDNI_SISTEMI_KONSTANTE = {
  * @design DSN-001
  */
 export interface KonfiguracijaJedra {
-    readonly imeProjekta: string;
+    readonly projectName: string;
     readonly verzija: string;
-    readonly domena: 'ZALEDNI_SISTEMI';
+    readonly domena: 'BACKEND_SYSTEMS';
     readonly moduli: readonly string[];
     readonly funkcije: readonly string[];
-    readonly deterministicniNacin: boolean;
-    readonly domenaPodatki: typeof DOMENA_ZALEDNI_SISTEMI_KONSTANTE;
+    readonly deterministicMode: boolean;
+    readonly domainData: typeof BACKEND_SYSTEMS_CONSTANTS;
 }
 
 /**
@@ -76,7 +76,7 @@ export interface RezultatOperacije {
     readonly sporocilo: string;
     readonly podatki: Readonly<Record<string, unknown>>;
     readonly casIzvajanja: number;
-    readonly domena: 'ZALEDNI_SISTEMI';
+    readonly domena: 'BACKEND_SYSTEMS';
 }
 
 // ============================================================================
@@ -88,18 +88,18 @@ export interface RezultatOperacije {
  * 
  * @requirement ZAH-FUNK-001
  */
-export const PRIVZETA_KONFIGURACIJA: KonfiguracijaJedra = {
-    imeProjekta: 'NexGen',
-    verzija: '1.0.0',
-    domena: 'ZALEDNI_SISTEMI',
-    moduli: [Vsi izbrani moduli].filter(Boolean),
-    funkcije: [Vse izbrane funkcije].filter(Boolean),
-    deterministicniNacin: true,
-    domenaPodatki: DOMENA_ZALEDNI_SISTEMI_KONSTANTE,
+export const DEFAULT_CONFIG: CoreConfig = {
+    projectName: 'NextGen',
+    version: '1.0.0',
+    domain: 'BACKEND_SYSTEMS',
+    modules: [AllSelectedModules].filter(Boolean),
+    functions: [AllSelectedFunctions].filter(Boolean),
+    deterministicMode: true,
+    domainData: BACKEND_SYSTEMS_CONSTANTS,
 } as const;
 
 // ============================================================================
-// FUNKCIJE ZA ZALEDNI_SISTEMI
+// FUNKCIJE ZA BACKEND_SYSTEMS
 // ============================================================================
 
 /**
@@ -118,13 +118,13 @@ export function inicializirajJedro(
     const zacetek = clock.nowMs();
     
     try {
-        if (!konfiguracija.imeProjekta) {
+        if (!konfiguracija.projectName) {
             return {
                 uspesno: false,
                 sporocilo: 'Ime projekta je obvezno za Zaledni sistemi',
                 podatki: {},
                 casIzvajanja: clock.nowMs() - zacetek,
-                domena: 'ZALEDNI_SISTEMI',
+                domena: 'BACKEND_SYSTEMS',
             };
         }
         
@@ -134,22 +134,22 @@ export function inicializirajJedro(
                 sporocilo: 'Verzija je obvezna za Zaledni sistemi',
                 podatki: {},
                 casIzvajanja: clock.nowMs() - zacetek,
-                domena: 'ZALEDNI_SISTEMI',
+                domena: 'BACKEND_SYSTEMS',
             };
         }
         
         return {
             uspesno: true,
-            sporocilo: `Jedro sistema ${konfiguracija.imeProjekta} za Zaledni sistemi uspesno inicializirano`,
+            sporocilo: `Jedro sistema ${konfiguracija.projectName} za Zaledni sistemi uspesno inicializirano`,
             podatki: {
                 verzija: konfiguracija.verzija,
                 domena: konfiguracija.domena,
                 steviloModulov: konfiguracija.moduli.length,
                 steviloFunkcij: konfiguracija.funkcije.length,
-                domenaPodatki: konfiguracija.domenaPodatki,
+                domainData: konfiguracija.domainData,
             },
             casIzvajanja: clock.nowMs() - zacetek,
-            domena: 'ZALEDNI_SISTEMI',
+            domena: 'BACKEND_SYSTEMS',
         };
         
     } catch (napaka) {
@@ -158,7 +158,7 @@ export function inicializirajJedro(
             sporocilo: napaka instanceof Error ? napaka.message : String(napaka),
             podatki: {},
             casIzvajanja: clock.nowMs() - zacetek,
-            domena: 'ZALEDNI_SISTEMI',
+            domena: 'BACKEND_SYSTEMS',
         };
     }
 }
@@ -187,7 +187,7 @@ export function izvediOperacijo(
                 sporocilo: 'Ime operacije je obvezno za Zaledni sistemi',
                 podatki: {},
                 casIzvajanja: clock.nowMs() - zacetek,
-                domena: 'ZALEDNI_SISTEMI',
+                domena: 'BACKEND_SYSTEMS',
             };
         }
         
@@ -197,10 +197,10 @@ export function izvediOperacijo(
             podatki: {
                 operacija,
                 parametri,
-                domena: 'ZALEDNI_SISTEMI',
+                domena: 'BACKEND_SYSTEMS',
             },
             casIzvajanja: clock.nowMs() - zacetek,
-            domena: 'ZALEDNI_SISTEMI',
+            domena: 'BACKEND_SYSTEMS',
         };
         
     } catch (napaka) {
@@ -209,7 +209,7 @@ export function izvediOperacijo(
             sporocilo: napaka instanceof Error ? napaka.message : String(napaka),
             podatki: {},
             casIzvajanja: clock.nowMs() - zacetek,
-            domena: 'ZALEDNI_SISTEMI',
+            domena: 'BACKEND_SYSTEMS',
         };
     }
 }
@@ -232,18 +232,18 @@ export function pridobiStanje(): RezultatOperacije {
         podatki: {
             projekt: 'NexGen',
             verzija: '1.0.0',
-            domena: 'ZALEDNI_SISTEMI',
+            domena: 'BACKEND_SYSTEMS',
             datum: '2024-12-24',
             leto: '2024',
-            domenaPodatki: DOMENA_ZALEDNI_SISTEMI_KONSTANTE,
+            domainData: BACKEND_SYSTEMS_CONSTANTS,
         },
         casIzvajanja: clock.nowMs() - zacetek,
-        domena: 'ZALEDNI_SISTEMI',
+        domena: 'BACKEND_SYSTEMS',
     };
 }
 
 // ============================================================================
-// IZVOZ ZA ZALEDNI_SISTEMI
+// IZVOZ ZA BACKEND_SYSTEMS
 // ============================================================================
 
 export type JedroMehanizem = {
@@ -251,7 +251,7 @@ export type JedroMehanizem = {
     readonly izvediOperacijo: typeof izvediOperacijo;
     readonly pridobiStanje: typeof pridobiStanje;
     readonly PRIVZETA_KONFIGURACIJA: typeof PRIVZETA_KONFIGURACIJA;
-    readonly DOMENA_KONSTANTE: typeof DOMENA_ZALEDNI_SISTEMI_KONSTANTE;
+    readonly DOMENA_KONSTANTE: typeof BACKEND_SYSTEMS_CONSTANTS;
 };
 
 export const JEDRO_MEHANIZEM: JedroMehanizem = {
@@ -259,5 +259,5 @@ export const JEDRO_MEHANIZEM: JedroMehanizem = {
     izvediOperacijo,
     pridobiStanje,
     PRIVZETA_KONFIGURACIJA,
-    DOMENA_KONSTANTE: DOMENA_ZALEDNI_SISTEMI_KONSTANTE,
+    DOMENA_KONSTANTE: BACKEND_SYSTEMS_CONSTANTS,
 } as const;

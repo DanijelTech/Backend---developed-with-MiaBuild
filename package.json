@@ -8,7 +8,13 @@
   "domainInfo": {
     "name": "Zaledni sistemi",
     "description": "Strezniska logika in API-ji",
-    "keywords": ["REST", "GraphQL", "gRPC", "middleware", "controller"]
+    "keywords": [
+      "REST",
+      "GraphQL",
+      "gRPC",
+      "middleware",
+      "controller"
+    ]
   },
   "scripts": {
     "build": "tsc",
@@ -27,17 +33,19 @@
     "Zaledni sistemi",
     "ZALEDNI_SISTEMI",
     "Zaledni sistemi",
-    "REST", "GraphQL", "gRPC", "middleware", "controller"
+    "REST",
+    "GraphQL",
+    "gRPC",
+    "middleware",
+    "controller"
   ],
   "author": "MIA BUILD",
   "license": "MIT",
-  "dependencies": {
-    "@mia/core": "^1.0.0"
-  },
   "devDependencies": {
-    "typescript": "^5.0.0",
+    "@types/node": "^25.8.0",
     "eslint": "^8.0.0",
     "prettier": "^3.0.0",
+    "typescript": "^5.0.0",
     "vitest": "^1.0.0"
   },
   "engines": {
@@ -47,9 +55,22 @@
     "domena": "ZALEDNI_SISTEMI",
     "domenaNaziv": "Zaledni sistemi",
     "domenaPodatki": {
-      "kategorije": ["API razvoj","Vmesna programska oprema"],
-      "moduli": ["Koncne tocke","Shema","JWT"],
-      "kljucneBesede": ["REST","GraphQL","gRPC","middleware","controller"]
+      "kategorije": [
+        "API razvoj",
+        "Vmesna programska oprema"
+      ],
+      "moduli": [
+        "Koncne tocke",
+        "Shema",
+        "JWT"
+      ],
+      "kljucneBesede": [
+        "REST",
+        "GraphQL",
+        "gRPC",
+        "middleware",
+        "controller"
+      ]
     }
   }
 }
