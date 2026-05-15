@@ -1,0 +1,66 @@
+{
+  "_metadata": {
+    "domain_id": "DOMENA_02",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "version": "1.0.0"
+  },
+  "alerting_config": {
+    "enabled": true,
+    "default_severity": "WARNING",
+    "escalation_enabled": true
+  },
+  "channels": {
+    "email": {
+      "enabled": true,
+      "smtp_host": "{{SMTP_HOST}}",
+      "smtp_port": 587,
+      "tls_enabled": true,
+      "recipients": ["{{ALERT_EMAIL}}"]
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "{{SLACK_WEBHOOK}}",
+      "channel": "#alerts-domena02"
+    },
+    "pagerduty": {
+      "enabled": true,
+      "integration_key": "{{PAGERDUTY_KEY}}",
+      "severity_mapping": {
+        "CRITICAL": "critical",
+        "ERROR": "error",
+        "WARNING": "warning",
+        "INFO": "info"
+      }
+    }
+  },
+  "alert_rules": {
+    "high_latency": {
+      "condition": "latency_p99 > 100ms",
+      "severity": "WARNING",
+      "channels": ["slack", "email"]
+    },
+    "error_rate": {
+      "condition": "error_rate > 1%",
+      "severity": "ERROR",
+      "channels": ["slack", "email", "pagerduty"]
+    },
+    "availability": {
+      "condition": "availability < 99.9%",
+      "severity": "CRITICAL",
+      "channels": ["slack", "email", "pagerduty"]
+    },
+    "security_breach": {
+      "condition": "security_event == true",
+      "severity": "CRITICAL",
+      "channels": ["slack", "email", "pagerduty"]
+    }
+  },
+  "escalation_policy": {
+    "levels": [
+      { "delay_minutes": 0, "notify": ["on-call-engineer"] },
+      { "delay_minutes": 15, "notify": ["team-lead"] },
+      { "delay_minutes": 30, "notify": ["engineering-manager"] },
+      { "delay_minutes": 60, "notify": ["cto"] }
+    ]
+  }
+}

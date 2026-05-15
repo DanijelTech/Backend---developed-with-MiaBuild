@@ -1,0 +1,63 @@
+{
+  "_metadata": {
+    "domain_id": "DOMENA_02",
+    "domain_name": "Zaledni sistemi",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "version": "1.0.0",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "traceability_coverage": "100%"
+  },
+  "traceability_matrix": [
+    {
+      "requirement_id": "ZAH-DOMENA-02-001",
+      "design_id": "DSN-DOMENA-02-001",
+      "test_id": "TST-DOMENA-02-001",
+      "function_id": "FN_02_CREATE",
+      "hazard_id": "HAZ-02-001",
+      "status": "VALIDATED"
+    },
+    {
+      "requirement_id": "ZAH-DOMENA-02-002",
+      "design_id": "DSN-DOMENA-02-002",
+      "test_id": "TST-DOMENA-02-002",
+      "function_id": "FN_02_READ",
+      "hazard_id": "HAZ-02-002",
+      "status": "VALIDATED"
+    },
+    {
+      "requirement_id": "ZAH-DOMENA-02-003",
+      "design_id": "DSN-DOMENA-02-003",
+      "test_id": "TST-DOMENA-02-003",
+      "function_id": "FN_02_UPDATE",
+      "hazard_id": "HAZ-02-003",
+      "status": "VALIDATED"
+    },
+    {
+      "requirement_id": "ZAH-DOMENA-02-004",
+      "design_id": "DSN-DOMENA-02-004",
+      "test_id": "TST-DOMENA-02-004",
+      "function_id": "FN_02_DELETE",
+      "hazard_id": "HAZ-02-004",
+      "status": "VALIDATED"
+    },
+    {
+      "requirement_id": "ZAH-DOMENA-02-005",
+      "design_id": "DSN-DOMENA-02-005",
+      "test_id": "TST-DOMENA-02-005",
+      "function_id": "FN_02_LIST",
+      "hazard_id": "HAZ-02-005",
+      "status": "VALIDATED"
+    }
+  ],
+  "coverage_summary": {
+    "total_requirements": 152,
+    "requirements_with_design": 152,
+    "requirements_with_tests": 152,
+    "requirements_with_hazards": 152,
+    "coverage_percentage": 100
+  },
+  "verification": {
+    "digest": "{{TRACEABILITY_DIGEST}}",
+    "signature": "{{TRACEABILITY_SIGNATURE}}"
+  }
+}

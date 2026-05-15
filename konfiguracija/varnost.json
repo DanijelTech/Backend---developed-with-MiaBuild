@@ -1,0 +1,37 @@
+{
+  "domena": "ZALEDNI_SISTEMI",
+  "domenaNaziv": "Zaledni sistemi",
+  "varnostniNivo": "SIL-2",
+  "skladnost": {
+    "DO-178C": true,
+    "IEC-61508": true,
+    "ISO-26262": true,
+    "MIL-STD-882E": true
+  },
+  "sifriranje": {
+    "algoritem": "AES-256-GCM",
+    "kljucDolzina": 256,
+    "hashAlgoritem": "SHA-256"
+  },
+  "avtentikacija": {
+    "metoda": "JWT",
+    "veljavnost": 3600,
+    "osvezitev": true
+  },
+  "avtorizacija": {
+    "model": "RBAC",
+    "vloge": ["admin", "user", "readonly"],
+    "dovoljenja": ["read", "write", "delete", "execute"]
+  },
+  "revizija": {
+    "omogoceno": true,
+    "hrani": 365,
+    "format": "JSON"
+  },
+  "domenaPodatki": {
+    "ime": "Zaledni sistemi",
+    "opis": "Strezniška logika in API-ji",
+    "kategorije": ["API razvoj","Vmesna programska oprema"],
+    "moduli": ["Koncne tocke","Shema","JWT"]
+  }
+}

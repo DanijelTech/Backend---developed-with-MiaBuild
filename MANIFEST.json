@@ -1,0 +1,82 @@
+{
+  "version": "1.0.0",
+  "name": "NexGen",
+  "description": "MIA BUILD project: NexGen",
+  "createdAt": "2024-12-24T00:00:00.000000Z",
+  "miaVersion": "1.0.0",
+  "packagerVersion": "1.0.0",
+  "profileId": "enterprise",
+  "dialectId": "DOMENA_02",
+  "businessLogicMode": "zip-run-use",
+  "components": [
+    {
+      "name": "api",
+      "type": "service",
+      "path": "packages/api",
+      "description": "Backend API service"
+    },
+    {
+      "name": "ui",
+      "type": "service",
+      "path": "packages/ui",
+      "description": "Frontend UI"
+    },
+    {
+      "name": "workers",
+      "type": "service",
+      "path": "packages/workers",
+      "description": "Background workers"
+    },
+    {
+      "name": "migrations",
+      "type": "database",
+      "path": "migrations",
+      "description": "Database migrations"
+    }
+  ],
+  "services": [
+    {
+      "name": "api",
+      "image": "NexGen-api:latest",
+      "port": 3000,
+      "healthEndpoint": "/health"
+    },
+    {
+      "name": "ui",
+      "image": "NexGen-ui:latest",
+      "port": 8080,
+      "healthEndpoint": "/"
+    },
+    {
+      "name": "postgres",
+      "image": "postgres:15-alpine",
+      "port": 5432,
+      "healthEndpoint": ""
+    },
+    {
+      "name": "keycloak",
+      "image": "quay.io/keycloak/keycloak:22.0",
+      "port": 8180,
+      "healthEndpoint": "/health"
+    },
+    {
+      "name": "rabbitmq",
+      "image": "rabbitmq:3.12-management-alpine",
+      "port": 5672,
+      "healthEndpoint": ""
+    },
+    {
+      "name": "grafana",
+      "image": "grafana/grafana:10.0.0",
+      "port": 3001,
+      "healthEndpoint": "/api/health"
+    },
+    {
+      "name": "vault",
+      "image": "hashicorp/vault:1.15",
+      "port": 8200,
+      "healthEndpoint": ""
+    }
+  ],
+  "digest": "50b8108993911c0aee02cc2fe7563b65016081fa2a3a12d128b87a89fe06ff03"
+}

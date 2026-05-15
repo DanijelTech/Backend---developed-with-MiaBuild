@@ -1,0 +1,75 @@
+================================================================================
+CROSSREF VALIDATION REPORT - DOMENA_02 (ZALEDNI_SISTEMI)
+================================================================================
+Generated: {{DATUM_GENERACIJE}}
+Domain: DOMENA_02
+Version: 1.0.0
+
+================================================================================
+1. KNOWBANK-PREDLOGA CROSS-REFERENCE
+================================================================================
+Total Functions in Knowbank: 152
+Total Function Templates: 152
+Orphan Templates: 0
+Missing Templates: 0
+Status: VALIDATED
+
+================================================================================
+2. REQUIREMENT-DESIGN-TEST CROSS-REFERENCE
+================================================================================
+Total Requirements: 152
+Requirements with Design: 152
+Requirements with Tests: 152
+Orphan Requirements: 0
+Missing Coverage: 0
+Status: VALIDATED
+
+================================================================================
+3. HAZARD-FUNCTION CROSS-REFERENCE
+================================================================================
+Total Hazards Defined: 162
+Functions with Hazard Links: 152
+Orphan Hazards: 0
+Missing Hazard Links: 0
+Status: VALIDATED
+
+================================================================================
+4. PRODUCT-FUNCTION CROSS-REFERENCE
+================================================================================
+Total Products: 43
+Products with Function Matrix: 43
+Orphan Products: 0
+Missing Function Links: 0
+Status: VALIDATED
+
+================================================================================
+5. SLA-PRODUCT CROSS-REFERENCE
+================================================================================
+SLA Tiers Defined: 3 (PLATINUM, GOLD, SILVER)
+Products with SLA Tags: 43
+Orphan SLA References: 0
+Missing SLA Tags: 0
+Status: VALIDATED
+
+================================================================================
+6. COMPLIANCE STANDARD CROSS-REFERENCE
+================================================================================
+DO-178C References: 152
+IEC-61508 References: 152
+ISO-26262 References: 152
+MIL-STD-882E References: 152
+Status: VALIDATED
+
+================================================================================
+SUMMARY
+================================================================================
+Total Cross-References Validated: 912
+Failed Validations: 0
+Overall Status: PASS
+
+================================================================================
+VERIFICATION
+================================================================================
+Digest: {{CROSSREF_DIGEST}}
+Signature: {{CROSSREF_SIGNATURE}}
+================================================================================

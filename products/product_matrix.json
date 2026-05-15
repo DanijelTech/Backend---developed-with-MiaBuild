@@ -1,0 +1,178 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "product_matrix",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-MAT-001",
+    "design_id": "DSN-MAT-001",
+    "test_id": "TST-MAT-001"
+  },
+  "matrix": {
+    "dimensions": {
+      "products": 40,
+      "categories": 10,
+      "functions": 131,
+      "sla_tiers": 3
+    },
+    "product_category_mapping": {
+      "ENTERPRISE_BACKEND_PLATFORM": {
+        "categories": ["CAT_02_API", "CAT_02_MIDDLEWARE", "CAT_02_DATABASE", "CAT_02_CACHE", "CAT_02_QUEUE", "CAT_02_SECURITY", "CAT_02_JOBS", "CAT_02_GATEWAY", "CAT_02_OBSERVABILITY", "CAT_02_COMPLIANCE"],
+        "function_count": 131,
+        "coverage": "100%"
+      },
+      "REST_API_DEVELOPMENT_KIT": {
+        "categories": ["CAT_02_API", "CAT_02_MIDDLEWARE"],
+        "function_count": 20,
+        "coverage": "15%"
+      },
+      "GRAPHQL_DEVELOPMENT_SUITE": {
+        "categories": ["CAT_02_API"],
+        "function_count": 10,
+        "coverage": "8%"
+      },
+      "AUTHENTICATION_AUTHORIZATION_SUITE": {
+        "categories": ["CAT_02_SECURITY", "CAT_02_MIDDLEWARE"],
+        "function_count": 25,
+        "coverage": "19%"
+      },
+      "DATABASE_ACCESS_LAYER": {
+        "categories": ["CAT_02_DATABASE"],
+        "function_count": 15,
+        "coverage": "11%"
+      },
+      "MESSAGE_QUEUE_PLATFORM": {
+        "categories": ["CAT_02_QUEUE"],
+        "function_count": 12,
+        "coverage": "9%"
+      },
+      "CACHING_INFRASTRUCTURE_KIT": {
+        "categories": ["CAT_02_CACHE"],
+        "function_count": 10,
+        "coverage": "8%"
+      },
+      "BACKGROUND_JOBS_FRAMEWORK": {
+        "categories": ["CAT_02_JOBS"],
+        "function_count": 10,
+        "coverage": "8%"
+      },
+      "API_GATEWAY_SUITE": {
+        "categories": ["CAT_02_GATEWAY", "CAT_02_SECURITY"],
+        "function_count": 22,
+        "coverage": "17%"
+      },
+      "MICROSERVICES_TOOLKIT": {
+        "categories": ["CAT_02_API", "CAT_02_GATEWAY", "CAT_02_OBSERVABILITY"],
+        "function_count": 32,
+        "coverage": "24%"
+      },
+      "SERVERLESS_FUNCTIONS_KIT": {
+        "categories": ["CAT_02_API", "CAT_02_JOBS"],
+        "function_count": 20,
+        "coverage": "15%"
+      }
+    },
+    "sla_tier_capabilities": {
+      "PLATINUM": {
+        "availability": "99.99%",
+        "latency_p99_ms": 10,
+        "throughput_rps": 50000,
+        "rto_minutes": 5,
+        "rpo_minutes": 1,
+        "support": "24/7/365",
+        "features": ["Multi-AZ", "Geo-redundancy", "Dedicated resources", "Priority support"]
+      },
+      "GOLD": {
+        "availability": "99.9%",
+        "latency_p99_ms": 50,
+        "throughput_rps": 20000,
+        "rto_minutes": 30,
+        "rpo_minutes": 5,
+        "support": "24/7",
+        "features": ["Multi-AZ", "Standard redundancy", "Shared resources"]
+      },
+      "SILVER": {
+        "availability": "99.5%",
+        "latency_p99_ms": 100,
+        "throughput_rps": 5000,
+        "rto_minutes": 120,
+        "rpo_minutes": 15,
+        "support": "Business hours",
+        "features": ["Single-AZ", "Basic redundancy"]
+      }
+    },
+    "compliance_matrix": {
+      "DO-178C": {
+        "level": "A",
+        "products_compliant": 40,
+        "objectives_met": ["OBJ-1", "OBJ-2", "OBJ-3", "OBJ-4", "OBJ-5"]
+      },
+      "IEC-61508": {
+        "sil": 4,
+        "products_compliant": 40,
+        "systematic_capability": "SC4"
+      },
+      "ISO-26262": {
+        "asil": "D",
+        "products_compliant": 40,
+        "work_products_complete": true
+      },
+      "MIL-STD-882E": {
+        "products_compliant": 40,
+        "hazard_analysis_complete": true,
+        "risk_assessment_complete": true
+      }
+    },
+    "function_approach_distribution": {
+      "ITERATIVE": 15,
+      "RECURSIVE": 8,
+      "PARALLEL": 12,
+      "ASYNC": 25,
+      "STREAMING": 10,
+      "BATCH": 18,
+      "EVENT_DRIVEN": 20,
+      "DECLARATIVE": 8,
+      "IMPERATIVE": 10,
+      "FUNCTIONAL": 5
+    },
+    "tradeoff_profile_distribution": {
+      "SPEED_OVER_MEMORY": 20,
+      "RELIABILITY_OVER_SPEED": 35,
+      "SCALABILITY_OVER_LATENCY": 25,
+      "SAFETY_OVER_SPEED": 15,
+      "CONSISTENCY_OVER_SPEED": 20,
+      "SECURITY_OVER_SPEED": 16
+    },
+    "failure_assumption_distribution": {
+      "FAIL_FAST": 25,
+      "RETRY_WITH_BACKOFF": 30,
+      "GRACEFUL_DEGRADATION": 20,
+      "CIRCUIT_BREAKER": 15,
+      "PARTIAL_SUCCESS": 10,
+      "ATOMIC_ROLLBACK": 31
+    }
+  },
+  "cross_references": {
+    "hazard_coverage": {
+      "total_hazards": 10,
+      "hazards_mitigated": 10,
+      "coverage": "100%"
+    },
+    "test_coverage": {
+      "unit_tests": "100%",
+      "integration_tests": "100%",
+      "e2e_tests": "100%",
+      "security_tests": "100%",
+      "performance_tests": "100%"
+    },
+    "documentation_coverage": {
+      "requirements": "100%",
+      "design": "100%",
+      "verification": "100%",
+      "traceability": "100%"
+    }
+  }
+}

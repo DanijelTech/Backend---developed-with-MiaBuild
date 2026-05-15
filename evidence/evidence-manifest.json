@@ -1,0 +1,152 @@
+{
+  "_metadata": {
+    "schema_version": "1.0.0",
+    "document_type": "EVIDENCE_MANIFEST",
+    "domain": "ZALEDNI_SISTEMI",
+    "domain_id": "DOMENA_02",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3"]
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-EVID-001",
+    "design_id": "DSN-EVID-001",
+    "test_id": "TST-EVID-001",
+    "hazard_id": "HAZ-EVID-001"
+  },
+  "manifest": {
+    "manifest_id": "EVID-MANIFEST-DOMENA02-1.0.0",
+    "version": "1.0.0",
+    "created_at": "{{DATUM_GENERACIJE}}",
+    "artifacts": {
+      "sbom": {
+        "path": "evidence/sbom.spdx.json",
+        "format": "SPDX 2.3",
+        "digest": "{{SBOM_DIGEST}}",
+        "size_bytes": "{{SBOM_SIZE}}",
+        "purpose": "Software Bill of Materials za vse komponente"
+      },
+      "provenance": {
+        "path": "evidence/provenance.json",
+        "format": "SLSA Level 3",
+        "digest": "{{PROVENANCE_DIGEST}}",
+        "size_bytes": "{{PROVENANCE_SIZE}}",
+        "purpose": "Izvor in sledljivost gradnje"
+      },
+      "compliance_report": {
+        "path": "evidence/compliance-report.json",
+        "format": "MIABUILD Compliance Report v1",
+        "digest": "{{COMPLIANCE_REPORT_DIGEST}}",
+        "size_bytes": "{{COMPLIANCE_REPORT_SIZE}}",
+        "purpose": "Porocilo o skladnosti z industrijskimi standardi"
+      },
+      "traceability_map": {
+        "path": "traceability-map.json",
+        "format": "MIABUILD Traceability Map v1",
+        "digest": "{{TRACEABILITY_MAP_DIGEST}}",
+        "size_bytes": "{{TRACEABILITY_MAP_SIZE}}",
+        "purpose": "Preslikava zahtev na dizajn, teste in funkcije"
+      },
+      "test_traceability_map": {
+        "path": "test-traceability-map.json",
+        "format": "MIABUILD Test Traceability Map v1",
+        "digest": "{{TEST_TRACEABILITY_MAP_DIGEST}}",
+        "size_bytes": "{{TEST_TRACEABILITY_MAP_SIZE}}",
+        "purpose": "Preslikava testov na funkcije"
+      },
+      "function_matrix": {
+        "path": "function_matrix.json",
+        "format": "MIABUILD Function Matrix v1",
+        "digest": "{{FUNCTION_MATRIX_DIGEST}}",
+        "size_bytes": "{{FUNCTION_MATRIX_SIZE}}",
+        "purpose": "Matrika funkcij in njihovih lastnosti"
+      },
+      "hazard_log": {
+        "path": "analysis/hazard-log.json",
+        "format": "MIABUILD Hazard Log v1",
+        "digest": "{{HAZARD_LOG_DIGEST}}",
+        "size_bytes": "{{HAZARD_LOG_SIZE}}",
+        "purpose": "Dnevnik nevarnosti in njihovih omilitev"
+      },
+      "fta": {
+        "path": "analysis/fta.json",
+        "format": "MIABUILD FTA v1",
+        "digest": "{{FTA_DIGEST}}",
+        "size_bytes": "{{FTA_SIZE}}",
+        "purpose": "Analiza drevesa napak"
+      },
+      "fmea": {
+        "path": "analysis/fmea.json",
+        "format": "MIABUILD FMEA v1",
+        "digest": "{{FMEA_DIGEST}}",
+        "size_bytes": "{{FMEA_SIZE}}",
+        "purpose": "Analiza nacinov in ucinkov odpovedi"
+      },
+      "stride": {
+        "path": "analysis/stride.json",
+        "format": "MIABUILD STRIDE v1",
+        "digest": "{{STRIDE_DIGEST}}",
+        "size_bytes": "{{STRIDE_SIZE}}",
+        "purpose": "Analiza grozenj STRIDE"
+      },
+      "cia": {
+        "path": "analysis/cia.json",
+        "format": "MIABUILD CIA v1",
+        "digest": "{{CIA_DIGEST}}",
+        "size_bytes": "{{CIA_SIZE}}",
+        "purpose": "Analiza zaupnosti, celovitosti in razpolozljivosti"
+      }
+    },
+    "reports": {
+      "digest_final": {
+        "path": "reports/digest-final.txt",
+        "digest": "{{DIGEST_FINAL_DIGEST}}",
+        "purpose": "Koncni digest domene"
+      },
+      "products_checksum": {
+        "path": "reports/products-checksum-report.txt",
+        "digest": "{{PRODUCTS_CHECKSUM_DIGEST}}",
+        "purpose": "Porocilo o kontrolnih vsotah produktov"
+      },
+      "crossref_validation": {
+        "path": "reports/crossref-validation-report.txt",
+        "digest": "{{CROSSREF_VALIDATION_DIGEST}}",
+        "purpose": "Porocilo o navzkrizni validaciji"
+      },
+      "compliance_scan": {
+        "path": "reports/compliance-scan-report.txt",
+        "digest": "{{COMPLIANCE_SCAN_DIGEST}}",
+        "purpose": "Porocilo o pregledu skladnosti"
+      },
+      "release_log": {
+        "path": "reports/release-log-DOMENA_02.md",
+        "digest": "{{RELEASE_LOG_DIGEST}}",
+        "purpose": "Dnevnik izdaj"
+      },
+      "attestation_final": {
+        "path": "reports/attestation-final.json",
+        "digest": "{{ATTESTATION_FINAL_DIGEST}}",
+        "purpose": "Koncna atestacija"
+      }
+    },
+    "products": {
+      "total": 43,
+      "with_meta": 43,
+      "with_oci_manifest": 43,
+      "with_digest": 43,
+      "with_signature": 43
+    },
+    "functions": {
+      "total": 152,
+      "with_templates": 152,
+      "with_traceability": 152,
+      "with_hazard_links": 152
+    }
+  },
+  "verification": {
+    "manifest_digest": "{{MANIFEST_DIGEST}}",
+    "signature": "{{MANIFEST_SIGNATURE}}",
+    "signing_key_id": "{{SIGNING_KEY_ID}}",
+    "timestamp": "{{TIMESTAMP}}",
+    "timestamp_authority": "{{TSA_URL}}"
+  }
+}

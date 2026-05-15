@@ -1,0 +1,46 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "product_meta",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-SLA-PLA-001",
+    "design_id": "DSN-SLA-PLA-001",
+    "test_id": "TST-SLA-PLA-001",
+    "function_ids": ["FN_02_HEALTH_CHECK", "FN_02_READINESS_PROBE", "FN_02_LIVENESS_PROBE", "FN_02_CIRCUIT_BREAKER", "FN_02_RETRY_POLICY", "FN_02_TIMEOUT_CONFIG", "FN_02_BULKHEAD", "FN_02_LOAD_BALANCE", "FN_02_CACHE_DISTRIBUTED", "FN_02_DB_POOL_HEALTH", "FN_02_METRIC_COUNTER", "FN_02_METRIC_HISTOGRAM", "FN_02_LOG_STRUCTURED", "FN_02_TRACE_SPAN"],
+    "hazard_ids": ["HAZ-02-105", "HAZ-02-106", "HAZ-02-107", "HAZ-02-108", "HAZ-02-119", "HAZ-02-120", "HAZ-02-121"]
+  },
+  "product_id": "PLATINUM_BACKEND",
+  "product_type": "SLA_PACKAGE",
+  "name_sl": "Platinasti zaledni paket",
+  "description_sl": "Najvišji SLA paket z 99.99% razpoložljivostjo in latentnostjo pod 10ms",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "sla_tier": "PLATINUM",
+  "sla_availability": "99.99%",
+  "sla_latency_ms": 10,
+  "sla_rto_minutes": 5,
+  "sla_rpo_minutes": 1,
+  "sla_support_response_minutes": 15,
+  "categories_included": ["CAT_02_GATEWAY", "CAT_02_OBSERVABILITY", "CAT_02_CACHE", "CAT_02_DATABASE"],
+  "modules_included": ["MOD_02_CIRCUIT", "MOD_02_HEALTH", "MOD_02_METRICS", "MOD_02_LOG", "MOD_02_TRACE", "MOD_02_CACHE_DISTRIBUTED", "MOD_02_POOL"],
+  "dependencies": [],
+  "runtime_requirements": {
+    "node_version": ">=18.0.0",
+    "memory_mb": 8192,
+    "cpu_cores": 8,
+    "storage_gb": 500,
+    "replicas_min": 3,
+    "replicas_max": 100
+  },
+  "security_profile": "DEFENSE",
+  "compliance_certifications": ["DO-178C_LEVEL_A", "IEC-61508_SIL_4", "ISO-26262_ASIL_D", "MIL-STD-882E"],
+  "digest": "{{DIGEST_SHA256}}",
+  "sha256_digest": "{{SHA256_DIGEST}}",
+  "is_exportable": true,
+  "version_locked": true,
+  "signing_key_id": "{{SIGNING_KEY_ID}}"
+}

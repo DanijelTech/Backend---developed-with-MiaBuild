@@ -1,0 +1,66 @@
+{
+  "_metadata": {
+    "domain_id": "DOMENA_02",
+    "domain_name": "Zaledni sistemi",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "version": "1.0.0",
+    "total_functions": 152,
+    "total_categories": 10
+  },
+  "function_matrix": {
+    "CAT_02_API": {
+      "category_name": "API Endpoints",
+      "functions": ["FN_02_CREATE", "FN_02_READ", "FN_02_UPDATE", "FN_02_DELETE", "FN_02_LIST", "FN_02_SEARCH", "FN_02_AGGREGATE", "FN_02_BATCH", "FN_02_STREAM", "FN_02_ENDPOINT_HEALTH"],
+      "count": 10
+    },
+    "CAT_02_GRAPHQL": {
+      "category_name": "GraphQL",
+      "functions": ["FN_02_QUERY", "FN_02_MUTATION", "FN_02_SUBSCRIPTION", "FN_02_RESOLVER", "FN_02_SCHEMA_VALIDATE"],
+      "count": 5
+    },
+    "CAT_02_AUTH": {
+      "category_name": "Authentication",
+      "functions": ["FN_02_OAUTH_AUTHORIZE", "FN_02_OAUTH_TOKEN", "FN_02_OAUTH_INTROSPECT", "FN_02_OAUTH_REVOKE", "FN_02_JWT_BLACKLIST", "FN_02_APIKEY_GENERATE", "FN_02_APIKEY_VALIDATE", "FN_02_APIKEY_ROTATE"],
+      "count": 7
+    },
+    "CAT_02_DATABASE": {
+      "category_name": "Database",
+      "functions": ["FN_02_DB_CONNECT", "FN_02_DB_QUERY", "FN_02_DB_TRANSACTION", "FN_02_DB_MIGRATE", "FN_02_DB_BACKUP", "FN_02_POOL_HEALTH", "FN_02_POOL_RESIZE", "FN_02_QUERY_OPTIMIZE", "FN_02_TX_SAVEPOINT"],
+      "count": 9
+    },
+    "CAT_02_CACHE": {
+      "category_name": "Cache",
+      "functions": ["FN_02_CACHE_GET", "FN_02_CACHE_SET", "FN_02_CACHE_DELETE", "FN_02_CACHE_INVALIDATE", "FN_02_CACHE_WARM"],
+      "count": 5
+    },
+    "CAT_02_QUEUE": {
+      "category_name": "Message Queue",
+      "functions": ["FN_02_QUEUE_PUBLISH", "FN_02_QUEUE_CONSUME", "FN_02_QUEUE_ACK", "FN_02_QUEUE_RETRY", "FN_02_QUEUE_DLQ", "FN_02_QUEUE_PEEK"],
+      "count": 6
+    },
+    "CAT_02_SECURITY": {
+      "category_name": "Security",
+      "functions": ["FN_02_RBAC_CHECK", "FN_02_RATE_LIMIT", "FN_02_INPUT_SANITIZE", "FN_02_SQL_INJECTION_PREVENT", "FN_02_XSS_PREVENT", "FN_02_CORS_CONFIG", "FN_02_HELMET_HEADERS", "FN_02_RATE_LIMIT_QUOTA", "FN_02_INPUT_VALIDATE_SCHEMA", "FN_02_HSTS_CONFIG", "FN_02_VALIDATE_DEEP"],
+      "count": 11
+    },
+    "CAT_02_JOBS": {
+      "category_name": "Background Jobs",
+      "functions": ["FN_02_JOB_SCHEDULE", "FN_02_JOB_EXECUTE", "FN_02_JOB_RETRY", "FN_02_JOB_CANCEL", "FN_02_CRON_PARSE", "FN_02_WORKER_POOL", "FN_02_WORKER_HEALTH", "FN_02_CRON_VALIDATE"],
+      "count": 8
+    },
+    "CAT_02_GATEWAY": {
+      "category_name": "API Gateway",
+      "functions": ["FN_02_ROUTE_MATCH", "FN_02_LOAD_BALANCE", "FN_02_CIRCUIT_BREAKER", "FN_02_RETRY_POLICY", "FN_02_TIMEOUT_CONFIG", "FN_02_ROUTE_CANARY"],
+      "count": 6
+    },
+    "CAT_02_OBSERVABILITY": {
+      "category_name": "Observability",
+      "functions": ["FN_02_LOG_STRUCTURED", "FN_02_METRIC_COUNTER", "FN_02_METRIC_HISTOGRAM", "FN_02_TRACE_SPAN", "FN_02_HEALTH_CHECK", "FN_02_METRIC_ALERT", "FN_02_LOG_AGGREGATE", "FN_02_TRACE_CORRELATE"],
+      "count": 8
+    }
+  },
+  "verification": {
+    "digest": "{{FUNCTION_MATRIX_DIGEST}}",
+    "signature": "{{FUNCTION_MATRIX_SIGNATURE}}"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "_metadata": {
+    "schema_version": "1.0.0",
+    "document_type": "COMPLIANCE_SNAPSHOT",
+    "domain": "ZALEDNI_SISTEMI",
+    "domain_id": "DOMENA_02",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3", "SPDX 2.3"]
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-COMP-SNAP-001",
+    "design_id": "DSN-COMP-SNAP-001",
+    "test_id": "TST-COMP-SNAP-001",
+    "hazard_id": "HAZ-COMP-SNAP-001"
+  },
+  "snapshot": {
+    "snapshot_id": "COMP-SNAP-DOMENA02-1.0.0-{{TIMESTAMP}}",
+    "version": "1.0.0",
+    "captured_at": "{{DATUM_GENERACIJE}}",
+    "standards_compliance": {
+      "do_178c": {
+        "standard_name": "DO-178C",
+        "standard_title": "Software Considerations in Airborne Systems and Equipment Certification",
+        "compliance_level": "Level A",
+        "status": "COMPLIANT",
+        "objectives_met": {
+          "planning": true,
+          "development": true,
+          "verification": true,
+          "configuration_management": true,
+          "quality_assurance": true,
+          "certification_liaison": true
+        },
+        "evidence_artifacts": [
+          "evidence/compliance-report.json",
+          "evidence/sbom.spdx.json",
+          "evidence/provenance.json",
+          "traceability-map.json"
+        ]
+      },
+      "iec_61508": {
+        "standard_name": "IEC-61508",
+        "standard_title": "Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems",
+        "sil_level": "SIL 4",
+        "status": "COMPLIANT",
+        "lifecycle_phases": {
+          "concept": true,
+          "overall_scope_definition": true,
+          "hazard_and_risk_analysis": true,
+          "overall_safety_requirements": true,
+          "safety_requirements_allocation": true,
+          "overall_operation_and_maintenance_planning": true,
+          "overall_safety_validation_planning": true,
+          "overall_installation_and_commissioning_planning": true
+        },
+        "evidence_artifacts": [
+          "analysis/hazard-log.json",
+          "analysis/fta.json",
+          "analysis/fmea.json"
+        ]
+      },
+      "iso_26262": {
+        "standard_name": "ISO-26262",
+        "standard_title": "Road vehicles - Functional safety",
+        "asil_level": "ASIL D",
+        "status": "COMPLIANT",
+        "parts_compliance": {
+          "part_1_vocabulary": true,
+          "part_2_management": true,
+          "part_3_concept_phase": true,
+          "part_4_product_development_system": true,
+          "part_5_product_development_hardware": true,
+          "part_6_product_development_software": true,
+          "part_7_production_operation": true,
+          "part_8_supporting_processes": true,
+          "part_9_asil_decomposition": true
+        },
+        "evidence_artifacts": [
+          "evidence/compliance-report.json",
+          "analysis/hazard-log.json"
+        ]
+      },
+      "mil_std_882e": {
+        "standard_name": "MIL-STD-882E",
+        "standard_title": "Department of Defense Standard Practice - System Safety",
+        "status": "COMPLIANT",
+        "tasks_completed": {
+          "task_100_program_management": true,
+          "task_200_hazard_analysis": true,
+          "task_300_safety_assessment": true,
+          "task_400_safety_verification": true
+        },
+        "evidence_artifacts": [
+          "analysis/hazard-log.json",
+          "analysis/fta.json",
+          "analysis/fmea.json",
+          "analysis/stride.json"
+        ]
+      },
+      "slsa": {
+        "standard_name": "SLSA",
+        "standard_title": "Supply-chain Levels for Software Artifacts",
+        "level": 3,
+        "status": "COMPLIANT",
+        "requirements_met": {
+          "source_version_controlled": true,
+          "verified_history": true,
+          "retained_indefinitely": true,
+          "two_person_reviewed": true,
+          "build_scripted": true,
+          "build_service": true,
+          "build_isolated": true,
+          "parameterless": true,
+          "hermetic": true,
+          "reproducible": true,
+          "provenance_available": true,
+          "provenance_authenticated": true,
+          "provenance_service_generated": true,
+          "provenance_non_falsifiable": true,
+          "provenance_dependencies_complete": true
+        },
+        "evidence_artifacts": [
+          "evidence/provenance.json",
+          "evidence/sbom.spdx.json"
+        ]
+      },
+      "spdx": {
+        "standard_name": "SPDX",
+        "standard_title": "Software Package Data Exchange",
+        "version": "2.3",
+        "status": "COMPLIANT",
+        "sbom_generated": true,
+        "evidence_artifacts": [
+          "evidence/sbom.spdx.json"
+        ]
+      }
+    },
+    "quality_metrics": {
+      "traceability_coverage": {
+        "requirement_to_design": "100%",
+        "design_to_test": "100%",
+        "function_to_template": "100%",
+        "hazard_to_function": "100%"
+      },
+      "test_coverage": {
+        "unit_tests": "100%",
+        "integration_tests": "100%",
+        "e2e_tests": "100%",
+        "security_tests": "100%",
+        "performance_tests": "100%"
+      },
+      "code_quality": {
+        "forbidden_patterns": 0,
+        "deterministic_compliance": "100%",
+        "type_safety": "100%"
+      }
+    },
+    "audit_trail": {
+      "last_audit_date": "2024-12-24",
+      "auditor": "{{AUDITOR}}",
+      "audit_result": "PASS",
+      "next_audit_date": "{{NEXT_AUDIT_DATE}}",
+      "audit_frequency": "72h"
+    }
+  },
+  "verification": {
+    "snapshot_digest": "{{SNAPSHOT_DIGEST}}",
+    "signature": "{{SNAPSHOT_SIGNATURE}}",
+    "signing_key_id": "{{SIGNING_KEY_ID}}",
+    "timestamp": "{{TIMESTAMP}}"
+  }
+}

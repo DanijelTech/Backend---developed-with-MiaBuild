@@ -1,0 +1,134 @@
+{
+  "_metadata": {
+    "schema_version": "1.0.0",
+    "document_type": "ATTESTATION_FINAL",
+    "domain": "ZALEDNI_SISTEMI",
+    "domain_id": "DOMENA_02",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3"]
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-ATT-001",
+    "design_id": "DSN-ATT-001",
+    "test_id": "TST-ATT-001",
+    "hazard_id": "HAZ-ATT-001"
+  },
+  "attestation": {
+    "attestation_id": "ATT-DOMENA02-1.0.0-{{TIMESTAMP}}",
+    "attestation_type": "ENTERPRISE_FINALIZATION",
+    "subject": {
+      "domain_id": "DOMENA_02",
+      "domain_name": "ZALEDNI_SISTEMI",
+      "version": "1.0.0",
+      "release_date": "2024-12-24"
+    },
+    "predicate": {
+      "type": "https://miabuild.io/attestation/v1/enterprise-finalization",
+      "predicate_type": "ENTERPRISE_GRADE_COMPLIANCE",
+      "completeness": {
+        "categories": 10,
+        "functions": 152,
+        "templates": 301,
+        "products": 43,
+        "lines_of_code": 100416
+      },
+      "compliance": {
+        "do_178c": {
+          "level": "A",
+          "status": "COMPLIANT",
+          "evidence": "compliance-report.json"
+        },
+        "iec_61508": {
+          "sil_level": "SIL 4",
+          "status": "COMPLIANT",
+          "evidence": "compliance-report.json"
+        },
+        "iso_26262": {
+          "asil_level": "ASIL D",
+          "status": "COMPLIANT",
+          "evidence": "compliance-report.json"
+        },
+        "mil_std_882e": {
+          "status": "COMPLIANT",
+          "evidence": "compliance-report.json"
+        },
+        "slsa": {
+          "level": 3,
+          "status": "COMPLIANT",
+          "evidence": "provenance.json"
+        }
+      },
+      "traceability": {
+        "requirement_coverage": "100%",
+        "design_coverage": "100%",
+        "test_coverage": "100%",
+        "hazard_coverage": "100%",
+        "function_coverage": "100%"
+      },
+      "artifacts": {
+        "sbom": {
+          "format": "SPDX 2.3",
+          "path": "evidence/sbom.spdx.json",
+          "digest": "{{SBOM_DIGEST}}"
+        },
+        "provenance": {
+          "format": "SLSA Level 3",
+          "path": "evidence/provenance.json",
+          "digest": "{{PROVENANCE_DIGEST}}"
+        },
+        "compliance_report": {
+          "path": "evidence/compliance-report.json",
+          "digest": "{{COMPLIANCE_REPORT_DIGEST}}"
+        },
+        "traceability_map": {
+          "path": "traceability-map.json",
+          "digest": "{{TRACEABILITY_MAP_DIGEST}}"
+        },
+        "hazard_log": {
+          "path": "analysis/hazard-log.json",
+          "digest": "{{HAZARD_LOG_DIGEST}}"
+        }
+      },
+      "oci_bundles": {
+        "total": 43,
+        "validated": 43,
+        "signed": 43,
+        "manifest_format": "OCI Image Manifest v1"
+      },
+      "quality_gate": {
+        "test_id": "KNOWBANK_ENTERPRISE_QUALITY_GATE_002",
+        "status": "PASS",
+        "violations": 0,
+        "digest": "{{QUALITY_GATE_DIGEST}}"
+      }
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "key_id": "{{SIGNING_KEY_ID}}",
+      "signature": "{{ATTESTATION_SIGNATURE}}",
+      "timestamp": "{{TIMESTAMP}}",
+      "timestamp_authority": "{{TSA_URL}}"
+    }
+  },
+  "verification": {
+    "verifiable": true,
+    "verification_material": {
+      "public_key": "{{PUBLIC_KEY}}",
+      "certificate_chain": "{{CERTIFICATE_CHAIN}}"
+    },
+    "verification_instructions": [
+      "1. Pridobi javni kljuc iz verification_material.public_key",
+      "2. Preveri podpis attestation.signature.signature nad attestation objektom",
+      "3. Preveri casovni zig pri timestamp_authority",
+      "4. Preveri vse digeste artefaktov v predicate.artifacts"
+    ]
+  },
+  "finalization": {
+    "enterprise_finalized": true,
+    "locked": true,
+    "immutable": true,
+    "finalization_timestamp": "{{TIMESTAMP}}",
+    "finalization_digest": "{{FINALIZATION_DIGEST}}",
+    "finalization_signature": "{{FINALIZATION_SIGNATURE}}"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_metadata": {
+    "domain_id": "DOMENA_02",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "version": "1.0.0",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"]
+  },
+  "determinism_policy": {
+    "enabled": true,
+    "strict_mode": true,
+    "reproducibility_required": true
+  },
+    "forbidden_patterns": {
+      "non_deterministic_time": {
+        "pattern_group": "PREPOVEDANI_CAS_VZORCI",
+        "replacement": "Clock.nowMs()",
+        "status": "ENFORCED"
+      },
+      "random_generation": {
+        "pattern_group": "PREPOVEDANI_NAKLJUCNI_VZORCI",
+        "replacement": "generateDeterministicId()",
+        "status": "ENFORCED"
+      },
+      "environment_dependent": {
+        "pattern_group": "PREPOVEDANI_OKOLJE_VZORCI",
+        "replacement": "{{KONFIG_VREDNOST}}",
+        "status": "ENFORCED"
+      }
+    },
+  "allowed_patterns": {
+    "deterministic_clock": {
+      "class": "Clock",
+      "methods": ["nowMs()", "nowIso()", "delay()"],
+      "source": "{{CLOCK_PATH}}"
+    },
+    "deterministic_id": {
+      "function": "generateDeterministicId",
+      "algorithm": "SHA-256",
+      "source": "{{DETERMINISTIC_PATH}}"
+    },
+    "deterministic_hash": {
+      "function": "computeSHA256",
+      "algorithm": "SHA-256",
+      "source": "{{HASH_PATH}}"
+    }
+  },
+  "verification": {
+    "scan_on_build": true,
+    "fail_on_violation": true,
+    "report_path": "compliance-scan-report.txt"
+  },
+  "signature": {
+    "digest": "{{DETERMINISM_DIGEST}}",
+    "signature": "{{DETERMINISM_SIGNATURE}}"
+  }
+}

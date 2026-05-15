@@ -1,0 +1,60 @@
+{
+  "$schema": "https://mia.build/schemas/metrics.json",
+  "version": "1.0.0",
+  "project": "NexGen",
+  "domain": "Zaledni sistemi",
+  "compliance": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+  "meta_atom": "OBS_002",
+  
+  "metrics": {
+    "enabled": true,
+    "endpoint": "/metrics",
+    "interval": 15000,
+    "prefix": "NexGen_",
+    "format": "prometheus"
+  },
+  
+  "collectors": {
+    "system": {
+      "enabled": true,
+      "metrics": [
+        "cpu_usage",
+        "memory_usage",
+        "disk_usage",
+        "network_io"
+      ]
+    },
+    "process": {
+      "enabled": true,
+      "metrics": [
+        "heap_used",
+        "heap_total",
+        "external_memory",
+        "event_loop_lag"
+      ]
+    },
+    "http": {
+      "enabled": true,
+      "metrics": [
+        "request_count",
+        "request_duration",
+        "response_size",
+        "error_count"
+      ],
+      "buckets": [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10]
+    }
+  },
+  
+  "labels": {
+    "service": "NexGen",
+    "version": "1.0.0",
+    "environment": "production"
+  },
+  
+  "exporters": {
+    "prometheus": {
+      "enabled": true,
+      "port": 9090
+    }
+  }
+}

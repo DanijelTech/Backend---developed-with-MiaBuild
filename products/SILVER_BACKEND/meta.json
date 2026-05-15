@@ -1,0 +1,46 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "product_meta",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-SLA-SIL-001",
+    "design_id": "DSN-SLA-SIL-001",
+    "test_id": "TST-SLA-SIL-001",
+    "function_ids": ["FN_02_HEALTH_CHECK", "FN_02_READINESS_PROBE", "FN_02_LIVENESS_PROBE", "FN_02_RETRY_POLICY", "FN_02_METRIC_COUNTER", "FN_02_LOG_STRUCTURED"],
+    "hazard_ids": ["HAZ-02-106", "HAZ-02-119", "HAZ-02-120", "HAZ-02-121"]
+  },
+  "product_id": "SILVER_BACKEND",
+  "product_type": "SLA_PACKAGE",
+  "name_sl": "Srebrni zaledni paket",
+  "description_sl": "Standardni SLA paket z 99.5% razpoložljivostjo in latentnostjo pod 100ms",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "sla_tier": "SILVER",
+  "sla_availability": "99.5%",
+  "sla_latency_ms": 100,
+  "sla_rto_minutes": 120,
+  "sla_rpo_minutes": 15,
+  "sla_support_response_minutes": 240,
+  "categories_included": ["CAT_02_GATEWAY", "CAT_02_OBSERVABILITY"],
+  "modules_included": ["MOD_02_HEALTH", "MOD_02_METRICS", "MOD_02_LOG"],
+  "dependencies": [],
+  "runtime_requirements": {
+    "node_version": ">=18.0.0",
+    "memory_mb": 2048,
+    "cpu_cores": 2,
+    "storage_gb": 100,
+    "replicas_min": 1,
+    "replicas_max": 20
+  },
+  "security_profile": "ENTERPRISE",
+  "compliance_certifications": ["DO-178C_LEVEL_C", "IEC-61508_SIL_2", "ISO-26262_ASIL_B"],
+  "digest": "{{DIGEST_SHA256}}",
+  "sha256_digest": "{{SHA256_DIGEST}}",
+  "is_exportable": true,
+  "version_locked": true,
+  "signing_key_id": "{{SIGNING_KEY_ID}}"
+}

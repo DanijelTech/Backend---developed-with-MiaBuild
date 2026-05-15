@@ -1,0 +1,72 @@
+{
+  "$schema": "https://mia.build/schemas/security-scan.json",
+  "version": "1.0.0",
+  "project": "NexGen",
+  "domain": "Zaledni sistemi",
+  "compliance": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+  "meta_atom": "SEC_008",
+  
+  "scanner": "trivy",
+  "scannerVersion": "0.48.0",
+  
+  "scans": {
+    "vulnerability": {
+      "enabled": true,
+      "severity": ["CRITICAL", "HIGH", "MEDIUM"],
+      "ignoreUnfixed": false,
+      "timeout": 600
+    },
+    "secret": {
+      "enabled": true,
+      "patterns": [
+        "aws-access-key-id",
+        "aws-secret-access-key",
+        "github-token",
+        "private-key",
+        "api-key"
+      ]
+    },
+    "misconfiguration": {
+      "enabled": true,
+      "checks": [
+        "dockerfile",
+        "kubernetes",
+        "terraform"
+      ]
+    },
+    "license": {
+      "enabled": true,
+      "forbidden": [
+        "GPL-3.0",
+        "AGPL-3.0"
+      ],
+      "allowed": [
+        "MIT",
+        "Apache-2.0",
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "ISC"
+      ]
+    }
+  },
+  
+  "reporting": {
+    "format": ["json", "sarif"],
+    "outputPath": "evidence/security-scan",
+    "uploadToDefectDojo": false
+  },
+  
+  "thresholds": {
+    "critical": 0,
+    "high": 0,
+    "medium": 10,
+    "low": 50
+  },
+  
+  "ignoreRules": [],
+  
+  "schedule": {
+    "enabled": true,
+    "cron": "0 2 * * *"
+  }
+}

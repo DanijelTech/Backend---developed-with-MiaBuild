@@ -1,0 +1,73 @@
+{
+  "_metadata": {
+    "domain_id": "DOMENA_02",
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "version": "1.0.0",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"]
+  },
+  "rbac_config": {
+    "enabled": true,
+    "default_role": "viewer",
+    "session_timeout_minutes": 30,
+    "mfa_required": true
+  },
+  "roles": {
+    "admin": {
+      "description": "Full system access",
+      "permissions": ["*"],
+      "mfa_required": true,
+      "session_timeout_minutes": 15
+    },
+    "operator": {
+      "description": "Operational access",
+      "permissions": [
+        "read:*",
+        "write:config",
+        "execute:jobs",
+        "manage:cache",
+        "manage:queue"
+      ],
+      "mfa_required": true
+    },
+    "developer": {
+      "description": "Development access",
+      "permissions": [
+        "read:*",
+        "write:code",
+        "execute:tests",
+        "deploy:staging"
+      ],
+      "mfa_required": true
+    },
+    "viewer": {
+      "description": "Read-only access",
+      "permissions": [
+        "read:metrics",
+        "read:logs",
+        "read:config"
+      ],
+      "mfa_required": false
+    },
+    "auditor": {
+      "description": "Audit and compliance access",
+      "permissions": [
+        "read:*",
+        "read:audit_logs",
+        "export:compliance_reports"
+      ],
+      "mfa_required": true
+    }
+  },
+  "permission_groups": {
+    "read": ["read:metrics", "read:logs", "read:config", "read:audit_logs"],
+    "write": ["write:config", "write:code"],
+    "execute": ["execute:jobs", "execute:tests"],
+    "manage": ["manage:cache", "manage:queue", "manage:users"],
+    "deploy": ["deploy:staging", "deploy:production"]
+  },
+  "audit": {
+    "log_all_access": true,
+    "log_permission_changes": true,
+    "retention_days": 365
+  }
+}

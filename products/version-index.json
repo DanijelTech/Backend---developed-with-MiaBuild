@@ -1,0 +1,122 @@
+{
+  "_metadata": {
+    "schema_version": "1.0.0",
+    "document_type": "VERSION_INDEX",
+    "domain": "ZALEDNI_SISTEMI",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3"],
+    "generated_at": "{{DATUM_GENERACIJE}}",
+    "purpose": "Avtomatska verzijska menjava in sledenje verzij produktov"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-VER-001",
+    "design_id": "DSN-VER-001",
+    "test_id": "TST-VER-001",
+    "hazard_id": "HAZ-VER-001"
+  },
+  "version": "v1.0.0",
+  "locked": true,
+  "immutable": true,
+  "version_index": {
+    "domain_id": "DOMENA_02",
+    "current_version": "{{CURRENT_VERSION}}",
+    "latest_stable": "{{LATEST_STABLE}}",
+    "versions": [
+      {
+        "version": "{{CURRENT_VERSION}}",
+        "release_date": "{{RELEASE_DATE}}",
+        "status": "CURRENT",
+        "changelog_url": "{{CHANGELOG_URL}}",
+        "digest": "{{VERSION_DIGEST}}",
+        "compliance": {
+          "do_178c": "Level A",
+          "iec_61508": "SIL 4",
+          "iso_26262": "ASIL D",
+          "mil_std_882e": "Compliant"
+        },
+        "products": {
+          "total": 43,
+          "new": 43,
+          "updated": 0,
+          "deprecated": 0,
+          "removed": 0
+        },
+        "functions": {
+          "total": 152,
+          "new": 152,
+          "updated": 0,
+          "deprecated": 0,
+          "removed": 0
+        },
+        "breaking_changes": false,
+        "migration_required": false,
+        "security_patches": [],
+        "known_issues": []
+      }
+    ],
+    "deprecation_policy": {
+      "notice_period_days": 180,
+      "support_period_days": 365,
+      "migration_guide_required": true
+    },
+    "support_matrix": {
+      "{{CURRENT_VERSION}}": {
+        "status": "ACTIVE",
+        "security_updates": true,
+        "bug_fixes": true,
+        "new_features": true,
+        "end_of_support": "{{EOS_DATE}}"
+      }
+    },
+    "compatibility": {
+      "node_versions": ["18.x", "20.x", "22.x"],
+      "typescript_versions": ["5.0+"],
+      "database_versions": {
+        "postgresql": ["14+", "15+", "16+"],
+        "redis": ["7.0+"],
+        "rabbitmq": ["3.12+"],
+        "kafka": ["3.5+"]
+      }
+    },
+    "artifacts": {
+      "npm_package": "{{NPM_PACKAGE_URL}}",
+      "docker_image": "{{DOCKER_IMAGE_URL}}",
+      "helm_chart": "{{HELM_CHART_URL}}",
+      "sbom": "{{SBOM_URL}}",
+      "provenance": "{{PROVENANCE_URL}}"
+    },
+    "verification": {
+      "signature_algorithm": "Ed25519",
+      "signing_key_id": "{{SIGNING_KEY_ID}}",
+      "signature": "{{VERSION_SIGNATURE}}",
+      "timestamp": "{{TIMESTAMP}}",
+      "timestamp_authority": "{{TSA_URL}}"
+    }
+  },
+  "release_notes": {
+    "{{CURRENT_VERSION}}": {
+      "summary_sl": "Zacetna izdaja DOMENA_02 z 43 Enterprise-Grade produkti",
+      "highlights": [
+        "10 kategorij s 152 funkcijami",
+        "43 produktov (1 integriran, 10 kategorijskih, 10 scenarijskih, 3 SLA, 19 modularnih)",
+        "Popolna skladnost z DO-178C, IEC-61508, ISO-26262, MIL-STD-882E",
+        "100% sledljivost zahtev",
+        "Konceptualna raznolikost (10 approach_type vrednosti)"
+      ],
+      "new_features": [
+        "REST API in GraphQL podpora",
+        "JWT, OAuth 2.0, API key avtentikacija",
+        "RBAC avtorizacija",
+        "PostgreSQL, Redis, RabbitMQ, Kafka integracije",
+        "Strukturirano belezenje, metrike, distribuirano sledenje",
+        "GDPR, PCI-DSS, HIPAA skladnost"
+      ],
+      "improvements": [],
+      "bug_fixes": [],
+      "security_fixes": [],
+      "deprecations": [],
+      "breaking_changes": [],
+      "migration_guide": null
+    }
+  }
+}

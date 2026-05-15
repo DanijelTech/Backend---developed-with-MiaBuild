@@ -1,0 +1,114 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "database_configuration",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-CFG-DB-001",
+    "design_id": "DSN-CFG-DB-001",
+    "test_id": "TST-CFG-DB-001",
+    "function_id": "FN_02_DB_CONNECT"
+  },
+  "database": {
+    "primary": {
+      "type": "postgresql",
+      "host": "{{DB_PRIMARY_HOST}}",
+      "port": 5432,
+      "database": "{{DB_NAME}}",
+      "schema": "{{DB_SCHEMA}}",
+      "ssl": {
+        "enabled": true,
+        "mode": "verify-full",
+        "ca_cert_path": "{{SSL_CA_CERT_PATH}}",
+        "client_cert_path": "{{SSL_CLIENT_CERT_PATH}}",
+        "client_key_path": "{{SSL_CLIENT_KEY_PATH}}"
+      }
+    },
+    "replicas": [
+      {
+        "host": "{{DB_REPLICA_1_HOST}}",
+        "port": 5432,
+        "role": "read",
+        "priority": 1
+      },
+      {
+        "host": "{{DB_REPLICA_2_HOST}}",
+        "port": 5432,
+        "role": "read",
+        "priority": 2
+      }
+    ],
+    "connection_pool": {
+      "min_connections": 5,
+      "max_connections": 20,
+      "idle_timeout_ms": 30000,
+      "connection_timeout_ms": 5000,
+      "max_lifetime_ms": 1800000,
+      "health_check_interval_ms": 30000,
+      "acquire_timeout_ms": 10000,
+      "function_id": "FN_02_DB_POOL_ACQUIRE"
+    },
+    "transactions": {
+      "default_isolation_level": "READ_COMMITTED",
+      "statement_timeout_ms": 30000,
+      "lock_timeout_ms": 10000,
+      "idle_in_transaction_timeout_ms": 60000,
+      "function_id": "FN_02_DB_TX_BEGIN"
+    },
+    "migrations": {
+      "enabled": true,
+      "directory": "{{MIGRATIONS_DIR}}",
+      "table_name": "_migrations",
+      "lock_timeout_ms": 60000,
+      "function_id": "FN_02_DB_MIGRATE_UP"
+    },
+    "backup": {
+      "enabled": true,
+      "schedule": "0 2 * * *",
+      "retention_days": 30,
+      "storage_path": "{{BACKUP_STORAGE_PATH}}",
+      "encryption": {
+        "enabled": true,
+        "algorithm": "AES-256-GCM",
+        "key_id": "{{BACKUP_KEY_ID}}"
+      },
+      "function_id": "FN_02_DB_BACKUP"
+    },
+    "monitoring": {
+      "slow_query_threshold_ms": 1000,
+      "log_queries": false,
+      "log_slow_queries": true,
+      "metrics_enabled": true,
+      "function_id": "FN_02_METRIC_GAUGE"
+    },
+    "security": {
+      "row_level_security": true,
+      "audit_logging": true,
+      "encryption_at_rest": true,
+      "function_id": "FN_02_AUDIT_LOG"
+    }
+  },
+  "sla_tiers": {
+    "PLATINUM": {
+      "max_connections": 50,
+      "connection_timeout_ms": 2000,
+      "statement_timeout_ms": 10000,
+      "replicas_required": 2
+    },
+    "GOLD": {
+      "max_connections": 30,
+      "connection_timeout_ms": 5000,
+      "statement_timeout_ms": 30000,
+      "replicas_required": 1
+    },
+    "SILVER": {
+      "max_connections": 20,
+      "connection_timeout_ms": 10000,
+      "statement_timeout_ms": 60000,
+      "replicas_required": 0
+    }
+  }
+}

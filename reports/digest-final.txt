@@ -1,0 +1,72 @@
+================================================================================
+DIGEST FINAL - DOMENA_02 (ZALEDNI_SISTEMI)
+================================================================================
+Generated: {{DATUM_GENERACIJE}}
+Domain: DOMENA_02
+Version: 1.0.0
+Algorithm: SHA-256
+
+================================================================================
+KNOWBANK DIGEST
+================================================================================
+knowbank/paketi/DOMENA_02/index.json: {{SHA256_KNOWBANK_INDEX}}
+
+================================================================================
+TEMPLATE DIGESTS (Functions)
+================================================================================
+functions/FN_02_CREATE.ts.predloga: {{SHA256_FN_02_CREATE}}
+functions/FN_02_READ.ts.predloga: {{SHA256_FN_02_READ}}
+functions/FN_02_UPDATE.ts.predloga: {{SHA256_FN_02_UPDATE}}
+functions/FN_02_DELETE.ts.predloga: {{SHA256_FN_02_DELETE}}
+functions/FN_02_LIST.ts.predloga: {{SHA256_FN_02_LIST}}
+[... 147 more function digests ...]
+
+================================================================================
+PRODUCT BUNDLE DIGESTS (43 OCI Packages)
+================================================================================
+ENTERPRISE_BACKEND_PLATFORM.tar.gz: {{SHA256_ENTERPRISE_BACKEND}}
+REST_API_DEVELOPMENT_KIT.tar.gz: {{SHA256_REST_API_KIT}}
+GRAPHQL_DEVELOPMENT_SUITE.tar.gz: {{SHA256_GRAPHQL_SUITE}}
+AUTHENTICATION_AUTHORIZATION_SUITE.tar.gz: {{SHA256_AUTH_SUITE}}
+DATABASE_ACCESS_LAYER.tar.gz: {{SHA256_DATABASE_LAYER}}
+MESSAGE_QUEUE_PLATFORM.tar.gz: {{SHA256_MESSAGE_QUEUE}}
+CACHING_INFRASTRUCTURE_KIT.tar.gz: {{SHA256_CACHING_KIT}}
+BACKGROUND_JOBS_FRAMEWORK.tar.gz: {{SHA256_JOBS_FRAMEWORK}}
+API_GATEWAY_SUITE.tar.gz: {{SHA256_API_GATEWAY}}
+MICROSERVICES_TOOLKIT.tar.gz: {{SHA256_MICROSERVICES}}
+SERVERLESS_FUNCTIONS_KIT.tar.gz: {{SHA256_SERVERLESS}}
+SAAS_BACKEND_FOUNDATION.tar.gz: {{SHA256_SAAS_BACKEND}}
+REALTIME_API_PLATFORM.tar.gz: {{SHA256_REALTIME_API}}
+HIGH_THROUGHPUT_API.tar.gz: {{SHA256_HIGH_THROUGHPUT}}
+SECURE_FINANCIAL_BACKEND.tar.gz: {{SHA256_FINANCIAL_BACKEND}}
+IOT_BACKEND_PLATFORM.tar.gz: {{SHA256_IOT_BACKEND}}
+ECOMMERCE_BACKEND.tar.gz: {{SHA256_ECOMMERCE}}
+HEALTHCARE_BACKEND.tar.gz: {{SHA256_HEALTHCARE}}
+ANALYTICS_BACKEND.tar.gz: {{SHA256_ANALYTICS}}
+CONTENT_MANAGEMENT_BACKEND.tar.gz: {{SHA256_CMS}}
+INTEGRATION_HUB.tar.gz: {{SHA256_INTEGRATION}}
+PLATINUM_BACKEND.tar.gz: {{SHA256_PLATINUM}}
+GOLD_BACKEND.tar.gz: {{SHA256_GOLD}}
+SILVER_BACKEND.tar.gz: {{SHA256_SILVER}}
+[... 19 more product digests ...]
+
+================================================================================
+EVIDENCE DIGESTS
+================================================================================
+sbom.spdx.json: {{SHA256_SBOM}}
+provenance.json: {{SHA256_PROVENANCE}}
+compliance-report.json: {{SHA256_COMPLIANCE}}
+traceability-map.json: {{SHA256_TRACEABILITY}}
+hazard-log.json: {{SHA256_HAZARD_LOG}}
+
+================================================================================
+FINAL DOMAIN DIGEST
+================================================================================
+DOMENA_02_FINAL_DIGEST: {{SHA256_DOMAIN_FINAL}}
+
+================================================================================
+VERIFICATION
+================================================================================
+Status: VALIDATED
+Signature: {{FINAL_SIGNATURE}}
+================================================================================

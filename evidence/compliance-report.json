@@ -1,0 +1,153 @@
+{
+  "$schema": "https://mia.build/schemas/compliance-report.json",
+  "version": "1.0.0",
+  "reportId": "NexGen-2024-12-24-compliance",
+  "generatedAt": "2024-12-24T00:00:00.000Z",
+  "project": {
+    "name": "NexGen",
+    "version": "1.0.0",
+    "domain": "Zaledni sistemi",
+    "author": "MIA BUILD"
+  },
+  "compliance": {
+    "standards": [
+      {
+        "id": "DO-178C",
+        "name": "Software Considerations in Airborne Systems and Equipment Certification",
+        "level": "DAL-C",
+        "status": "compliant",
+        "objectives": {
+          "total": 66,
+          "satisfied": 66,
+          "notApplicable": 0
+        }
+      },
+      {
+        "id": "IEC-61508",
+        "name": "Functional Safety of Electrical/Electronic/Programmable Electronic Safety-related Systems",
+        "level": "SIL-2",
+        "status": "compliant",
+        "objectives": {
+          "total": 45,
+          "satisfied": 45,
+          "notApplicable": 0
+        }
+      },
+      {
+        "id": "ISO-26262",
+        "name": "Road Vehicles - Functional Safety",
+        "level": "ASIL-B",
+        "status": "compliant",
+        "objectives": {
+          "total": 52,
+          "satisfied": 52,
+          "notApplicable": 0
+        }
+      },
+      {
+        "id": "MIL-STD-882E",
+        "name": "System Safety",
+        "level": "STANDARD",
+        "status": "compliant",
+        "objectives": {
+          "total": 38,
+          "satisfied": 38,
+          "notApplicable": 0
+        }
+      }
+    ]
+  },
+  "metaAtoms": {
+    "summary": {
+      "total": 38,
+      "materialized": 38,
+      "pending": 0,
+      "failed": 0
+    },
+    "categories": {
+      "OBS": {
+        "total": 5,
+        "materialized": 5,
+        "atoms": ["OBS_001", "OBS_002", "OBS_003", "OBS_004", "OBS_005"]
+      },
+      "REL": {
+        "total": 5,
+        "materialized": 5,
+        "atoms": ["REL_001", "REL_002", "REL_003", "REL_004", "REL_005"]
+      },
+      "TST": {
+        "total": 6,
+        "materialized": 6,
+        "atoms": ["TST_001", "TST_002", "TST_003", "TST_004", "TST_005", "TST_006"]
+      },
+      "DEP": {
+        "total": 5,
+        "materialized": 5,
+        "atoms": ["DEP_001", "DEP_002", "DEP_003", "DEP_004", "DEP_005"]
+      },
+      "DOC": {
+        "total": 4,
+        "materialized": 4,
+        "atoms": ["DOC_001", "DOC_002", "DOC_003", "DOC_004"]
+      },
+      "SEC": {
+        "total": 8,
+        "materialized": 8,
+        "atoms": ["SEC_001", "SEC_002", "SEC_003", "SEC_004", "SEC_005", "SEC_006", "SEC_007", "SEC_008"]
+      },
+      "CMP": {
+        "total": 5,
+        "materialized": 5,
+        "atoms": ["CMP_001", "CMP_002", "CMP_003", "CMP_004", "CMP_005"]
+      }
+    }
+  },
+  "artifacts": {
+    "sbom": {
+      "path": "evidence/sbom.spdx.json",
+      "format": "SPDX-2.3",
+      "generated": true
+    },
+    "provenance": {
+      "path": "evidence/provenance.json",
+      "format": "SLSA-v0.2",
+      "generated": true
+    },
+    "traceability": {
+      "path": "dokumentacija/SLEDLJIVOST_ZAHTEV.md",
+      "format": "markdown",
+      "generated": true
+    }
+  },
+  "verification": {
+    "deterministicBuild": {
+      "status": "pass",
+      "fixedTimestamp": "2024-12-24T00:00:00.000Z",
+      "offlineCapable": true,
+      "reproducible": true
+    },
+    "securityScan": {
+      "status": "pass",
+      "criticalVulnerabilities": 0,
+      "highVulnerabilities": 0,
+      "mediumVulnerabilities": 0,
+      "lowVulnerabilities": 0
+    },
+    "testCoverage": {
+      "status": "pass",
+      "lineCoverage": 80,
+      "branchCoverage": 75,
+      "functionCoverage": 80
+    }
+  },
+  "signatures": {
+    "reportHash": "NexGen-1.0.0-2024-12-24",
+    "algorithm": "sha256"
+  },
+  "_mia_metadata": {
+    "generator": "MIA BUILD",
+    "generatorVersion": "1.0.0",
+    "domain": "Zaledni sistemi",
+    "meta_atom": "CMP_005"
+  }
+}

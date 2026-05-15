@@ -1,0 +1,81 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-12-24T00:00:00.000000Z",
+    "tools": [
+      {
+        "name": "MIA BUILD",
+        "version": "1.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "NexGen",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "container",
+      "name": "node",
+      "version": "20-alpine",
+      "purl": "pkg:docker/node@20-alpine"
+    },
+    {
+      "type": "container",
+      "name": "postgres",
+      "version": "15-alpine",
+      "purl": "pkg:docker/postgres@15-alpine"
+    },
+    {
+      "type": "container",
+      "name": "keycloak",
+      "version": "22.0",
+      "purl": "pkg:docker/keycloak@22.0"
+    },
+    {
+      "type": "container",
+      "name": "rabbitmq",
+      "version": "3.12-management-alpine",
+      "purl": "pkg:docker/rabbitmq@3.12-management-alpine"
+    },
+    {
+      "type": "container",
+      "name": "grafana",
+      "version": "10.0.0",
+      "purl": "pkg:docker/grafana@10.0.0"
+    },
+    {
+      "type": "container",
+      "name": "vault",
+      "version": "1.15",
+      "purl": "pkg:docker/vault@1.15"
+    },
+    {
+      "type": "library",
+      "name": "express",
+      "version": "4.18.2",
+      "purl": "pkg:npm/express@4.18.2"
+    },
+    {
+      "type": "library",
+      "name": "react",
+      "version": "18.2.0",
+      "purl": "pkg:npm/react@18.2.0"
+    },
+    {
+      "type": "library",
+      "name": "pg",
+      "version": "8.11.0",
+      "purl": "pkg:npm/pg@8.11.0"
+    },
+    {
+      "type": "library",
+      "name": "amqplib",
+      "version": "0.10.3",
+      "purl": "pkg:npm/amqplib@0.10.3"
+    }
+  ]
+}

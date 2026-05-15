@@ -1,0 +1,176 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "stride_threat_model",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-STRIDE-001",
+    "design_id": "DSN-STRIDE-001",
+    "test_id": "TST-STRIDE-001"
+  },
+  "stride_analysis": {
+    "document_id": "STRIDE-DOMENA02-1.0.0",
+    "title_sl": "STRIDE analiza groznje za zaledne sisteme",
+    "revision": "1.0.0",
+    "status": "ACTIVE",
+    "threats": [
+      {
+        "threat_id": "STR-02-S-001",
+        "category": "SPOOFING",
+        "name_sl": "Ponarejanje identitete uporabnika",
+        "description_sl": "Napadalec se predstavlja kot legitimen uporabnik z ukradenimi poverilnicami",
+        "affected_components": ["JWT Authentication", "OAuth2", "API Key"],
+        "affected_functions": ["FN_02_SIGN", "FN_02_VERIFY", "FN_02_OAUTH_AUTHORIZE"],
+        "attack_vector": "Kraja JWT tokena, phishing, brute force",
+        "impact": "Nepooblascen dostop do uporabniskih podatkov in akcij",
+        "likelihood": "MEDIUM",
+        "severity": "HIGH",
+        "risk_level": "HIGH",
+        "mitigations": [
+          "Kratki TTL za tokene (15 min)",
+          "Refresh token rotacija",
+          "IP binding za obcutljive operacije",
+          "MFA za kriticne akcije",
+          "Detekcija anomalij v prijavah"
+        ],
+        "residual_risk": "LOW",
+        "hazard_refs": ["HAZ-02-022", "HAZ-02-027"]
+      },
+      {
+        "threat_id": "STR-02-T-001",
+        "category": "TAMPERING",
+        "name_sl": "Spreminjanje podatkov v tranzitu",
+        "description_sl": "Napadalec spremeni podatke med prenosom med odjemalcem in streznikom",
+        "affected_components": ["API Gateway", "REST Endpoints", "GraphQL"],
+        "affected_functions": ["FN_02_CREATE", "FN_02_UPDATE", "FN_02_MUTATION"],
+        "attack_vector": "Man-in-the-middle napad, ARP spoofing",
+        "impact": "Korupcija podatkov, nepooblascene spremembe",
+        "likelihood": "LOW",
+        "severity": "HIGH",
+        "risk_level": "MEDIUM",
+        "mitigations": [
+          "TLS 1.3 za vse komunikacije",
+          "HSTS z dolgim max-age",
+          "Certificate pinning za mobilne odjemalce",
+          "Podpisovanje kriticnih zahtev"
+        ],
+        "residual_risk": "LOW",
+        "hazard_refs": ["HAZ-02-003", "HAZ-02-038"]
+      },
+      {
+        "threat_id": "STR-02-R-001",
+        "category": "REPUDIATION",
+        "name_sl": "Zanikanje izvedenih akcij",
+        "description_sl": "Uporabnik zanika izvedbo dolocenih akcij v sistemu",
+        "affected_components": ["Audit Log", "Transaction Log"],
+        "affected_functions": ["FN_02_AUDIT_LOG", "FN_02_DB_TX_COMMIT"],
+        "attack_vector": "Brisanje logov, manipulacija casovnih zigov",
+        "impact": "Nemoznost dokazovanja akcij, pravne posledice",
+        "likelihood": "MEDIUM",
+        "severity": "MEDIUM",
+        "risk_level": "MEDIUM",
+        "mitigations": [
+          "Nespremenljivi audit logi",
+          "Kriptografsko podpisovanje zapisov",
+          "Centralizirano belezenje",
+          "Casovni zigi iz zaupanja vrednega vira"
+        ],
+        "residual_risk": "LOW",
+        "hazard_refs": ["HAZ-02-122"]
+      },
+      {
+        "threat_id": "STR-02-I-001",
+        "category": "INFORMATION_DISCLOSURE",
+        "name_sl": "Razkritje obcutljivih podatkov",
+        "description_sl": "Nepooblascen dostop do obcutljivih podatkov",
+        "affected_components": ["Database", "Cache", "Logs"],
+        "affected_functions": ["FN_02_DB_QUERY", "FN_02_CACHE_GET", "FN_02_LOG_STRUCTURED"],
+        "attack_vector": "SQL injection, cache poisoning, log injection",
+        "impact": "Uhajanje osebnih podatkov, poslovnih skrivnosti",
+        "likelihood": "MEDIUM",
+        "severity": "CRITICAL",
+        "risk_level": "HIGH",
+        "mitigations": [
+          "Sifriranje podatkov v mirovanju (AES-256-GCM)",
+          "Sifriranje podatkov v tranzitu (TLS 1.3)",
+          "Maskiranje obcutljivih podatkov v logih",
+          "Najmanjse pravice dostopa",
+          "Parametrizirane poizvedbe"
+        ],
+        "residual_risk": "LOW",
+        "hazard_refs": ["HAZ-02-089", "HAZ-02-129", "HAZ-02-130"]
+      },
+      {
+        "threat_id": "STR-02-D-001",
+        "category": "DENIAL_OF_SERVICE",
+        "name_sl": "Zavrnitev storitve",
+        "description_sl": "Napadalec onemogoci dostop do sistema legitimnim uporabnikom",
+        "affected_components": ["API Gateway", "Load Balancer", "Database"],
+        "affected_functions": ["FN_02_RATE_LIMIT", "FN_02_LOAD_BALANCE", "FN_02_CIRCUIT_BREAKER"],
+        "attack_vector": "DDoS, resource exhaustion, slowloris",
+        "impact": "Nedostopnost sistema, izguba prihodkov",
+        "likelihood": "HIGH",
+        "severity": "HIGH",
+        "risk_level": "HIGH",
+        "mitigations": [
+          "Rate limiting na vec nivojih",
+          "DDoS zascita (WAF, CDN)",
+          "Avtomatsko skaliranje",
+          "Circuit breaker za odvisnosti",
+          "Bulkhead izolacija"
+        ],
+        "residual_risk": "MEDIUM",
+        "hazard_refs": ["HAZ-02-085", "HAZ-02-105"]
+      },
+      {
+        "threat_id": "STR-02-E-001",
+        "category": "ELEVATION_OF_PRIVILEGE",
+        "name_sl": "Povecanje pravic",
+        "description_sl": "Napadalec pridobi visje pravice kot mu pripadajo",
+        "affected_components": ["RBAC", "Authorization"],
+        "affected_functions": ["FN_02_RBAC_CHECK", "FN_02_RBAC_ASSIGN"],
+        "attack_vector": "IDOR, privilege escalation, role manipulation",
+        "impact": "Nepooblascen dostop do administrativnih funkcij",
+        "likelihood": "MEDIUM",
+        "severity": "CRITICAL",
+        "risk_level": "HIGH",
+        "mitigations": [
+          "Stroga validacija avtorizacije na vsakem nivoju",
+          "Princip najmanjsih pravic",
+          "Revizija dodeljevanja vlog",
+          "Locevanje dolznosti",
+          "Redni varnostni pregledi"
+        ],
+        "residual_risk": "LOW",
+        "hazard_refs": ["HAZ-02-081", "HAZ-02-082", "HAZ-02-083"]
+      }
+    ],
+    "data_flow_diagram": {
+      "trust_boundaries": [
+        {"id": "TB-01", "name_sl": "Zunanja meja", "description_sl": "Meja med zunanjimi odjemalci in API prehodom"},
+        {"id": "TB-02", "name_sl": "Notranja meja", "description_sl": "Meja med API prehodom in zalednimi storitvami"},
+        {"id": "TB-03", "name_sl": "Podatkovna meja", "description_sl": "Meja med storitvami in podatkovnimi shrambami"}
+      ],
+      "data_flows": [
+        {"id": "DF-01", "from": "External Client", "to": "API Gateway", "crosses_boundary": "TB-01", "data_classification": "PUBLIC"},
+        {"id": "DF-02", "from": "API Gateway", "to": "Backend Services", "crosses_boundary": "TB-02", "data_classification": "INTERNAL"},
+        {"id": "DF-03", "from": "Backend Services", "to": "Database", "crosses_boundary": "TB-03", "data_classification": "CONFIDENTIAL"}
+      ]
+    },
+    "analysis_summary": {
+      "total_threats": 6,
+      "critical_threats": 2,
+      "high_threats": 3,
+      "medium_threats": 1,
+      "mitigated_threats": 6,
+      "residual_risk_summary": {
+        "LOW": 5,
+        "MEDIUM": 1,
+        "HIGH": 0
+      }
+    }
+  }
+}

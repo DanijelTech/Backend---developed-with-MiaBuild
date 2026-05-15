@@ -1,0 +1,193 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "queue_configuration",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-CFG-QUEUE-001",
+    "design_id": "DSN-CFG-QUEUE-001",
+    "test_id": "TST-CFG-QUEUE-001",
+    "function_id": "FN_02_QUEUE_PUBLISH"
+  },
+  "queue": {
+    "providers": {
+      "rabbitmq": {
+        "enabled": true,
+        "cluster": {
+          "nodes": [
+            {
+              "host": "{{RABBITMQ_NODE_1_HOST}}",
+              "port": 5672,
+              "management_port": 15672
+            },
+            {
+              "host": "{{RABBITMQ_NODE_2_HOST}}",
+              "port": 5672,
+              "management_port": 15672
+            },
+            {
+              "host": "{{RABBITMQ_NODE_3_HOST}}",
+              "port": 5672,
+              "management_port": 15672
+            }
+          ]
+        },
+        "connection": {
+          "username": "{{RABBITMQ_USERNAME}}",
+          "password": "{{RABBITMQ_PASSWORD}}",
+          "vhost": "{{RABBITMQ_VHOST}}",
+          "tls": {
+            "enabled": true,
+            "ca_cert_path": "{{RABBITMQ_CA_CERT_PATH}}"
+          },
+          "heartbeat_seconds": 60,
+          "connection_timeout_ms": 10000
+        },
+        "channel_pool": {
+          "min_channels": 5,
+          "max_channels": 20
+        },
+        "function_id": "FN_02_QUEUE_PUBLISH"
+      },
+      "kafka": {
+        "enabled": false,
+        "brokers": [
+          "{{KAFKA_BROKER_1}}:9092",
+          "{{KAFKA_BROKER_2}}:9092",
+          "{{KAFKA_BROKER_3}}:9092"
+        ],
+        "client_id": "{{APP_NAME}}",
+        "security": {
+          "protocol": "SASL_SSL",
+          "mechanism": "SCRAM-SHA-512",
+          "username": "{{KAFKA_USERNAME}}",
+          "password": "{{KAFKA_PASSWORD}}"
+        },
+        "producer": {
+          "acks": "all",
+          "retries": 3,
+          "batch_size": 16384,
+          "linger_ms": 5
+        },
+        "consumer": {
+          "group_id": "{{KAFKA_CONSUMER_GROUP}}",
+          "auto_offset_reset": "earliest",
+          "enable_auto_commit": false
+        },
+        "function_id": "FN_02_QUEUE_PUBLISH"
+      }
+    },
+    "queues": {
+      "default": {
+        "name": "{{APP_NAME}}.default",
+        "durable": true,
+        "auto_delete": false,
+        "arguments": {
+          "x-queue-type": "quorum",
+          "x-delivery-limit": 5
+        },
+        "function_id": "FN_02_QUEUE_CONSUME"
+      },
+      "priority": {
+        "name": "{{APP_NAME}}.priority",
+        "durable": true,
+        "auto_delete": false,
+        "arguments": {
+          "x-queue-type": "quorum",
+          "x-max-priority": 10,
+          "x-delivery-limit": 3
+        },
+        "function_id": "FN_02_QUEUE_PRIORITY"
+      },
+      "dead_letter": {
+        "name": "{{APP_NAME}}.dlq",
+        "durable": true,
+        "auto_delete": false,
+        "arguments": {
+          "x-queue-type": "quorum",
+          "x-message-ttl": 604800000
+        },
+        "function_id": "FN_02_QUEUE_DLQ"
+      },
+      "delayed": {
+        "name": "{{APP_NAME}}.delayed",
+        "durable": true,
+        "auto_delete": false,
+        "arguments": {
+          "x-queue-type": "quorum",
+          "x-delayed-type": "direct"
+        },
+        "function_id": "FN_02_QUEUE_PUBLISH"
+      }
+    },
+    "exchanges": {
+      "default": {
+        "name": "{{APP_NAME}}.exchange",
+        "type": "topic",
+        "durable": true,
+        "auto_delete": false
+      },
+      "dead_letter": {
+        "name": "{{APP_NAME}}.dlx",
+        "type": "fanout",
+        "durable": true,
+        "auto_delete": false
+      }
+    },
+    "consumer": {
+      "prefetch_count": 10,
+      "ack_timeout_ms": 30000,
+      "retry": {
+        "enabled": true,
+        "max_attempts": 5,
+        "initial_delay_ms": 1000,
+        "max_delay_ms": 60000,
+        "multiplier": 2,
+        "function_id": "FN_02_QUEUE_RETRY"
+      },
+      "function_id": "FN_02_QUEUE_CONSUME"
+    },
+    "publisher": {
+      "confirm_enabled": true,
+      "confirm_timeout_ms": 5000,
+      "mandatory": true,
+      "persistent": true,
+      "function_id": "FN_02_QUEUE_PUBLISH"
+    },
+    "batch": {
+      "enabled": true,
+      "max_size": 100,
+      "max_wait_ms": 1000,
+      "function_id": "FN_02_QUEUE_BATCH"
+    },
+    "monitoring": {
+      "metrics_enabled": true,
+      "queue_depth_threshold": 10000,
+      "consumer_lag_threshold": 1000,
+      "function_id": "FN_02_METRIC_GAUGE"
+    }
+  },
+  "sla_tiers": {
+    "PLATINUM": {
+      "cluster_nodes": 5,
+      "replication_factor": 3,
+      "prefetch_count": 5,
+      "ack_timeout_ms": 10000
+    },
+    "GOLD": {
+      "cluster_nodes": 3,
+      "replication_factor": 2,
+      "prefetch_count": 10,
+      "ack_timeout_ms": 30000
+    },
+    "SILVER": {
+      "cluster_nodes": 1,
+      "replication_factor": 1,
+      "prefetch_count": 20,
+      "ack_timeout_ms": 60000
+    }
+  }
+}

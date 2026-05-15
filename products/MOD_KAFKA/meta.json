@@ -1,0 +1,41 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "product_meta",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-MOD-KAF-001",
+    "design_id": "DSN-MOD-KAF-001",
+    "test_id": "TST-MOD-KAF-001",
+    "function_ids": ["FN_02_QUEUE_PUBLISH","FN_02_QUEUE_CONSUME","FN_02_QUEUE_BATCH","FN_02_QUEUE_FANOUT"],
+    "hazard_ids": ["HAZ-02-001", "HAZ-02-002"]
+  },
+  "product_id": "MOD_KAFKA",
+  "product_type": "MODULAR",
+  "name_sl": "Kafka modul",
+  "description_sl": "Modul za Apache Kafka streaming",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "sla_tier": "SILVER",
+  "sla_availability": "99.5%",
+  "sla_latency_ms": 100,
+  "categories_included": ["CAT_02_QUEUE"],
+  "modules_included": ["MOD_02_QUEUE_OPS","MOD_02_QUEUE_ADVANCED"],
+  "dependencies": [],
+  "runtime_requirements": {
+    "node_version": ">=18.0.0",
+    "memory_mb": 1024,
+    "cpu_cores": 1,
+    "storage_gb": 20
+  },
+  "security_profile": "ENTERPRISE",
+  "compliance_certifications": ["DO-178C_LEVEL_C", "IEC-61508_SIL_2", "ISO-26262_ASIL_B"],
+  "digest": "{{DIGEST_SHA256}}",
+  "sha256_digest": "{{SHA256_DIGEST}}",
+  "is_exportable": true,
+  "version_locked": true,
+  "signing_key_id": "{{SIGNING_KEY_ID}}"
+}

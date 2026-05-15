@@ -1,0 +1,185 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "fault_tree_analysis",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-FTA-001",
+    "design_id": "DSN-FTA-001",
+    "test_id": "TST-FTA-001"
+  },
+  "fault_tree_analysis": {
+    "document_id": "FTA-DOMENA02-1.0.0",
+    "title_sl": "Analiza drevesa napak za zaledne sisteme",
+    "revision": "1.0.0",
+    "status": "ACTIVE",
+    "fault_trees": [
+      {
+        "tree_id": "FT-02-001",
+        "top_event": {
+          "event_id": "TE-02-001",
+          "name_sl": "Popolna nedostopnost zalednega sistema",
+          "description_sl": "Zaledni sistem je popolnoma nedostopen za vse uporabnike",
+          "severity": "CATASTROPHIC",
+          "probability": "1.0E-6"
+        },
+        "gates": [
+          {
+            "gate_id": "G-02-001",
+            "type": "OR",
+            "name_sl": "Vzroki za nedostopnost",
+            "inputs": ["G-02-002", "G-02-003", "BE-02-001"]
+          },
+          {
+            "gate_id": "G-02-002",
+            "type": "AND",
+            "name_sl": "Odpoved vseh API instanc",
+            "inputs": ["BE-02-002", "BE-02-003", "BE-02-004"]
+          },
+          {
+            "gate_id": "G-02-003",
+            "type": "OR",
+            "name_sl": "Odpoved podatkovne plasti",
+            "inputs": ["BE-02-005", "BE-02-006"]
+          }
+        ],
+        "basic_events": [
+          {
+            "event_id": "BE-02-001",
+            "name_sl": "Odpoved omrezne infrastrukture",
+            "probability": "1.0E-5",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-9"
+          },
+          {
+            "event_id": "BE-02-002",
+            "name_sl": "Odpoved primarne API instance",
+            "probability": "1.0E-4",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-8"
+          },
+          {
+            "event_id": "BE-02-003",
+            "name_sl": "Odpoved sekundarne API instance",
+            "probability": "1.0E-4",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-8"
+          },
+          {
+            "event_id": "BE-02-004",
+            "name_sl": "Odpoved terciarne API instance",
+            "probability": "1.0E-4",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-8"
+          },
+          {
+            "event_id": "BE-02-005",
+            "name_sl": "Odpoved primarne podatkovne baze",
+            "probability": "1.0E-5",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-9"
+          },
+          {
+            "event_id": "BE-02-006",
+            "name_sl": "Odpoved replike podatkovne baze",
+            "probability": "1.0E-5",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-9"
+          }
+        ],
+        "minimal_cut_sets": [
+          {"mcs_id": "MCS-02-001", "events": ["BE-02-001"], "probability": "1.0E-5"},
+          {"mcs_id": "MCS-02-002", "events": ["BE-02-002", "BE-02-003", "BE-02-004"], "probability": "1.0E-12"},
+          {"mcs_id": "MCS-02-003", "events": ["BE-02-005"], "probability": "1.0E-5"},
+          {"mcs_id": "MCS-02-004", "events": ["BE-02-006"], "probability": "1.0E-5"}
+        ],
+        "hazard_refs": ["HAZ-02-042", "HAZ-02-105"]
+      },
+      {
+        "tree_id": "FT-02-002",
+        "top_event": {
+          "event_id": "TE-02-002",
+          "name_sl": "Varnostna krsitev - nepooblascen dostop",
+          "description_sl": "Nepooblascen uporabnik pridobi dostop do zascitenih virov",
+          "severity": "CATASTROPHIC",
+          "probability": "1.0E-7"
+        },
+        "gates": [
+          {
+            "gate_id": "G-02-010",
+            "type": "OR",
+            "name_sl": "Vzroki za nepooblascen dostop",
+            "inputs": ["G-02-011", "G-02-012", "BE-02-010"]
+          },
+          {
+            "gate_id": "G-02-011",
+            "type": "AND",
+            "name_sl": "Kompromitacija avtentikacije",
+            "inputs": ["BE-02-011", "BE-02-012"]
+          },
+          {
+            "gate_id": "G-02-012",
+            "type": "OR",
+            "name_sl": "Obvod avtorizacije",
+            "inputs": ["BE-02-013", "BE-02-014"]
+          }
+        ],
+        "basic_events": [
+          {
+            "event_id": "BE-02-010",
+            "name_sl": "Uhajanje poverilnic",
+            "probability": "1.0E-6",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-10"
+          },
+          {
+            "event_id": "BE-02-011",
+            "name_sl": "Slabost JWT algoritma",
+            "probability": "1.0E-8",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-12"
+          },
+          {
+            "event_id": "BE-02-012",
+            "name_sl": "Kompromitacija podpisnega kljuca",
+            "probability": "1.0E-7",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-11"
+          },
+          {
+            "event_id": "BE-02-013",
+            "name_sl": "Napaka v RBAC logiki",
+            "probability": "1.0E-6",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-10"
+          },
+          {
+            "event_id": "BE-02-014",
+            "name_sl": "SQL injection uspesen",
+            "probability": "1.0E-7",
+            "exposure_time_hours": 8760,
+            "failure_rate": "1.14E-11"
+          }
+        ],
+        "minimal_cut_sets": [
+          {"mcs_id": "MCS-02-010", "events": ["BE-02-010"], "probability": "1.0E-6"},
+          {"mcs_id": "MCS-02-011", "events": ["BE-02-011", "BE-02-012"], "probability": "1.0E-15"},
+          {"mcs_id": "MCS-02-012", "events": ["BE-02-013"], "probability": "1.0E-6"},
+          {"mcs_id": "MCS-02-013", "events": ["BE-02-014"], "probability": "1.0E-7"}
+        ],
+        "hazard_refs": ["HAZ-02-022", "HAZ-02-089"]
+      }
+    ],
+    "analysis_summary": {
+      "total_fault_trees": 2,
+      "total_basic_events": 12,
+      "total_minimal_cut_sets": 8,
+      "system_unavailability": "2.1E-5",
+      "safety_integrity_level": "SIL_4",
+      "compliance_status": "COMPLIANT"
+    }
+  }
+}

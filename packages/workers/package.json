@@ -1,0 +1,13 @@
+{
+  "name": "NexGen-workers",
+  "version": "1.0.0",
+  "description": "Background workers for NexGen",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "pg": "^8.11.0"
+  }
+}

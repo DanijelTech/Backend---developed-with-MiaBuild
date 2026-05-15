@@ -1,0 +1,35 @@
+{
+  "buildType": "https://mia.build/provenance/v1",
+  "builder": {
+    "id": "https://mia.build",
+    "version": "1.0.0"
+  },
+  "invocation": {
+    "configSource": "dialect:DOMENA_02",
+    "parameters": {
+      "profileId": "enterprise",
+      "businessLogicMode": "zip-run-use",
+      "includeOfflineBundle": "false",
+      "includeSeedData": "false",
+      "includeAdminUI": "true"
+    }
+  },
+  "materials": [
+    {
+      "uri": "mia:spec:NexGen",
+      "digest": {
+        "sha256": "5bb47414fae401dd610f2de1327315963f6a502c389a9ede4887f4dddfd2668b"
+      }
+    }
+  ],
+  "metadata": {
+    "buildStartedOn": "2024-12-24T00:00:00.000000Z",
+    "buildFinishedOn": "2024-12-24T00:00:00.000000Z",
+    "completeness": {
+      "parameters": true,
+      "environment": true,
+      "materials": true
+    },
+    "reproducible": true
+  }
+}

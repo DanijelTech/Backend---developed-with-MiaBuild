@@ -1,0 +1,60 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "GOLD_BACKEND-sbom",
+  "documentNamespace": "https://miabuild.io/spdx/DOMENA_02/GOLD_BACKEND/1.0.0",
+  "creationInfo": {
+    "created": "{{DATUM_GENERACIJE}}",
+    "creators": [
+      "Tool: MIABUILD-Generator-1.0.0",
+      "Organization: MIABUILD"
+    ],
+    "licenseListVersion": "3.19"
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-GOLD_BACKEND",
+      "name": "GOLD_BACKEND",
+      "versionInfo": "1.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "{{VERIFICATION_CODE}}"
+      },
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "{{SHA256_CHECKSUM}}"
+        }
+      ],
+      "supplier": "Organization: MIABUILD",
+      "originator": "Organization: MIABUILD",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "SECURITY",
+          "referenceType": "cpe23Type",
+          "referenceLocator": "cpe:2.3:a:miabuild:GOLD_BACKEND:1.0.0:*:*:*:*:*:*:*"
+        }
+      ],
+      "annotations": [
+        {
+          "annotationDate": "{{DATUM_GENERACIJE}}",
+          "annotationType": "OTHER",
+          "annotator": "Tool: MIABUILD-Compliance",
+          "comment": "DO-178C Level A, IEC-61508 SIL 4, ISO-26262 ASIL D, MIL-STD-882E compliant"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relatedSpdxElement": "SPDXRef-Package-GOLD_BACKEND",
+      "relationshipType": "DESCRIBES"
+    }
+  ]
+}

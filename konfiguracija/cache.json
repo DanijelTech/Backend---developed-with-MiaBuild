@@ -1,0 +1,122 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "cache_configuration",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-CFG-CACHE-001",
+    "design_id": "DSN-CFG-CACHE-001",
+    "test_id": "TST-CFG-CACHE-001",
+    "function_id": "FN_02_CACHE_GET"
+  },
+  "cache": {
+    "provider": "redis",
+    "cluster": {
+      "enabled": true,
+      "nodes": [
+        {
+          "host": "{{REDIS_NODE_1_HOST}}",
+          "port": 6379,
+          "role": "primary"
+        },
+        {
+          "host": "{{REDIS_NODE_2_HOST}}",
+          "port": 6379,
+          "role": "replica"
+        },
+        {
+          "host": "{{REDIS_NODE_3_HOST}}",
+          "port": 6379,
+          "role": "replica"
+        }
+      ],
+      "function_id": "FN_02_CACHE_DISTRIBUTED"
+    },
+    "connection": {
+      "password": "{{REDIS_PASSWORD}}",
+      "database": 0,
+      "tls": {
+        "enabled": true,
+        "ca_cert_path": "{{REDIS_CA_CERT_PATH}}"
+      },
+      "connect_timeout_ms": 5000,
+      "command_timeout_ms": 1000,
+      "retry_attempts": 3,
+      "retry_delay_ms": 100
+    },
+    "pool": {
+      "min_connections": 5,
+      "max_connections": 50,
+      "idle_timeout_ms": 30000,
+      "function_id": "FN_02_CACHE_GET"
+    },
+    "defaults": {
+      "ttl_seconds": 3600,
+      "max_memory_policy": "allkeys-lru",
+      "key_prefix": "{{APP_NAME}}:",
+      "serialization": "json"
+    },
+    "strategies": {
+      "session": {
+        "ttl_seconds": 86400,
+        "prefix": "session:",
+        "function_id": "FN_02_CACHE_SET"
+      },
+      "api_response": {
+        "ttl_seconds": 300,
+        "prefix": "api:",
+        "function_id": "FN_02_CACHE_SET"
+      },
+      "database_query": {
+        "ttl_seconds": 60,
+        "prefix": "db:",
+        "function_id": "FN_02_CACHE_SET"
+      },
+      "rate_limit": {
+        "ttl_seconds": 60,
+        "prefix": "rl:",
+        "function_id": "FN_02_RATE_LIMIT"
+      }
+    },
+    "invalidation": {
+      "strategy": "tag_based",
+      "broadcast_enabled": true,
+      "function_id": "FN_02_CACHE_INVALIDATE"
+    },
+    "warming": {
+      "enabled": true,
+      "on_startup": true,
+      "schedule": "0 */6 * * *",
+      "function_id": "FN_02_CACHE_WARM"
+    },
+    "monitoring": {
+      "metrics_enabled": true,
+      "hit_rate_threshold": 0.8,
+      "memory_threshold_percent": 80,
+      "function_id": "FN_02_METRIC_GAUGE"
+    }
+  },
+  "sla_tiers": {
+    "PLATINUM": {
+      "cluster_nodes": 6,
+      "max_connections": 100,
+      "command_timeout_ms": 500,
+      "replication_factor": 2
+    },
+    "GOLD": {
+      "cluster_nodes": 3,
+      "max_connections": 50,
+      "command_timeout_ms": 1000,
+      "replication_factor": 1
+    },
+    "SILVER": {
+      "cluster_nodes": 1,
+      "max_connections": 20,
+      "command_timeout_ms": 2000,
+      "replication_factor": 0
+    }
+  }
+}

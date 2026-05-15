@@ -1,0 +1,69 @@
+{
+  "$schema": "https://mia.build/schemas/logging.json",
+  "version": "1.0.0",
+  "project": "NexGen",
+  "domain": "Zaledni sistemi",
+  "compliance": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+  "meta_atom": "OBS_001",
+  
+  "logging": {
+    "level": "INFO",
+    "format": "json",
+    "timestamp": {
+      "format": "ISO8601",
+      "timezone": "UTC"
+    },
+    "output": {
+      "stdout": true,
+      "file": {
+        "enabled": true,
+        "path": "logs/app.log",
+        "maxSize": "100MB",
+        "maxFiles": 10,
+        "compress": true
+      }
+    },
+    "fields": {
+      "service": "NexGen",
+      "version": "1.0.0",
+      "environment": "production"
+    },
+    "redaction": {
+      "enabled": true,
+      "patterns": [
+        "password",
+        "token",
+        "secret",
+        "apiKey",
+        "authorization"
+      ]
+    },
+    "sampling": {
+      "enabled": false,
+      "rate": 1.0
+    }
+  },
+  
+  "levels": {
+    "DEBUG": {
+      "enabled": false,
+      "color": "gray"
+    },
+    "INFO": {
+      "enabled": true,
+      "color": "green"
+    },
+    "WARN": {
+      "enabled": true,
+      "color": "yellow"
+    },
+    "ERROR": {
+      "enabled": true,
+      "color": "red"
+    },
+    "FATAL": {
+      "enabled": true,
+      "color": "magenta"
+    }
+  }
+}

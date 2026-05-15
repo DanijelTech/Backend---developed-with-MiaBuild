@@ -1,0 +1,116 @@
+# ==============================================================================
+# ArgoCD Application za NexGen
+# ==============================================================================
+# @author MIA BUILD
+# @version 1.0.0
+# @date 2024-12-24
+# @domain Zaledni sistemi
+#
+# @compliance DO-178C, IEC-61508, ISO-26262, MIL-STD-882E
+# @meta_atom DEP_004 - GitOps
+# ==============================================================================
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: NexGen
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: NexGen
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/managed-by: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  
+  source:
+    repoURL: https://github.com/organization/NexGen.git
+    targetRevision: HEAD
+    path: infrastruktura
+    
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-production.yaml
+      parameters:
+        - name: image.tag
+          value: "1.0.0"
+        - name: replicaCount
+          value: "3"
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: NexGen
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+  
+  revisionHistoryLimit: 10
+  
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: NexGen-project
+  namespace: argocd
+spec:
+  description: "NexGen project"
+  
+  sourceRepos:
+    - https://github.com/organization/NexGen.git
+  
+  destinations:
+    - namespace: NexGen
+      server: https://kubernetes.default.svc
+    - namespace: NexGen-staging
+      server: https://kubernetes.default.svc
+  
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+    - group: 'rbac.authorization.k8s.io'
+      kind: ClusterRole
+    - group: 'rbac.authorization.k8s.io'
+      kind: ClusterRoleBinding
+  
+  namespaceResourceBlacklist:
+    - group: ''
+      kind: ResourceQuota
+    - group: ''
+      kind: LimitRange
+  
+  roles:
+    - name: developer
+      description: Developer role
+      policies:
+        - p, proj:NexGen-project:developer, applications, get, NexGen-project/*, allow
+        - p, proj:NexGen-project:developer, applications, sync, NexGen-project/*, allow
+      groups:
+        - developers
+    
+    - name: admin
+      description: Admin role
+      policies:
+        - p, proj:NexGen-project:admin, applications, *, NexGen-project/*, allow
+      groups:
+        - admins

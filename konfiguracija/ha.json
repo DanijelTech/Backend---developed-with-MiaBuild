@@ -1,0 +1,77 @@
+{
+  "$schema": "https://mia.build/schemas/ha.json",
+  "version": "1.0.0",
+  "project": "NexGen",
+  "domain": "Zaledni sistemi",
+  "compliance": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+  "meta_atom": "REL_003",
+  
+  "highAvailability": {
+    "enabled": true,
+    "replicas": 3,
+    "minReplicas": 2,
+    "maxReplicas": 10
+  },
+  
+  "loadBalancing": {
+    "algorithm": "round-robin",
+    "healthCheck": {
+      "enabled": true,
+      "path": "/health",
+      "interval": 10000,
+      "timeout": 5000,
+      "unhealthyThreshold": 3,
+      "healthyThreshold": 2
+    },
+    "sessionAffinity": {
+      "enabled": false,
+      "type": "cookie",
+      "ttl": 3600
+    }
+  },
+  
+  "healthCheck": {
+    "liveness": {
+      "path": "/health/live",
+      "initialDelaySeconds": 10,
+      "periodSeconds": 10,
+      "timeoutSeconds": 5,
+      "failureThreshold": 3
+    },
+    "readiness": {
+      "path": "/health/ready",
+      "initialDelaySeconds": 5,
+      "periodSeconds": 5,
+      "timeoutSeconds": 3,
+      "failureThreshold": 3
+    },
+    "startup": {
+      "path": "/health/startup",
+      "initialDelaySeconds": 0,
+      "periodSeconds": 5,
+      "timeoutSeconds": 3,
+      "failureThreshold": 30
+    }
+  },
+  
+  "autoscaling": {
+    "enabled": true,
+    "metrics": [
+      {
+        "type": "cpu",
+        "targetAverageUtilization": 70
+      },
+      {
+        "type": "memory",
+        "targetAverageUtilization": 80
+      }
+    ],
+    "scaleDownStabilizationSeconds": 300,
+    "scaleUpStabilizationSeconds": 60
+  },
+  
+  "podDisruptionBudget": {
+    "minAvailable": 1,
+    "maxUnavailable": null
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://mia.build/schemas/tracing.json",
+  "version": "1.0.0",
+  "project": "NexGen",
+  "domain": "Zaledni sistemi",
+  "compliance": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+  "meta_atom": "OBS_003",
+  
+  "tracing": {
+    "enabled": true,
+    "serviceName": "NexGen",
+    "samplingRate": 1.0,
+    "propagation": "w3c"
+  },
+  
+  "exporter": {
+    "type": "otlp",
+    "endpoint": "http://localhost:4318/v1/traces",
+    "headers": {},
+    "compression": "gzip",
+    "timeout": 10000
+  },
+  
+  "instrumentation": {
+    "http": {
+      "enabled": true,
+      "captureHeaders": true,
+      "captureBody": false
+    },
+    "database": {
+      "enabled": true,
+      "captureStatements": true
+    },
+    "messaging": {
+      "enabled": true
+    }
+  },
+  
+  "attributes": {
+    "service.name": "NexGen",
+    "service.version": "1.0.0",
+    "deployment.environment": "production"
+  },
+  
+  "sampling": {
+    "type": "parentbased_traceidratio",
+    "ratio": 1.0,
+    "rules": []
+  }
+}

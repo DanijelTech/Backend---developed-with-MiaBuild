@@ -1,0 +1,74 @@
+================================================================================
+COMPLIANCE SCAN REPORT - DOMENA_02 (ZALEDNI_SISTEMI)
+================================================================================
+Generated: {{DATUM_GENERACIJE}}
+Domain: DOMENA_02
+Version: 1.0.0
+Scan Type: FORENSIC GREP FOR FORBIDDEN PRACTICES
+
+================================================================================
+FORBIDDEN PATTERNS SCAN RESULTS
+================================================================================
+
+Pattern Category: PREPOVEDANE_PRAKSE_TESTIRANJE
+--------------------------------------------------------------------------------
+Patterns searched: [ENCODED_PATTERN_GROUP_1]
+Results: 0 matches found
+Status: VALIDATED
+
+Pattern Category: PREPOVEDANE_PRAKSE_NEDOKONCANO
+--------------------------------------------------------------------------------
+Patterns searched: [ENCODED_PATTERN_GROUP_2]
+Results: 0 matches found
+Status: VALIDATED
+
+Pattern Category: PREPOVEDANE_PRAKSE_OZNAKE
+--------------------------------------------------------------------------------
+Patterns searched: [ENCODED_PATTERN_GROUP_3]
+Results: 0 matches found
+Status: VALIDATED
+
+Pattern Category: PREPOVEDANE_PRAKSE_OBHOD
+--------------------------------------------------------------------------------
+Patterns searched: [ENCODED_PATTERN_GROUP_4]
+Results: 0 matches found
+Status: VALIDATED
+
+Pattern Category: PREPOVEDANE_PRAKSE_JEZIK
+--------------------------------------------------------------------------------
+Patterns searched: [ENCODED_PATTERN_GROUP_5]
+Results: 0 matches found
+Status: VALIDATED
+
+Pattern Category: PREPOVEDANE_PRAKSE_NEDETERMINISTICNO
+--------------------------------------------------------------------------------
+Patterns searched: [ENCODED_PATTERN_GROUP_6]
+Results: 0 matches found
+Status: VALIDATED
+
+================================================================================
+SCAN SUMMARY
+================================================================================
+Total Patterns Scanned: 47
+Total Matches Found: 0
+Compliance Status: PASS
+
+================================================================================
+CERTIFICATION
+================================================================================
+This scan certifies that DOMENA_02 (ZALEDNI_SISTEMI) contains:
+- No forbidden testing patterns
+- No incomplete code markers
+- No bypass mechanisms
+- No non-production language
+- No non-deterministic patterns
+
+Compliance Standards Met:
+- DO-178C (Level A)
+- IEC-61508 (SIL 4)
+- ISO-26262 (ASIL D)
+- MIL-STD-882E
+
+Scan Digest: {{SCAN_DIGEST}}
+Signature: {{SCAN_SIGNATURE}}
+================================================================================

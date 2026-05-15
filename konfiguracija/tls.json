@@ -1,0 +1,49 @@
+{
+  "$schema": "https://mia.build/schemas/tls.json",
+  "version": "1.0.0",
+  "project": "NexGen",
+  "domain": "Zaledni sistemi",
+  "compliance": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+  "meta_atom": "SEC_004",
+  
+  "tls": {
+    "enabled": true,
+    "minVersion": "TLSv1.2",
+    "maxVersion": "TLSv1.3",
+    "preferServerCipherSuites": true
+  },
+  
+  "cipherSuites": [
+    "TLS_AES_256_GCM_SHA384",
+    "TLS_CHACHA20_POLY1305_SHA256",
+    "TLS_AES_128_GCM_SHA256",
+    "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+    "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+    "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+  ],
+  
+  "certificates": {
+    "cert": "/etc/ssl/certs/server.crt",
+    "key": "/etc/ssl/private/server.key",
+    "ca": "/etc/ssl/certs/ca.crt"
+  },
+  
+  "clientAuth": {
+    "enabled": false,
+    "mode": "optional",
+    "trustedCAs": []
+  },
+  
+  "hsts": {
+    "enabled": true,
+    "maxAge": 31536000,
+    "includeSubDomains": true,
+    "preload": true
+  },
+  
+  "ocsp": {
+    "stapling": true,
+    "mustStaple": false
+  }
+}

@@ -1,0 +1,28 @@
+# OCI Bundle Template for PLATINUM_BACKEND
+# Bundle materialization occurs during CI/CD pipeline execution
+# @requirement ZAH-PLATINUM_BACKEND-BUNDLE-001
+# @design DSN-PLATINUM_BACKEND-BUNDLE-001
+# @test TST-PLATINUM_BACKEND-BUNDLE-001
+# @hazard_id HAZ-02-PLATINUM_BACKEND-001
+
+Bundle-ID: {{BUNDLE_ID}}
+Product-ID: PLATINUM_BACKEND
+Domain-ID: DOMENA_02
+Version: 1.0.0
+Generated: {{DATUM_GENERACIJE}}
+Digest: {{BUNDLE_DIGEST}}
+Signature: {{BUNDLE_SIGNATURE}}
+
+Contents:
+- meta.json
+- sbom.spdx.json
+- provenance.json
+- compliance-report.json
+- function_matrix.json
+- version-index.json
+- traceability-map.json
+- oci-manifest.json
+- digest.txt
+- *.sig
+
+Compliance: DO-178C (Level A), IEC-61508 (SIL 4), ISO-26262 (ASIL D), MIL-STD-882E

@@ -1,0 +1,51 @@
+{
+  "name": "{{IME_PROJEKTA_SLUG}}",
+  "version": "1.0.0",
+  "description": "MIA BUILD project: NexGen - Domena: Zaledni sistemi",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "domain": "ZALEDNI_SISTEMI",
+  "domainInfo": {
+    "name": "Zaledni sistemi",
+    "description": "Strezniška logika in API-ji",
+    "keywords": ["REST", "GraphQL", "gRPC", "middleware", "controller"]
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src",
+    "verify": "npm run typecheck && npm run lint",
+    "security:scan": "trivy fs .",
+    "security:sbom": "syft . -o cyclonedx-json > sbom.json",
+    "security:sign": "cosign sign-blob --key cosign.key dist/index.js"
+  },
+  "keywords": [
+    "Zaledni sistemi",
+    "ZALEDNI_SISTEMI",
+    "Zaledni sistemi",
+    "REST", "GraphQL", "gRPC", "middleware", "controller"
+  ],
+  "author": "MIA BUILD",
+  "license": "MIT",
+  "dependencies": {
+    "@mia/core": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "mia": {
+    "domena": "ZALEDNI_SISTEMI",
+    "domenaNaziv": "Zaledni sistemi",
+    "domenaPodatki": {
+      "kategorije": ["API razvoj","Vmesna programska oprema"],
+      "moduli": ["Koncne tocke","Shema","JWT"],
+      "kljucneBesede": ["REST","GraphQL","gRPC","middleware","controller"]
+    }
+  }
+}

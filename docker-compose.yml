@@ -1,0 +1,96 @@
+# ==============================================================================
+# Docker Compose za NexGen
+# ==============================================================================
+# @author MIA BUILD
+# @version 1.0.0
+# @date 2024-12-24
+# @domain Zaledni sistemi
+#
+# @compliance DO-178C, IEC-61508, ISO-26262, MIL-STD-882E
+# @meta_atom DEP_001 - Containerization
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # Glavna aplikacija
+  # ----------------------------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: NexGen:1.0.0
+    container_name: NexGen-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - app-network
+    depends_on:
+      - redis
+    volumes:
+      - app-logs:/app/logs
+
+  # ----------------------------------------------------------------------------
+  # Redis (cache/session store)
+  # ----------------------------------------------------------------------------
+  redis:
+    image: redis:7.2-alpine
+    container_name: NexGen-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app-network
+    volumes:
+      - redis-data:/data
+
+  # ----------------------------------------------------------------------------
+  # Prometheus (metrics)
+  # ----------------------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus:v2.48.0
+    container_name: NexGen-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./konfiguracija/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - app-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.enable-lifecycle'
+
+# ==============================================================================
+# Networks
+# ==============================================================================
+networks:
+  app-network:
+    driver: bridge
+
+# ==============================================================================
+# Volumes
+# ==============================================================================
+volumes:
+  app-logs:
+  redis-data:
+  prometheus-data:

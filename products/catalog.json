@@ -1,0 +1,244 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "product_catalog",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-CAT-001",
+    "design_id": "DSN-CAT-001",
+    "test_id": "TST-CAT-001"
+  },
+  "catalog": {
+    "domain_id": "DOMENA_02",
+    "domain_name_sl": "Zaledni sistemi",
+    "domain_description_sl": "Strezniška logika in API-ji",
+    "total_products": 40,
+    "total_categories": 10,
+    "total_functions": 131
+  },
+  "domain_hierarchy_path": "knowbank/paketi/DOMENA_02",
+  "products": {
+    "integrated": [
+      {
+        "product_id": "ENTERPRISE_BACKEND_PLATFORM",
+        "name_sl": "Podjetniška zaledna platforma",
+        "type": "INTEGRATED",
+        "sla_tiers": ["PLATINUM", "GOLD", "SILVER"],
+        "categories_included": ["CAT_02_API", "CAT_02_MIDDLEWARE", "CAT_02_DATABASE", "CAT_02_CACHE", "CAT_02_QUEUE", "CAT_02_SECURITY", "CAT_02_JOBS", "CAT_02_GATEWAY", "CAT_02_OBSERVABILITY", "CAT_02_COMPLIANCE"],
+        "status": "ACTIVE"
+      }
+    ],
+    "category_packages": [
+      {
+        "product_id": "REST_API_DEVELOPMENT_KIT",
+        "name_sl": "Komplet za razvoj REST API",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_API",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "GRAPHQL_DEVELOPMENT_SUITE",
+        "name_sl": "Zbirka za razvoj GraphQL",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_API",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "AUTHENTICATION_AUTHORIZATION_SUITE",
+        "name_sl": "Zbirka za avtentikacijo in avtorizacijo",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_SECURITY",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "DATABASE_ACCESS_LAYER",
+        "name_sl": "Plast za dostop do podatkovne baze",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_DATABASE",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "MESSAGE_QUEUE_PLATFORM",
+        "name_sl": "Platforma za sporocilne vrste",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_QUEUE",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "CACHING_INFRASTRUCTURE_KIT",
+        "name_sl": "Komplet za predpomnilniško infrastrukturo",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_CACHE",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "BACKGROUND_JOBS_FRAMEWORK",
+        "name_sl": "Ogrodje za ozadna opravila",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_JOBS",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "API_GATEWAY_SUITE",
+        "name_sl": "Zbirka za API prehod",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_GATEWAY",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "MICROSERVICES_TOOLKIT",
+        "name_sl": "Orodja za mikrostoritve",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_API",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "SERVERLESS_FUNCTIONS_KIT",
+        "name_sl": "Komplet za brezstrezniške funkcije",
+        "type": "CATEGORY_PACKAGE",
+        "primary_category": "CAT_02_API",
+        "status": "ACTIVE"
+      }
+    ],
+    "scenario_products": [
+      {
+        "product_id": "SAAS_BACKEND_FOUNDATION",
+        "name_sl": "Temelj za SaaS zaledni sistem",
+        "type": "SCENARIO",
+        "scenario": "Multi-tenant SaaS",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "REALTIME_API_PLATFORM",
+        "name_sl": "Platforma za realnočasovni API",
+        "type": "SCENARIO",
+        "scenario": "WebSocket, SSE, GraphQL subscriptions",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "HIGH_THROUGHPUT_API",
+        "name_sl": "Visoko prepustni API",
+        "type": "SCENARIO",
+        "scenario": "Rate limiting, caching, load balancing",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "SECURE_FINANCIAL_BACKEND",
+        "name_sl": "Varen finančni zaledni sistem",
+        "type": "SCENARIO",
+        "scenario": "PCI-DSS, encryption, audit logging",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "IOT_BACKEND_PLATFORM",
+        "name_sl": "Platforma za IoT zaledni sistem",
+        "type": "SCENARIO",
+        "scenario": "MQTT, device management, telemetry",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "ECOMMERCE_BACKEND",
+        "name_sl": "Zaledni sistem za e-trgovino",
+        "type": "SCENARIO",
+        "scenario": "Inventory, payments, orders",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "HEALTHCARE_BACKEND",
+        "name_sl": "Zaledni sistem za zdravstvo",
+        "type": "SCENARIO",
+        "scenario": "HIPAA, HL7, FHIR",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "ANALYTICS_BACKEND",
+        "name_sl": "Zaledni sistem za analitiko",
+        "type": "SCENARIO",
+        "scenario": "Data pipelines, aggregations, reporting",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "CONTENT_MANAGEMENT_BACKEND",
+        "name_sl": "Zaledni sistem za upravljanje vsebin",
+        "type": "SCENARIO",
+        "scenario": "CMS, media, versioning",
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "INTEGRATION_HUB",
+        "name_sl": "Integracijski vozlišče",
+        "type": "SCENARIO",
+        "scenario": "ETL, webhooks, third-party APIs",
+        "status": "ACTIVE"
+      }
+    ],
+    "sla_packages": [
+      {
+        "product_id": "PLATINUM_BACKEND",
+        "name_sl": "Platinasti zaledni sistem",
+        "type": "SLA_PACKAGE",
+        "sla_tier": "PLATINUM",
+        "availability": "99.99%",
+        "latency_p99_ms": 10,
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "GOLD_BACKEND",
+        "name_sl": "Zlati zaledni sistem",
+        "type": "SLA_PACKAGE",
+        "sla_tier": "GOLD",
+        "availability": "99.9%",
+        "latency_p99_ms": 50,
+        "status": "ACTIVE"
+      },
+      {
+        "product_id": "SILVER_BACKEND",
+        "name_sl": "Srebrni zaledni sistem",
+        "type": "SLA_PACKAGE",
+        "sla_tier": "SILVER",
+        "availability": "99.5%",
+        "latency_p99_ms": 100,
+        "status": "ACTIVE"
+      }
+    ],
+    "modular_products": [
+      {"product_id": "MOD_REST_ENDPOINTS", "name_sl": "Modul za REST koncne tocke", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_GRAPHQL_SCHEMA", "name_sl": "Modul za GraphQL shemo", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_JWT_AUTH", "name_sl": "Modul za JWT avtentikacijo", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_OAUTH2", "name_sl": "Modul za OAuth 2.0", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_RBAC", "name_sl": "Modul za RBAC", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_DATABASE_ORM", "name_sl": "Modul za ORM", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_REDIS_CACHE", "name_sl": "Modul za Redis predpomnilnik", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_RABBITMQ", "name_sl": "Modul za RabbitMQ", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_KAFKA", "name_sl": "Modul za Kafka", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_CRON_JOBS", "name_sl": "Modul za cron opravila", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_RATE_LIMITER", "name_sl": "Modul za omejevanje hitrosti", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_API_VERSIONING", "name_sl": "Modul za verzioniranje API", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_REQUEST_VALIDATION", "name_sl": "Modul za validacijo zahtev", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_RESPONSE_SERIALIZATION", "name_sl": "Modul za serializacijo odgovorov", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_ERROR_HANDLING", "name_sl": "Modul za obravnavo napak", "type": "MODULAR", "status": "ACTIVE"},
+      {"product_id": "MOD_HEALTH_CHECKS", "name_sl": "Modul za zdravstvena preverjanja", "type": "MODULAR", "status": "ACTIVE"}
+    ]
+  },
+  "function_matrix": {
+    "CAT_02_API": ["FN_02_CREATE", "FN_02_READ", "FN_02_UPDATE", "FN_02_DELETE", "FN_02_LIST", "FN_02_PATCH", "FN_02_SEARCH", "FN_02_QUERY", "FN_02_MUTATION", "FN_02_SUBSCRIPTION"],
+    "CAT_02_MIDDLEWARE": ["FN_02_SIGN", "FN_02_VERIFY", "FN_02_VALIDATE_BODY", "FN_02_VALIDATE_PARAMS", "FN_02_VALIDATE_QUERY", "FN_02_SERIALIZE", "FN_02_DESERIALIZE", "FN_02_COMPRESS", "FN_02_DECOMPRESS", "FN_02_RATE_LIMIT"],
+    "CAT_02_DATABASE": ["FN_02_DB_CONNECT", "FN_02_DB_QUERY", "FN_02_DB_TX_BEGIN", "FN_02_DB_TX_COMMIT", "FN_02_DB_TX_ROLLBACK", "FN_02_DB_MIGRATE_UP", "FN_02_DB_MIGRATE_DOWN", "FN_02_DB_SEED", "FN_02_DB_BACKUP", "FN_02_DB_RESTORE", "FN_02_DB_POOL_ACQUIRE", "FN_02_DB_POOL_RELEASE", "FN_02_DB_POOL_HEALTH", "FN_02_DB_REPLICA_READ", "FN_02_DB_SHARD_ROUTE"],
+    "CAT_02_CACHE": ["FN_02_CACHE_GET", "FN_02_CACHE_SET", "FN_02_CACHE_DELETE", "FN_02_CACHE_INVALIDATE", "FN_02_CACHE_TTL", "FN_02_CACHE_DISTRIBUTED", "FN_02_CACHE_WARM", "FN_02_CACHE_STATS", "FN_02_CACHE_FLUSH", "FN_02_CACHE_TAGS"],
+    "CAT_02_QUEUE": ["FN_02_QUEUE_PUBLISH", "FN_02_QUEUE_CONSUME", "FN_02_QUEUE_ACK", "FN_02_QUEUE_NACK", "FN_02_QUEUE_RETRY", "FN_02_QUEUE_DLQ", "FN_02_QUEUE_PRIORITY", "FN_02_QUEUE_BATCH", "FN_02_QUEUE_DELAY", "FN_02_QUEUE_STATS", "FN_02_QUEUE_PURGE", "FN_02_QUEUE_BIND"],
+    "CAT_02_SECURITY": ["FN_02_OAUTH_AUTHORIZE", "FN_02_OAUTH_TOKEN", "FN_02_OAUTH_INTROSPECT", "FN_02_OAUTH_REVOKE", "FN_02_JWT_BLACKLIST", "FN_02_RBAC_CHECK", "FN_02_RBAC_ASSIGN", "FN_02_RATE_LIMIT_CHECK", "FN_02_INPUT_SANITIZE", "FN_02_SQL_INJECTION_PREVENT", "FN_02_XSS_PREVENT", "FN_02_CORS_CONFIG", "FN_02_HELMET_HEADERS", "FN_02_CSRF_TOKEN", "FN_02_ENCRYPT", "FN_02_DECRYPT", "FN_02_HASH"],
+    "CAT_02_JOBS": ["FN_02_JOB_SCHEDULE", "FN_02_JOB_EXECUTE", "FN_02_JOB_RETRY", "FN_02_JOB_CANCEL", "FN_02_JOB_MONITOR", "FN_02_CRON_PARSE", "FN_02_CRON_VALIDATE", "FN_02_WORKER_SPAWN", "FN_02_WORKER_SCALE", "FN_02_WORKER_HEALTH"],
+    "CAT_02_GATEWAY": ["FN_02_ROUTE_MATCH", "FN_02_ROUTE_REGISTER", "FN_02_LOAD_BALANCE", "FN_02_CIRCUIT_BREAKER", "FN_02_RETRY_POLICY", "FN_02_TIMEOUT_CONFIG", "FN_02_REQUEST_TRANSFORM", "FN_02_RESPONSE_TRANSFORM", "FN_02_RATE_LIMIT_GATEWAY", "FN_02_AUTH_GATEWAY", "FN_02_CORS_GATEWAY", "FN_02_WEBSOCKET_PROXY"],
+    "CAT_02_OBSERVABILITY": ["FN_02_LOG_STRUCTURED", "FN_02_LOG_CONTEXT", "FN_02_METRIC_COUNTER", "FN_02_METRIC_GAUGE", "FN_02_METRIC_HISTOGRAM", "FN_02_TRACE_SPAN", "FN_02_TRACE_CONTEXT", "FN_02_HEALTH_CHECK", "FN_02_READINESS_PROBE", "FN_02_LIVENESS_PROBE", "FN_02_ALERT_TRIGGER", "FN_02_DASHBOARD_DATA"],
+    "CAT_02_COMPLIANCE": ["FN_02_AUDIT_LOG", "FN_02_AUDIT_QUERY", "FN_02_AUDIT_EXPORT", "FN_02_DATA_RETENTION", "FN_02_DATA_ARCHIVE", "FN_02_GDPR_EXPORT", "FN_02_GDPR_DELETE", "FN_02_PCI_ENCRYPT", "FN_02_PCI_TOKENIZE", "FN_02_HIPAA_MASK"]
+  },
+  "traceability_links": {
+    "requirements": "knowbank/paketi/DOMENA_02/requirements/",
+    "design": "knowbank/paketi/DOMENA_02/design/",
+    "tests": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/testi/",
+    "evidence": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/evidence/"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "_type": "https://in-toto.io/Statement/v0.1",
+  "subject": [
+    {
+      "name": "CONTENT_MANAGEMENT_BACKEND",
+      "digest": {
+        "sha256": "{{SHA256_DIGEST}}"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v0.2",
+  "predicate": {
+    "builder": {
+      "id": "https://miabuild.io/builder/v1"
+    },
+    "buildType": "https://miabuild.io/deterministic-build/v1",
+    "invocation": {
+      "configSource": {
+        "uri": "git+https://github.com/Lukifuki1/MIABUILD@{{GIT_REF}}",
+        "digest": {
+          "sha256": "{{CONFIG_DIGEST}}"
+        },
+        "entryPoint": "knowbank/paketi/DOMENA_02/index.json"
+      },
+      "parameters": {
+        "domain_id": "DOMENA_02",
+        "product_id": "CONTENT_MANAGEMENT_BACKEND",
+        "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"]
+      },
+      "environment": {
+        "deterministic": true,
+        "hermetic": true,
+        "reproducible": true
+      }
+    },
+    "buildConfig": {
+      "version": "1.0.0",
+      "timestamp": "{{DATUM_GENERACIJE}}",
+      "steps": [
+        {
+          "name": "validate-knowbank",
+          "command": ["npx", "ts-node", "tests/KNOWBANK_ENTERPRISE_QUALITY_GATE.test.ts", "--domain", "DOMENA_02"]
+        },
+        {
+          "name": "generate-artifacts",
+          "command": ["npx", "ts-node", "cli.ts", "build", "--domain", "DOMENA_02", "--product", "CONTENT_MANAGEMENT_BACKEND"]
+        },
+        {
+          "name": "sign-bundle",
+          "command": ["npx", "ts-node", "cli.ts", "sign", "--product", "CONTENT_MANAGEMENT_BACKEND"]
+        }
+      ]
+    },
+    "metadata": {
+      "buildInvocationId": "{{BUILD_ID}}",
+      "buildStartedOn": "{{BUILD_START}}",
+      "buildFinishedOn": "{{BUILD_END}}",
+      "completeness": {
+        "parameters": true,
+        "environment": true,
+        "materials": true
+      },
+      "reproducible": true
+    },
+    "materials": [
+      {
+        "uri": "git+https://github.com/Lukifuki1/MIABUILD@{{GIT_REF}}",
+        "digest": {
+          "sha256": "{{MATERIALS_DIGEST}}"
+        }
+      }
+    ]
+  }
+}

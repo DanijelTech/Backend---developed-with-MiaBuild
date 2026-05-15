@@ -1,0 +1,172 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "hazard_log",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-HAZ-001",
+    "design_id": "DSN-HAZ-001",
+    "test_id": "TST-HAZ-001"
+  },
+  "hazard_log": {
+    "document_id": "HAZ-LOG-DOMENA02-1.0.0",
+    "title_sl": "Register nevarnosti za zaledne sisteme",
+    "revision": "1.0.0",
+        "status": "FINALIZED",
+        "hazards": [
+      {
+        "hazard_id": "HAZ-02-001",
+        "title_sl": "Neuspela ustvaritev vira",
+        "description_sl": "Neuspela ustvaritev novega vira v sistemu lahko povzroci izgubo podatkov ali nedoslednost stanja",
+        "category": "DATA_INTEGRITY",
+        "severity": "CATASTROPHIC",
+        "probability": "REMOTE",
+        "risk_level": "HIGH",
+        "affected_functions": ["FN_02_CREATE"],
+        "mitigation_strategy": "Uporaba transakcij z atomicnim rollbackom in fail-fast pristopom",
+        "verification_method": "Testiranje robustnosti z induciranimi napakami",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.2.1", "IEC-61508-7.4.2", "ISO-26262-6.4.3"]
+      },
+      {
+        "hazard_id": "HAZ-02-002",
+        "title_sl": "Neuspelo branje podatkov",
+        "description_sl": "Neuspelo branje podatkov lahko povzroci napacne odlocitve sistema",
+        "category": "DATA_AVAILABILITY",
+        "severity": "HAZARDOUS",
+        "probability": "OCCASIONAL",
+        "risk_level": "HIGH",
+        "affected_functions": ["FN_02_READ"],
+        "mitigation_strategy": "Retry mehanizem z eksponentnim backoffom in fallback na sekundarni vir",
+        "verification_method": "Chaos engineering testiranje",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.2.2", "IEC-61508-7.4.3", "ISO-26262-6.4.4"]
+      },
+      {
+        "hazard_id": "HAZ-02-003",
+        "title_sl": "Neuspela posodobitev vira",
+        "description_sl": "Delna posodobitev lahko povzroci nedoslednost podatkov",
+        "category": "DATA_INTEGRITY",
+        "severity": "HAZARDOUS",
+        "probability": "REMOTE",
+        "risk_level": "MEDIUM",
+        "affected_functions": ["FN_02_UPDATE"],
+        "mitigation_strategy": "Graceful degradation z batch obdelavo in optimisticnim zaklepanjem",
+        "verification_method": "Testiranje konkurentnosti",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.2.3", "IEC-61508-7.4.4", "ISO-26262-6.4.5"]
+      },
+      {
+        "hazard_id": "HAZ-02-004",
+        "title_sl": "Neuspelo brisanje vira",
+        "description_sl": "Neuspelo brisanje lahko povzroci uhajanje podatkov ali krsitev zasebnosti",
+        "category": "DATA_PRIVACY",
+        "severity": "CATASTROPHIC",
+        "probability": "IMPROBABLE",
+        "risk_level": "MEDIUM",
+        "affected_functions": ["FN_02_DELETE"],
+        "mitigation_strategy": "Circuit breaker vzorec s soft delete podporo",
+        "verification_method": "Testiranje skladnosti z GDPR",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.2.4", "IEC-61508-7.4.5", "ISO-26262-6.4.6"]
+      },
+      {
+        "hazard_id": "HAZ-02-022",
+        "title_sl": "Kompromitiran JWT token",
+        "description_sl": "Kompromitiran ali ponarejen JWT token lahko omogoci nepooblascen dostop",
+        "category": "SECURITY",
+        "severity": "CATASTROPHIC",
+        "probability": "REMOTE",
+        "risk_level": "HIGH",
+        "affected_functions": ["FN_02_SIGN", "FN_02_VERIFY"],
+        "mitigation_strategy": "Uporaba mocnih kriptografskih algoritmov (RS256/ES256), kratki TTL, rotacija kljucev",
+        "verification_method": "Penetracijsko testiranje in varnostni pregled",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.3.1", "IEC-61508-7.5.1", "MIL-STD-882E-4.2"]
+      },
+      {
+        "hazard_id": "HAZ-02-042",
+        "title_sl": "Izpad povezave do podatkovne baze",
+        "description_sl": "Izpad povezave lahko povzroci nedostopnost sistema",
+        "category": "AVAILABILITY",
+        "severity": "HAZARDOUS",
+        "probability": "OCCASIONAL",
+        "risk_level": "HIGH",
+        "affected_functions": ["FN_02_DB_CONNECT", "FN_02_DB_POOL_ACQUIRE"],
+        "mitigation_strategy": "Connection pooling z zdravstvenimi preverjanji in avtomatskim ponovnim povezovanjem",
+        "verification_method": "Testiranje odpornosti z induciranimi izpadi",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.4.1", "IEC-61508-7.6.1", "ISO-26262-6.5.1"]
+      },
+      {
+        "hazard_id": "HAZ-02-071",
+        "title_sl": "Izguba sporocila v vrsti",
+        "description_sl": "Izguba sporocila lahko povzroci izgubo poslovnih transakcij",
+        "category": "DATA_INTEGRITY",
+        "severity": "HAZARDOUS",
+        "probability": "REMOTE",
+        "risk_level": "MEDIUM",
+        "affected_functions": ["FN_02_QUEUE_PUBLISH", "FN_02_QUEUE_CONSUME"],
+        "mitigation_strategy": "At-least-once dostava z DLQ in retry mehanizmom",
+        "verification_method": "Testiranje zanesljivosti sporocanja",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.5.1", "IEC-61508-7.7.1", "ISO-26262-6.6.1"]
+      },
+      {
+        "hazard_id": "HAZ-02-089",
+        "title_sl": "SQL injection napad",
+        "description_sl": "SQL injection lahko omogoci nepooblascen dostop do podatkov",
+        "category": "SECURITY",
+        "severity": "CATASTROPHIC",
+        "probability": "OCCASIONAL",
+        "risk_level": "CRITICAL",
+        "affected_functions": ["FN_02_SQL_INJECTION_PREVENT", "FN_02_DB_QUERY"],
+        "mitigation_strategy": "Parametrizirane poizvedbe, input sanitizacija, WAF",
+        "verification_method": "SAST, DAST, penetracijsko testiranje",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.6.1", "IEC-61508-7.8.1", "MIL-STD-882E-4.3"]
+      },
+      {
+        "hazard_id": "HAZ-02-105",
+        "title_sl": "Kaskadna odpoved storitev",
+        "description_sl": "Odpoved ene storitve lahko povzroci kaskadno odpoved celotnega sistema",
+        "category": "AVAILABILITY",
+        "severity": "CATASTROPHIC",
+        "probability": "REMOTE",
+        "risk_level": "HIGH",
+        "affected_functions": ["FN_02_CIRCUIT_BREAKER", "FN_02_BULKHEAD"],
+        "mitigation_strategy": "Circuit breaker vzorec z bulkhead izolacijo",
+        "verification_method": "Chaos engineering in testiranje odpornosti",
+        "status": "MITIGATED",
+        "compliance_refs": ["DO-178C-5.7.1", "IEC-61508-7.9.1", "ISO-26262-6.7.1"]
+      },
+      {
+        "hazard_id": "HAZ-02-125",
+        "title_sl": "Krsitev GDPR pri izvozu podatkov",
+        "description_sl": "Nepopoln izvoz osebnih podatkov krsi pravico do prenosljivosti",
+        "category": "COMPLIANCE",
+        "severity": "HAZARDOUS",
+        "probability": "REMOTE",
+        "risk_level": "MEDIUM",
+        "affected_functions": ["FN_02_GDPR_EXPORT"],
+        "mitigation_strategy": "Celovit izvoz vseh osebnih podatkov z verifikacijo popolnosti",
+        "verification_method": "Revizija skladnosti z GDPR",
+        "status": "MITIGATED",
+        "compliance_refs": ["GDPR-20", "ISO-27001-A.18.1"]
+      }
+    ],
+    "risk_matrix": {
+      "severity_levels": ["CATASTROPHIC", "HAZARDOUS", "MAJOR", "MINOR", "NEGLIGIBLE"],
+      "probability_levels": ["FREQUENT", "PROBABLE", "OCCASIONAL", "REMOTE", "IMPROBABLE"],
+      "risk_acceptance_criteria": {
+        "CRITICAL": "Nesprejemljivo - zahteva takojsnjo mitigacijo",
+        "HIGH": "Nezazeleno - zahteva mitigacijo pred produkcijo",
+        "MEDIUM": "Sprejemljivo z nadzorom - zahteva spremljanje",
+        "LOW": "Sprejemljivo - dokumentiraj in spremljaj"
+      }
+    }
+  }
+}

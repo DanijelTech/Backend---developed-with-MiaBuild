@@ -1,0 +1,224 @@
+{
+  "_metadata": {
+    "template_version": "1.0.0",
+    "template_type": "cia_analysis",
+    "domain_id": "DOMENA_02",
+    "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
+    "generated_at": "{{DATUM_GENERACIJE}}"
+  },
+  "_traceability": {
+    "requirement_id": "ZAH-CIA-001",
+    "design_id": "DSN-CIA-001",
+    "test_id": "TST-CIA-001"
+  },
+  "cia_analysis": {
+    "document_id": "CIA-DOMENA02-1.0.0",
+    "title_sl": "CIA analiza za zaledne sisteme",
+    "revision": "1.0.0",
+    "status": "ACTIVE",
+    "confidentiality": {
+      "classification_levels": [
+        {
+          "level": "PUBLIC",
+          "description_sl": "Javno dostopni podatki",
+          "examples": ["API dokumentacija", "Javne koncne tocke", "Statusne strani"],
+          "controls": ["Brez posebnih kontrol"]
+        },
+        {
+          "level": "INTERNAL",
+          "description_sl": "Notranji podatki organizacije",
+          "examples": ["Notranje metrike", "Konfiguracijski podatki", "Logi brez PII"],
+          "controls": ["Avtentikacija", "Osnovna avtorizacija"]
+        },
+        {
+          "level": "CONFIDENTIAL",
+          "description_sl": "Zaupni poslovni podatki",
+          "examples": ["Uporabniski podatki", "Poslovne transakcije", "API kljuci"],
+          "controls": ["Sifriranje v mirovanju", "RBAC", "Audit logging"]
+        },
+        {
+          "level": "RESTRICTED",
+          "description_sl": "Strogo omejeni podatki",
+          "examples": ["Poverilnice", "Sifrirni kljuci", "PII/PHI podatki"],
+          "controls": ["HSM za kljuce", "Maskiranje", "Sifriranje E2E", "MFA"]
+        }
+      ],
+      "data_assets": [
+        {
+          "asset_id": "DA-02-001",
+          "name_sl": "Uporabniski profili",
+          "classification": "CONFIDENTIAL",
+          "storage_location": "PostgreSQL",
+          "encryption": "AES-256-GCM",
+          "access_controls": ["RBAC", "Row-level security"],
+          "retention_days": 2555,
+          "affected_functions": ["FN_02_DB_QUERY", "FN_02_GDPR_EXPORT"]
+        },
+        {
+          "asset_id": "DA-02-002",
+          "name_sl": "Avtentikacijski tokeni",
+          "classification": "RESTRICTED",
+          "storage_location": "Redis",
+          "encryption": "AES-256-GCM",
+          "access_controls": ["Service-to-service auth", "Short TTL"],
+          "retention_days": 1,
+          "affected_functions": ["FN_02_SIGN", "FN_02_VERIFY", "FN_02_CACHE_SET"]
+        },
+        {
+          "asset_id": "DA-02-003",
+          "name_sl": "Revizijski logi",
+          "classification": "CONFIDENTIAL",
+          "storage_location": "Elasticsearch",
+          "encryption": "AES-256-GCM",
+          "access_controls": ["Append-only", "Auditor role"],
+          "retention_days": 2555,
+          "affected_functions": ["FN_02_AUDIT_LOG", "FN_02_AUDIT_QUERY"]
+        },
+        {
+          "asset_id": "DA-02-004",
+          "name_sl": "Placilni podatki",
+          "classification": "RESTRICTED",
+          "storage_location": "Tokenized vault",
+          "encryption": "AES-256-GCM + Tokenization",
+          "access_controls": ["PCI-DSS controls", "HSM"],
+          "retention_days": 2555,
+          "affected_functions": ["FN_02_PCI_ENCRYPT"]
+        }
+      ]
+    },
+    "integrity": {
+      "integrity_controls": [
+        {
+          "control_id": "IC-02-001",
+          "name_sl": "Transakcijska integriteta",
+          "description_sl": "ACID transakcije za vse kriticne operacije",
+          "implementation": "PostgreSQL transactions z izolacijo SERIALIZABLE",
+          "affected_functions": ["FN_02_DB_TX_BEGIN", "FN_02_DB_TX_COMMIT", "FN_02_DB_TX_ROLLBACK"],
+          "verification_method": "Testiranje konkurentnosti"
+        },
+        {
+          "control_id": "IC-02-002",
+          "name_sl": "Validacija vnosov",
+          "description_sl": "Stroga validacija vseh vhodnih podatkov",
+          "implementation": "JSON Schema validacija, sanitizacija",
+          "affected_functions": ["FN_02_VALIDATE_BODY", "FN_02_VALIDATE_PARAMS", "FN_02_INPUT_SANITIZE"],
+          "verification_method": "Fuzzing testiranje"
+        },
+        {
+          "control_id": "IC-02-003",
+          "name_sl": "Kriptografska integriteta",
+          "description_sl": "Digitalni podpisi za kriticne podatke",
+          "implementation": "Ed25519 podpisi, HMAC-SHA256",
+          "affected_functions": ["FN_02_SIGN", "FN_02_VERIFY"],
+          "verification_method": "Kriptografska revizija"
+        },
+        {
+          "control_id": "IC-02-004",
+          "name_sl": "Idempotentnost operacij",
+          "description_sl": "Idempotentne operacije za preprečevanje podvajanja",
+          "implementation": "Idempotency keys, deduplication",
+          "affected_functions": ["FN_02_CREATE", "FN_02_UPDATE", "FN_02_DELETE"],
+          "verification_method": "Testiranje ponovljivosti"
+        }
+      ],
+      "integrity_metrics": {
+        "data_corruption_rate": "< 1e-12",
+        "transaction_rollback_rate": "< 0.1%",
+        "validation_bypass_rate": "0%"
+      }
+    },
+    "availability": {
+      "availability_tiers": [
+        {
+          "tier": "PLATINUM",
+          "sla_percent": 99.99,
+          "max_downtime_minutes_year": 52.56,
+          "rto_minutes": 5,
+          "rpo_minutes": 1,
+          "affected_products": ["PLATINUM_BACKEND", "ENTERPRISE_BACKEND_PLATFORM"]
+        },
+        {
+          "tier": "GOLD",
+          "sla_percent": 99.9,
+          "max_downtime_minutes_year": 525.6,
+          "rto_minutes": 30,
+          "rpo_minutes": 5,
+          "affected_products": ["GOLD_BACKEND"]
+        },
+        {
+          "tier": "SILVER",
+          "sla_percent": 99.5,
+          "max_downtime_minutes_year": 2628,
+          "rto_minutes": 120,
+          "rpo_minutes": 15,
+          "affected_products": ["SILVER_BACKEND"]
+        }
+      ],
+      "availability_controls": [
+        {
+          "control_id": "AC-02-001",
+          "name_sl": "Visoka razpolozljivost",
+          "description_sl": "Multi-AZ deployment z avtomatskim failover",
+          "implementation": "Kubernetes z multi-zone scheduling",
+          "affected_functions": ["FN_02_HEALTH_CHECK", "FN_02_READINESS_PROBE", "FN_02_LIVENESS_PROBE"]
+        },
+        {
+          "control_id": "AC-02-002",
+          "name_sl": "Avtomatsko skaliranje",
+          "description_sl": "Horizontalno skaliranje na podlagi obremenitve",
+          "implementation": "Kubernetes HPA z custom metrics",
+          "affected_functions": ["FN_02_WORKER_SCALE", "FN_02_METRIC_GAUGE"]
+        },
+        {
+          "control_id": "AC-02-003",
+          "name_sl": "Circuit breaker",
+          "description_sl": "Zascita pred kaskadnimi odpovedmi",
+          "implementation": "Circuit breaker z half-open stanjem",
+          "affected_functions": ["FN_02_CIRCUIT_BREAKER", "FN_02_BULKHEAD"]
+        },
+        {
+          "control_id": "AC-02-004",
+          "name_sl": "Disaster recovery",
+          "description_sl": "Obnova po katastrofi z geo-redundanco",
+          "implementation": "Cross-region replication, automated failover",
+          "affected_functions": ["FN_02_DB_BACKUP", "FN_02_DB_RESTORE"]
+        }
+      ],
+      "availability_metrics": {
+        "mtbf_hours": 8760,
+        "mttr_minutes": 15,
+        "availability_percent": 99.99
+      }
+    },
+    "risk_assessment": {
+      "overall_risk_level": "LOW",
+      "confidentiality_risk": "LOW",
+      "integrity_risk": "LOW",
+      "availability_risk": "MEDIUM",
+      "risk_treatment_plan": [
+        {
+          "risk_id": "RISK-02-001",
+          "description_sl": "DDoS napad na API prehod",
+          "treatment": "MITIGATE",
+          "controls": ["Rate limiting", "WAF", "CDN", "Auto-scaling"],
+          "residual_risk": "LOW"
+        },
+        {
+          "risk_id": "RISK-02-002",
+          "description_sl": "Uhajanje obcutljivih podatkov",
+          "treatment": "MITIGATE",
+          "controls": ["Encryption", "Access controls", "DLP", "Monitoring"],
+          "residual_risk": "LOW"
+        }
+      ]
+    },
+    "analysis_summary": {
+      "data_assets_count": 4,
+      "integrity_controls_count": 4,
+      "availability_controls_count": 4,
+      "compliance_status": "COMPLIANT",
+      "last_review_date": "{{DATUM_GENERACIJE}}",
+      "next_review_date": "{{NASLEDNJI_PREGLED}}"
+    }
+  }
+}
