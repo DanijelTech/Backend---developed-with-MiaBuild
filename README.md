@@ -178,3 +178,27 @@ MIT
 **Avtor:** MIA BUILD
 **Leto:** 2024
 **Domena:** Zaledni sistemi
+
+---
+
+## Screenshots
+
+### 1. Home / Features
+![Home](screenshots/01-home.png)
+Glavna stran s status kartami in API end-pointi
+
+### 2. Settings
+![Settings](screenshots/02-settings.png)
+Nastavitve: API Configuration, UI Appearance, Data Storage, Notifications
+
+### 3. Documentation
+![Documentation](screenshots/03-docs.png)
+Dokumentacija: Getting Started, API Reference, Authentication, Deployment, Monitoring, Security
+
+### 4. API Endpoints
+![API](screenshots/04-api.png)
+Seznam vseh API endpointov
+
+### 5. User Management
+![Users](screenshots/05-users.png)
+Uporabniška tabela z CRUD operacijami

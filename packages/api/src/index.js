@@ -1,10 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// API JSON middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// ============ API ROUTES ============
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -127,8 +130,13 @@ app.use((err, req, res, next) => {
     });
 });
 
-// 404 handler
+// 404 handler - serve UI for non-API routes
 app.use((req, res) => {
+    // Served UI for non-API routes
+    const uiPath = path.join(__dirname, '../../ui');
+    if (!req.path.startsWith('/api') && !req.path.startsWith('/health')) {
+        return res.sendFile(path.join(uiPath, 'index.html'));
+    }
     res.status(404).json({ error: 'Not found' });
 });
 

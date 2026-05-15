@@ -361,6 +361,84 @@
             .nav { display: none; }
             .grid { grid-template-columns: 1fr; }
             .form-group { flex-direction: column; }
+            .settings-grid { grid-template-columns: 1fr; }
+            .docs-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Settings */
+        .settings-section, .docs-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .settings-section h2, .docs-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .settings-grid, .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .settings-card, .doc-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .settings-card:hover, .doc-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .settings-card h3, .doc-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .settings-card label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--gray-300);
+            margin-bottom: 0.5rem;
+        }
+        
+        .settings-card select, .settings-card input[type="color"], 
+        .settings-card input[type="number"], .settings-card input[type="checkbox"] {
+            margin-top: 0.25rem;
+        }
+        
+        .doc-card p {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+        
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .toast-success { background: var(--success); }
+        .toast-error { background: var(--danger); }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 </head>
@@ -375,7 +453,9 @@
                 <a href="#features">Features</a>
                 <a href="#api">API</a>
                 <a href="#users">Users</a>
-                <a href="https://github.com/DanijelTech/Backend---developed-with-MiaBuild">Docs</a>
+                <a href="#settings">Settings</a>
+                <a href="#docs">Docs</a>
+                <a href="https://github.com/DanijelTech/Backend---developed-with-MiaBuild">GitHub</a>
             </nav>
         </header>
 
@@ -472,6 +552,105 @@
                     </tr>
                 </tbody>
             </table>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings-section" id="settings">
+            <h2>Settings</h2>
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <h3>API Configuration</h3>
+                    <div class="form-group">
+                        <label>API Base URL</label>
+                        <input type="text" id="apiBase" class="form-input" value="/" placeholder="/">
+                    </div>
+                    <div class="form-group">
+                        <label>Environment</label>
+                        <select id="envSelect" class="form-input">
+                            <option value="development">Development</option>
+                            <option value="staging">Staging</option>
+                            <option value="production">Production</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-card">
+                    <h3>UI Appearance</h3>
+                    <div class="form-group">
+                        <label>Theme</label>
+                        <select id="themeSelect" class="form-input">
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Accent Color</label>
+                        <input type="color" id="accentColor" class="form-input" value="#6366f1">
+                    </div>
+                </div>
+                <div class="settings-card">
+                    <h3>Data Storage</h3>
+                    <div class="form-group">
+                        <label>Auto-refresh interval (seconds)</label>
+                        <input type="number" id="refreshInterval" class="form-input" value="30" min="5" max="300">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="localStorage" checked> Persist data in browser
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-card">
+                    <h3>Notifications</h3>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="notifySuccess" checked> Show success notifications
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="notifyError" checked> Show error notifications
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="soundEnabled"> Enable sound
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()" style="margin-top:1rem">Save Settings</button>
+        </section>
+
+        <!-- Documentation Section -->
+        <section class="docs-section" id="docs">
+            <h2>Documentation</h2>
+            <div class="docs-grid">
+                <div class="doc-card" onclick="showDoc('getting-started')">
+                    <h3>🚀 Getting Started</h3>
+                    <p>Quick start guide for new developers</p>
+                </div>
+                <div class="doc-card" onclick="showDoc('api-reference')">
+                    <h3>📚 API Reference</h3>
+                    <p>Complete API endpoint documentation</p>
+                </div>
+                <div class="doc-card" onclick="showDoc('authentication')">
+                    <h3>🔐 Authentication</h3>
+                    <p>JWT and OAuth2 setup guide</p>
+                </div>
+                <div class="doc-card" onclick="showDoc('deployment')">
+                    <h3>🚀 Deployment</h3>
+                    <p>Docker and Kubernetes deployment</p>
+                </div>
+                <div class="doc-card" onclick="showDoc('monitoring')">
+                    <h3>📊 Monitoring</h3>
+                    <p>Metrics and health checks</p>
+                </div>
+                <div class="doc-card" onclick="showDoc('security')">
+                    <h3>🔒 Security</h3>
+                    <p>Security best practices</p>
+                </div>
+            </div>
         </section>
 
         <footer>
@@ -572,9 +751,55 @@
         // Event listeners
         document.getElementById('addUser').addEventListener('click', addUser);
         
+        // Settings functions
+        function saveSettings() {
+            const settings = {
+                apiBase: document.getElementById('apiBase').value,
+                env: document.getElementById('envSelect').value,
+                theme: document.getElementById('themeSelect').value,
+                accentColor: document.getElementById('accentColor').value,
+                refreshInterval: document.getElementById('refreshInterval').value,
+                localStorage: document.getElementById('localStorage').checked,
+                notifySuccess: document.getElementById('notifySuccess').checked,
+                notifyError: document.getElementById('notifyError').checked,
+                soundEnabled: document.getElementById('soundEnabled').checked
+            };
+            localStorage.setItem('nexgen-settings', JSON.stringify(settings));
+            document.documentElement.style.setProperty('--primary', settings.accentColor);
+            showToast('Settings saved!', 'success');
+        }
+        
+        function loadSettings() {
+            try {
+                const s = JSON.parse(localStorage.getItem('nexgen-settings') || '{}');
+                if(s.accentColor) document.documentElement.style.setProperty('--primary', s.accentColor);
+            } catch(e) {}
+        }
+        
+        function showDoc(id) {
+            const docs = {
+                'getting-started': 'npm install && npm run dev && http://localhost:3000',
+                'api-reference': 'GET/POST/PUT/DELETE /api/v1/users',
+                'authentication': 'JWT Bearer token',
+                'deployment': 'docker build -t nexgen .',
+                'monitoring': 'GET /health for status',
+                'security': 'Use HTTPS, CORS, validation'
+            };
+            showToast(docs[id] || 'See docs', 'success');
+        }
+        
+        function showToast(msg, type) {
+            const t = document.createElement('div');
+            t.className = 'toast toast-' + type;
+            t.textContent = msg;
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 3000);
+        }
+        
         // Initialize
         fetchStatus();
         fetchUsers();
+        loadSettings();
     </script>
 </body>
 </html>
