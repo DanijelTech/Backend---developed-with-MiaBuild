@@ -4,7 +4,7 @@
     "document_type": "EVIDENCE_MANIFEST",
     "domain": "ZALEDNI_SISTEMI",
     "domain_id": "DOMENA_02",
-    "generated_at": "{{DATUM_GENERACIJE}}",
+    "generated_at": "2024-12-24T00:00:00Z",
     "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3"]
   },
   "_traceability": {
@@ -16,7 +16,7 @@
   "manifest": {
     "manifest_id": "EVID-MANIFEST-DOMENA02-1.0.0",
     "version": "1.0.0",
-    "created_at": "{{DATUM_GENERACIJE}}",
+    "created_at": "2024-12-24T00:00:00Z",
     "artifacts": {
       "sbom": {
         "path": "evidence/sbom.spdx.json",

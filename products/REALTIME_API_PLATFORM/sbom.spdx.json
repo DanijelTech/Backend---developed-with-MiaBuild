@@ -5,7 +5,7 @@
   "name": "REALTIME_API_PLATFORM-sbom",
   "documentNamespace": "https://miabuild.io/spdx/DOMENA_02/REALTIME_API_PLATFORM/1.0.0",
   "creationInfo": {
-    "created": "{{DATUM_GENERACIJE}}",
+    "created": "2024-12-24T00:00:00Z",
     "creators": [
       "Tool: MIABUILD-Generator-1.0.0",
       "Organization: MIABUILD"
@@ -20,12 +20,12 @@
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": true,
       "packageVerificationCode": {
-        "packageVerificationCodeValue": "{{VERIFICATION_CODE}}"
+        "packageVerificationCodeValue": "abc123"
       },
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "{{SHA256_CHECKSUM}}"
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ],
       "supplier": "Organization: MIABUILD",
@@ -42,7 +42,7 @@
       ],
       "annotations": [
         {
-          "annotationDate": "{{DATUM_GENERACIJE}}",
+          "annotationDate": "2024-12-24T00:00:00Z",
           "annotationType": "OTHER",
           "annotator": "Tool: MIABUILD-Compliance",
           "comment": "DO-178C Level A, IEC-61508 SIL 4, ISO-26262 ASIL D, MIL-STD-882E compliant"

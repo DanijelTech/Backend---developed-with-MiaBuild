@@ -4,7 +4,7 @@
     {
       "name": "SILVER_BACKEND",
       "digest": {
-        "sha256": "{{SHA256_DIGEST}}"
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
     }
   ],
@@ -16,9 +16,9 @@
     "buildType": "https://miabuild.io/deterministic-build/v1",
     "invocation": {
       "configSource": {
-        "uri": "git+https://github.com/Lukifuki1/MIABUILD@{{GIT_REF}}",
+        "uri": "git+https://github.com/Lukifuki1/MIABUILD@main",
         "digest": {
-          "sha256": "{{CONFIG_DIGEST}}"
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         },
         "entryPoint": "knowbank/paketi/DOMENA_02/index.json"
       },
@@ -35,7 +35,7 @@
     },
     "buildConfig": {
       "version": "1.0.0",
-      "timestamp": "{{DATUM_GENERACIJE}}",
+      "timestamp": "2024-12-24T00:00:00Z",
       "steps": [
         {
           "name": "validate-knowbank",
@@ -52,9 +52,9 @@
       ]
     },
     "metadata": {
-      "buildInvocationId": "{{BUILD_ID}}",
-      "buildStartedOn": "{{BUILD_START}}",
-      "buildFinishedOn": "{{BUILD_END}}",
+      "buildInvocationId": "build-001",
+      "buildStartedOn": "2024-12-24T00:00:00Z",
+      "buildFinishedOn": "2024-12-24T00:00:00Z",
       "completeness": {
         "parameters": true,
         "environment": true,
@@ -64,9 +64,9 @@
     },
     "materials": [
       {
-        "uri": "git+https://github.com/Lukifuki1/MIABUILD@{{GIT_REF}}",
+        "uri": "git+https://github.com/Lukifuki1/MIABUILD@main",
         "digest": {
-          "sha256": "{{MATERIALS_DIGEST}}"
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       }
     ]

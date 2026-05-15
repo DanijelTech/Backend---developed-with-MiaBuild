@@ -4,7 +4,7 @@
     "document_type": "COMPLIANCE_SNAPSHOT",
     "domain": "ZALEDNI_SISTEMI",
     "domain_id": "DOMENA_02",
-    "generated_at": "{{DATUM_GENERACIJE}}",
+    "generated_at": "2024-12-24T00:00:00Z",
     "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3", "SPDX 2.3"]
   },
   "_traceability": {
@@ -16,7 +16,7 @@
   "snapshot": {
     "snapshot_id": "COMP-SNAP-DOMENA02-1.0.0-{{TIMESTAMP}}",
     "version": "1.0.0",
-    "captured_at": "{{DATUM_GENERACIJE}}",
+    "captured_at": "2024-12-24T00:00:00Z",
     "standards_compliance": {
       "do_178c": {
         "standard_name": "DO-178C",

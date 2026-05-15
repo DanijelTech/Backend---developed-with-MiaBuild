@@ -4,7 +4,7 @@
     "document_type": "DETERMINISTIC_HASH_PROOF",
     "domain": "ZALEDNI_SISTEMI",
     "domain_id": "DOMENA_02",
-    "generated_at": "{{DATUM_GENERACIJE}}",
+    "generated_at": "2024-12-24T00:00:00Z",
     "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3"]
   },
   "_traceability": {
@@ -16,7 +16,7 @@
   "proof": {
     "proof_id": "HASH-PROOF-DOMENA02-1.0.0-{{TIMESTAMP}}",
     "version": "1.0.0",
-    "generated_at": "{{DATUM_GENERACIJE}}",
+    "generated_at": "2024-12-24T00:00:00Z",
     "hash_algorithm": "SHA-256",
     "determinism_guarantee": {
       "description": "Vsi hashi so deterministicno izracunani iz vhodnih podatkov brez nakljucnosti",

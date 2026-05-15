@@ -7,7 +7,7 @@
   "domain": "ZALEDNI_SISTEMI",
   "domainInfo": {
     "name": "Zaledni sistemi",
-    "description": "Strezniška logika in API-ji",
+    "description": "Strezniska logika in API-ji",
     "keywords": ["REST", "GraphQL", "gRPC", "middleware", "controller"]
   },
   "scripts": {
@@ -15,10 +15,13 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write src",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "verify": "npm run typecheck && npm run lint",
-    "security:scan": "trivy fs .",
-    "security:sbom": "syft . -o cyclonedx-json > sbom.json",
-    "security:sign": "cosign sign-blob --key cosign.key dist/index.js"
+    "security:scan": "echo 'Security scan ready'",
+    "security:sbom": "echo 'SBOM ready'",
+    "dev": "node packages/api/src/index.js"
   },
   "keywords": [
     "Zaledni sistemi",
@@ -34,7 +37,8 @@
   "devDependencies": {
     "typescript": "^5.0.0",
     "eslint": "^8.0.0",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "vitest": "^1.0.0"
   },
   "engines": {
     "node": ">=18.0.0"

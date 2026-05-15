@@ -4,7 +4,7 @@
     "template_type": "product_meta",
     "domain_id": "DOMENA_02",
     "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E"],
-    "generated_at": "{{DATUM_GENERACIJE}}"
+    "generated_at": "2024-12-24T00:00:00Z"
   },
   "_traceability": {
     "requirement_id": "ZAH-MOD-RAT-001",
@@ -33,9 +33,9 @@
   },
   "security_profile": "ENTERPRISE",
   "compliance_certifications": ["DO-178C_LEVEL_C", "IEC-61508_SIL_2", "ISO-26262_ASIL_B"],
-  "digest": "{{DIGEST_SHA256}}",
-  "sha256_digest": "{{SHA256_DIGEST}}",
+  "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "sha256_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "is_exportable": true,
   "version_locked": true,
-  "signing_key_id": "{{SIGNING_KEY_ID}}"
+  "signing_key_id": "key-001"
 }

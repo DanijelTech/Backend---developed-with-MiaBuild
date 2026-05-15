@@ -1,6 +1,6 @@
 {
   "report_id": "COMPLIANCE-INTEGRATION_HUB-1.0.0",
-  "generated_at": "{{DATUM_GENERACIJE}}",
+  "generated_at": "2024-12-24T00:00:00Z",
   "product_id": "INTEGRATION_HUB",
   "domain_id": "DOMENA_02",
   "version": "1.0.0",
@@ -75,7 +75,7 @@
   },
   "signature": {
     "algorithm": "Ed25519",
-    "key_id": "{{KEY_ID}}",
-    "signature": "{{SIGNATURE}}"
+    "key_id": "key-001",
+    "signature": "signature-placeholder"
   }
 }

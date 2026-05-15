@@ -25,7 +25,7 @@ ARG NODE_VERSION=20.10.0
 ARG ALPINE_VERSION=3.19
 ARG BUILD_DATE=2024-12-24
 ARG VERSION=1.0.0
-ARG VCS_REF={{COMMIT_SHA}}
+ARG VCS_REF=HEAD
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FAZA 1: Bazna slika
@@ -44,7 +44,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 # Nastavi časovni pas
-ENV TZ={{TIMEZONE}}
+ENV TZ=UTC
 
 # Ustvari ne-root uporabnika
 RUN addgroup -g 1001 -S backend && \
@@ -108,12 +108,12 @@ FROM base AS production
 LABEL org.opencontainers.image.title="NexGen"
 LABEL org.opencontainers.image.description="Zaledni sistem - Backend API"
 LABEL org.opencontainers.image.version="1.0.0"
-LABEL org.opencontainers.image.vendor="{{ORGANIZACIJA}}"
-LABEL org.opencontainers.image.source="{{REPOZITORIJ_URL}}"
-LABEL org.opencontainers.image.documentation="{{DOKUMENTACIJA_URL}}"
-LABEL org.opencontainers.image.licenses="{{LICENCA}}"
+LABEL org.opencontainers.image.vendor="MiaBuild"
+LABEL org.opencontainers.image.source="https://github.com/DanijelTech/Backend---developed-with-MiaBuild"
+LABEL org.opencontainers.image.documentation="/docs"
+LABEL org.opencontainers.image.licenses="MIT"
 LABEL backend.type="api-server"
-LABEL backend.framework="{{FRAMEWORK}}"
+LABEL backend.framework="express"
 LABEL backend.compliance="DO-178C,IEC-61508,ISO-26262,MIL-STD-882E"
 
 # Kopiraj produkcijske odvisnosti
@@ -141,7 +141,7 @@ ENV LOG_FORMAT=json
 ENV API_PREFIX=/api
 ENV API_VERSION=v1
 ENV CORS_ENABLED=true
-ENV CORS_ORIGINS={{CORS_ORIGINS}}
+ENV CORS_ORIGINS=*
 ENV RATE_LIMIT_ENABLED=true
 ENV RATE_LIMIT_MAX=1000
 ENV RATE_LIMIT_WINDOW=60000
@@ -156,7 +156,7 @@ ENV BODY_LIMIT=10mb
 ENV METRICS_ENABLED=true
 ENV METRICS_PORT=9090
 ENV TRACING_ENABLED=true
-ENV TRACING_ENDPOINT={{TRACING_ENDPOINT}}
+ENV TRACING_ENDPOINT=http://localhost:9411
 
 # Health check konfiguracija
 ENV HEALTH_CHECK_INTERVAL=30000
@@ -252,10 +252,10 @@ FROM production AS kafka-consumer
 LABEL backend.type="kafka-consumer"
 
 # Kafka specifične spremenljivke
-ENV KAFKA_BROKERS={{KAFKA_BROKERS}}
+ENV KAFKA_BROKERS=localhost:9092
 ENV KAFKA_CLIENT_ID=NexGen-consumer
 ENV KAFKA_GROUP_ID=NexGen-group
-ENV KAFKA_TOPICS={{KAFKA_TOPICS}}
+ENV KAFKA_TOPICS=nexgen-topic
 ENV KAFKA_AUTO_COMMIT=false
 ENV KAFKA_SESSION_TIMEOUT=30000
 ENV KAFKA_HEARTBEAT_INTERVAL=3000
@@ -280,10 +280,10 @@ FROM production AS rabbitmq-consumer
 LABEL backend.type="rabbitmq-consumer"
 
 # RabbitMQ specifične spremenljivke
-ENV RABBITMQ_URL={{RABBITMQ_URL}}
-ENV RABBITMQ_QUEUE={{RABBITMQ_QUEUE}}
-ENV RABBITMQ_EXCHANGE={{RABBITMQ_EXCHANGE}}
-ENV RABBITMQ_ROUTING_KEY={{RABBITMQ_ROUTING_KEY}}
+ENV RABBITMQ_URL=amqp://localhost
+ENV RABBITMQ_QUEUE=nexgen-queue
+ENV RABBITMQ_EXCHANGE=nexgen-exchange
+ENV RABBITMQ_ROUTING_KEY=nexgen-key
 ENV RABBITMQ_PREFETCH_COUNT=10
 ENV RABBITMQ_HEARTBEAT=60
 ENV RABBITMQ_CONNECTION_TIMEOUT=30000
@@ -304,8 +304,8 @@ FROM production AS redis-worker
 LABEL backend.type="redis-worker"
 
 # Redis/BullMQ specifične spremenljivke
-ENV REDIS_URL={{REDIS_URL}}
-ENV REDIS_QUEUE={{REDIS_QUEUE}}
+ENV REDIS_URL=redis://localhost
+ENV REDIS_QUEUE=nexgen-jobs
 ENV REDIS_CONCURRENCY=5
 ENV REDIS_LIMITER_MAX=100
 ENV REDIS_LIMITER_DURATION=1000
@@ -329,7 +329,7 @@ LABEL backend.type="scheduler"
 
 # Scheduler specifične spremenljivke
 ENV SCHEDULER_ENABLED=true
-ENV SCHEDULER_TIMEZONE={{TIMEZONE}}
+ENV SCHEDULER_TIMEZONE=UTC
 ENV SCHEDULER_LOCK_DURATION=30000
 
 # Zaženi scheduler
@@ -344,7 +344,7 @@ FROM production AS migration-runner
 LABEL backend.type="migration-runner"
 
 # Migration specifične spremenljivke
-ENV DATABASE_URL={{DATABASE_URL}}
+ENV DATABASE_URL=postgresql://localhost/nexgen
 
 # Zaženi migracije
 CMD ["npm", "run", "migrate:deploy"]

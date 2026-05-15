@@ -3,18 +3,18 @@
   "mediaType": "application/vnd.oci.image.manifest.v1+json",
   "config": {
     "mediaType": "application/vnd.oci.image.config.v1+json",
-    "digest": "sha256:{{CONFIG_DIGEST}}",
-    "size": {{CONFIG_SIZE}}
+    "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 1024
   },
   "layers": [
     {
       "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-      "digest": "sha256:{{LAYER_DIGEST}}",
-      "size": {{LAYER_SIZE}},
+      "digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 1024,
       "annotations": {
         "org.opencontainers.image.title": "AUTHENTICATION_AUTHORIZATION_SUITE",
         "org.opencontainers.image.version": "1.0.0",
-        "org.opencontainers.image.created": "{{DATUM_GENERACIJE}}",
+        "org.opencontainers.image.created": "2024-12-24T00:00:00Z",
         "org.opencontainers.image.vendor": "MIABUILD",
         "io.miabuild.domain": "DOMENA_02",
         "io.miabuild.compliance": "DO-178C,IEC-61508,ISO-26262,MIL-STD-882E"

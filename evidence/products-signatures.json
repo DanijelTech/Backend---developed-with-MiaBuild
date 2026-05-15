@@ -4,7 +4,7 @@
     "document_type": "PRODUCTS_SIGNATURES",
     "domain": "ZALEDNI_SISTEMI",
     "domain_id": "DOMENA_02",
-    "generated_at": "{{DATUM_GENERACIJE}}",
+    "generated_at": "2024-12-24T00:00:00Z",
     "compliance_standards": ["DO-178C", "IEC-61508", "ISO-26262", "MIL-STD-882E", "SLSA Level 3"]
   },
   "_traceability": {
