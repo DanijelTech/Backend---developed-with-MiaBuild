@@ -181,19 +181,31 @@ MIT
 
 ---
 
-## Screenshots
+## Screenshots (v1.1.0)
 
-### 1. Home / Features (UPGRADED)
-![Home](screenshots/01-home-upgraded.png)
-Glavna stran s status kartami, uptime, memory, requests
+### 1. Home
+![Home](screenshots/01-home.png)
+Status kartice: API Status, Environment, Version, Uptime, Requests, Memory
 
-### 2. API Endpoints
-![API](screenshots/04-api.png)
-Seznam vseh API endpointov
+### 2. Users
+![Users](screenshots/02-users.png)
+User Management: dodajanje, pregled, brisanje uporabnikov
 
-### 3. User Management
-![Users](screenshots/05-users.png)
-Uporabniška tabela z CRUD operacijami
+### 3. API
+![API](screenshots/03-api.png)
+API Endpoints + Console za testiranje
+
+### 4. Config
+![Config](screenshots/04-config.png)
+Runtime Configuration: Rate Limiting, Security, Logging, CORS
+
+### 5. Settings
+![Settings](screenshots/05-settings.png)
+UI Settings: Theme, Accent Color, Auto Refresh, Notifications, Data
+
+### 6. Metrics
+![Metrics](screenshots/06-metrics.png)
+System Metrics + Live Console
 
 ---
 
