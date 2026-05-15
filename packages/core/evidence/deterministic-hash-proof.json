@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "timestamp": "2024-12-24T00:00:00Z",
+  "component": "@mia/core",
+  "version": "1.0.0",
+  "artifacts": [
+    {
+      "path": "dist/clock.js",
+      "algorithm": "sha256",
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dist/logger.js",
+      "algorithm": "sha256",
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
