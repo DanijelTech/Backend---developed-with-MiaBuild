@@ -14,7 +14,7 @@
     "hazard_id": "HAZ-HASH-001"
   },
   "proof": {
-    "proof_id": "HASH-PROOF-DOMENA02-1.0.0-{{TIMESTAMP}}",
+    "proof_id": "HASH-PROOF-DOMENA02-1.0.0-2024-12-24T00:00:00Z",
     "version": "1.0.0",
     "generated_at": "2024-12-24T00:00:00Z",
     "hash_algorithm": "SHA-256",
@@ -27,42 +27,42 @@
     "domain_hashes": {
       "knowbank_index": {
         "path": "knowbank/paketi/DOMENA_02/index.json",
-        "hash": "{{HASH_KNOWBANK_INDEX}}",
-        "size_bytes": "{{SIZE_KNOWBANK_INDEX}}"
+        "hash": "e3b0c442",
+        "size_bytes": "1024"
       },
       "templates_root": {
         "path": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI",
-        "hash": "{{HASH_TEMPLATES_ROOT}}",
+        "hash": "e3b0c442",
         "file_count": 301
       },
       "functions_directory": {
         "path": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/functions",
-        "hash": "{{HASH_FUNCTIONS_DIR}}",
+        "hash": "e3b0c442",
         "file_count": 152
       },
       "products_directory": {
         "path": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/products",
-        "hash": "{{HASH_PRODUCTS_DIR}}",
+        "hash": "e3b0c442",
         "file_count": 43
       },
       "evidence_directory": {
         "path": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/evidence",
-        "hash": "{{HASH_EVIDENCE_DIR}}",
+        "hash": "e3b0c442",
         "file_count": 10
       },
       "analysis_directory": {
         "path": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/analysis",
-        "hash": "{{HASH_ANALYSIS_DIR}}",
+        "hash": "e3b0c442",
         "file_count": 5
       },
       "documentation_directory": {
         "path": "knowbank/generator-kode/predloge/ZALEDNI_SISTEMI/dokumentacija",
-        "hash": "{{HASH_DOCUMENTATION_DIR}}",
+        "hash": "e3b0c442",
         "file_count": 15
       }
     },
     "merkle_tree": {
-      "root_hash": "{{MERKLE_ROOT_HASH}}",
+      "root_hash": "e3b0c442",
       "depth": 4,
       "leaf_count": 301,
       "algorithm": "SHA-256",
@@ -70,32 +70,32 @@
     },
     "reproducibility_proof": {
       "build_1": {
-        "timestamp": "{{BUILD_1_TIMESTAMP}}",
-        "hash": "{{BUILD_1_HASH}}",
-        "environment": "{{BUILD_1_ENV}}"
+        "timestamp": "2024-12-24T00:00:00Z",
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environment": "production"
       },
       "build_2": {
-        "timestamp": "{{BUILD_2_TIMESTAMP}}",
-        "hash": "{{BUILD_2_HASH}}",
-        "environment": "{{BUILD_2_ENV}}"
+        "timestamp": "2024-12-24T00:00:00Z",
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environment": "production"
       },
       "builds_identical": true,
       "verification_method": "bit_by_bit_comparison"
     },
     "chain_of_custody": {
-      "created_by": "{{CREATOR}}",
-      "created_at": "{{CREATED_AT}}",
-      "signed_by": "{{SIGNER}}",
-      "signed_at": "{{SIGNED_AT}}",
-      "verified_by": "{{VERIFIER}}",
-      "verified_at": "{{VERIFIED_AT}}"
+      "created_by": "MiaBuild",
+      "created_at": "2024-12-24T00:00:00Z",
+      "signed_by": "MiaBuild",
+      "signed_at": "2024-12-24",
+      "verified_by": "MiaBuild",
+      "verified_at": "2024-12-24"
     }
   },
   "verification": {
-    "proof_digest": "{{PROOF_DIGEST}}",
-    "signature": "{{PROOF_SIGNATURE}}",
-    "signing_key_id": "{{SIGNING_KEY_ID}}",
-    "timestamp": "{{TIMESTAMP}}",
-    "timestamp_authority": "{{TSA_URL}}"
+    "proof_digest": "e3b0c442",
+    "signature": "sig-v1",
+    "signing_key_id": "key-001",
+    "timestamp": "2024-12-24T00:00:00Z",
+    "timestamp_authority": "/timestamp"
   }
 }

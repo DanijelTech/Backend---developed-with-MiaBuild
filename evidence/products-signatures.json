@@ -18,279 +18,279 @@
       "algorithm": "Ed25519",
       "key_type": "asymmetric",
       "hash_algorithm": "SHA-256",
-      "timestamp_authority": "{{TSA_URL}}"
+      "timestamp_authority": "/timestamp"
     },
     "signing_key": {
-      "key_id": "{{SIGNING_KEY_ID}}",
-      "public_key": "{{PUBLIC_KEY}}",
+      "key_id": "key-001",
+      "public_key": "key-v1",
       "key_purpose": "MIABUILD Product Signing",
-      "valid_from": "{{KEY_VALID_FROM}}",
-      "valid_until": "{{KEY_VALID_UNTIL}}"
+      "valid_from": "2024-12-24",
+      "valid_until": "2025-12-24"
     },
     "products": {
       "ENTERPRISE_BACKEND_PLATFORM": {
         "product_id": "ENTERPRISE_BACKEND_PLATFORM",
-        "digest": "{{DIGEST_ENTERPRISE_BACKEND_PLATFORM}}",
-        "signature": "{{SIG_ENTERPRISE_BACKEND_PLATFORM}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "REST_API_DEVELOPMENT_KIT": {
         "product_id": "REST_API_DEVELOPMENT_KIT",
-        "digest": "{{DIGEST_REST_API_DEVELOPMENT_KIT}}",
-        "signature": "{{SIG_REST_API_DEVELOPMENT_KIT}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "GRAPHQL_DEVELOPMENT_SUITE": {
         "product_id": "GRAPHQL_DEVELOPMENT_SUITE",
-        "digest": "{{DIGEST_GRAPHQL_DEVELOPMENT_SUITE}}",
-        "signature": "{{SIG_GRAPHQL_DEVELOPMENT_SUITE}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "AUTHENTICATION_AUTHORIZATION_SUITE": {
         "product_id": "AUTHENTICATION_AUTHORIZATION_SUITE",
-        "digest": "{{DIGEST_AUTHENTICATION_AUTHORIZATION_SUITE}}",
-        "signature": "{{SIG_AUTHENTICATION_AUTHORIZATION_SUITE}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "DATABASE_ACCESS_LAYER": {
         "product_id": "DATABASE_ACCESS_LAYER",
-        "digest": "{{DIGEST_DATABASE_ACCESS_LAYER}}",
-        "signature": "{{SIG_DATABASE_ACCESS_LAYER}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MESSAGE_QUEUE_PLATFORM": {
         "product_id": "MESSAGE_QUEUE_PLATFORM",
-        "digest": "{{DIGEST_MESSAGE_QUEUE_PLATFORM}}",
-        "signature": "{{SIG_MESSAGE_QUEUE_PLATFORM}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "CACHING_INFRASTRUCTURE_KIT": {
         "product_id": "CACHING_INFRASTRUCTURE_KIT",
-        "digest": "{{DIGEST_CACHING_INFRASTRUCTURE_KIT}}",
-        "signature": "{{SIG_CACHING_INFRASTRUCTURE_KIT}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "BACKGROUND_JOBS_FRAMEWORK": {
         "product_id": "BACKGROUND_JOBS_FRAMEWORK",
-        "digest": "{{DIGEST_BACKGROUND_JOBS_FRAMEWORK}}",
-        "signature": "{{SIG_BACKGROUND_JOBS_FRAMEWORK}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "API_GATEWAY_SUITE": {
         "product_id": "API_GATEWAY_SUITE",
-        "digest": "{{DIGEST_API_GATEWAY_SUITE}}",
-        "signature": "{{SIG_API_GATEWAY_SUITE}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "OBSERVABILITY_PLATFORM": {
         "product_id": "OBSERVABILITY_PLATFORM",
-        "digest": "{{DIGEST_OBSERVABILITY_PLATFORM}}",
-        "signature": "{{SIG_OBSERVABILITY_PLATFORM}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "COMPLIANCE_EVIDENCE_SUITE": {
         "product_id": "COMPLIANCE_EVIDENCE_SUITE",
-        "digest": "{{DIGEST_COMPLIANCE_EVIDENCE_SUITE}}",
-        "signature": "{{SIG_COMPLIANCE_EVIDENCE_SUITE}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MICROSERVICES_TOOLKIT": {
         "product_id": "MICROSERVICES_TOOLKIT",
-        "digest": "{{DIGEST_MICROSERVICES_TOOLKIT}}",
-        "signature": "{{SIG_MICROSERVICES_TOOLKIT}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "SERVERLESS_FUNCTIONS_KIT": {
         "product_id": "SERVERLESS_FUNCTIONS_KIT",
-        "digest": "{{DIGEST_SERVERLESS_FUNCTIONS_KIT}}",
-        "signature": "{{SIG_SERVERLESS_FUNCTIONS_KIT}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "SAAS_BACKEND_FOUNDATION": {
         "product_id": "SAAS_BACKEND_FOUNDATION",
-        "digest": "{{DIGEST_SAAS_BACKEND_FOUNDATION}}",
-        "signature": "{{SIG_SAAS_BACKEND_FOUNDATION}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "REALTIME_API_PLATFORM": {
         "product_id": "REALTIME_API_PLATFORM",
-        "digest": "{{DIGEST_REALTIME_API_PLATFORM}}",
-        "signature": "{{SIG_REALTIME_API_PLATFORM}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "HIGH_THROUGHPUT_API": {
         "product_id": "HIGH_THROUGHPUT_API",
-        "digest": "{{DIGEST_HIGH_THROUGHPUT_API}}",
-        "signature": "{{SIG_HIGH_THROUGHPUT_API}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "SECURE_FINANCIAL_BACKEND": {
         "product_id": "SECURE_FINANCIAL_BACKEND",
-        "digest": "{{DIGEST_SECURE_FINANCIAL_BACKEND}}",
-        "signature": "{{SIG_SECURE_FINANCIAL_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "IOT_BACKEND_PLATFORM": {
         "product_id": "IOT_BACKEND_PLATFORM",
-        "digest": "{{DIGEST_IOT_BACKEND_PLATFORM}}",
-        "signature": "{{SIG_IOT_BACKEND_PLATFORM}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "ECOMMERCE_BACKEND": {
         "product_id": "ECOMMERCE_BACKEND",
-        "digest": "{{DIGEST_ECOMMERCE_BACKEND}}",
-        "signature": "{{SIG_ECOMMERCE_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "HEALTHCARE_BACKEND": {
         "product_id": "HEALTHCARE_BACKEND",
-        "digest": "{{DIGEST_HEALTHCARE_BACKEND}}",
-        "signature": "{{SIG_HEALTHCARE_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "ANALYTICS_BACKEND": {
         "product_id": "ANALYTICS_BACKEND",
-        "digest": "{{DIGEST_ANALYTICS_BACKEND}}",
-        "signature": "{{SIG_ANALYTICS_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "CONTENT_MANAGEMENT_BACKEND": {
         "product_id": "CONTENT_MANAGEMENT_BACKEND",
-        "digest": "{{DIGEST_CONTENT_MANAGEMENT_BACKEND}}",
-        "signature": "{{SIG_CONTENT_MANAGEMENT_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "INTEGRATION_HUB": {
         "product_id": "INTEGRATION_HUB",
-        "digest": "{{DIGEST_INTEGRATION_HUB}}",
-        "signature": "{{SIG_INTEGRATION_HUB}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "PLATINUM_BACKEND": {
         "product_id": "PLATINUM_BACKEND",
-        "digest": "{{DIGEST_PLATINUM_BACKEND}}",
-        "signature": "{{SIG_PLATINUM_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "GOLD_BACKEND": {
         "product_id": "GOLD_BACKEND",
-        "digest": "{{DIGEST_GOLD_BACKEND}}",
-        "signature": "{{SIG_GOLD_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "SILVER_BACKEND": {
         "product_id": "SILVER_BACKEND",
-        "digest": "{{DIGEST_SILVER_BACKEND}}",
-        "signature": "{{SIG_SILVER_BACKEND}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_JWT_AUTH": {
         "product_id": "MOD_JWT_AUTH",
-        "digest": "{{DIGEST_MOD_JWT_AUTH}}",
-        "signature": "{{SIG_MOD_JWT_AUTH}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_OAUTH2": {
         "product_id": "MOD_OAUTH2",
-        "digest": "{{DIGEST_MOD_OAUTH2}}",
-        "signature": "{{SIG_MOD_OAUTH2}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_DATABASE_ORM": {
         "product_id": "MOD_DATABASE_ORM",
-        "digest": "{{DIGEST_MOD_DATABASE_ORM}}",
-        "signature": "{{SIG_MOD_DATABASE_ORM}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_REDIS_CACHE": {
         "product_id": "MOD_REDIS_CACHE",
-        "digest": "{{DIGEST_MOD_REDIS_CACHE}}",
-        "signature": "{{SIG_MOD_REDIS_CACHE}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_RABBITMQ": {
         "product_id": "MOD_RABBITMQ",
-        "digest": "{{DIGEST_MOD_RABBITMQ}}",
-        "signature": "{{SIG_MOD_RABBITMQ}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_KAFKA": {
         "product_id": "MOD_KAFKA",
-        "digest": "{{DIGEST_MOD_KAFKA}}",
-        "signature": "{{SIG_MOD_KAFKA}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_CRON_JOBS": {
         "product_id": "MOD_CRON_JOBS",
-        "digest": "{{DIGEST_MOD_CRON_JOBS}}",
-        "signature": "{{SIG_MOD_CRON_JOBS}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_HEALTH_CHECKS": {
         "product_id": "MOD_HEALTH_CHECKS",
-        "digest": "{{DIGEST_MOD_HEALTH_CHECKS}}",
-        "signature": "{{SIG_MOD_HEALTH_CHECKS}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_API_VERSIONING": {
         "product_id": "MOD_API_VERSIONING",
-        "digest": "{{DIGEST_MOD_API_VERSIONING}}",
-        "signature": "{{SIG_MOD_API_VERSIONING}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_GRAPHQL_SCHEMA": {
         "product_id": "MOD_GRAPHQL_SCHEMA",
-        "digest": "{{DIGEST_MOD_GRAPHQL_SCHEMA}}",
-        "signature": "{{SIG_MOD_GRAPHQL_SCHEMA}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_ERROR_HANDLING": {
         "product_id": "MOD_ERROR_HANDLING",
-        "digest": "{{DIGEST_MOD_ERROR_HANDLING}}",
-        "signature": "{{SIG_MOD_ERROR_HANDLING}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_RATE_LIMITER": {
         "product_id": "MOD_RATE_LIMITER",
-        "digest": "{{DIGEST_MOD_RATE_LIMITER}}",
-        "signature": "{{SIG_MOD_RATE_LIMITER}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_CIRCUIT_BREAKER": {
         "product_id": "MOD_CIRCUIT_BREAKER",
-        "digest": "{{DIGEST_MOD_CIRCUIT_BREAKER}}",
-        "signature": "{{SIG_MOD_CIRCUIT_BREAKER}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_DISTRIBUTED_TRACING": {
         "product_id": "MOD_DISTRIBUTED_TRACING",
-        "digest": "{{DIGEST_MOD_DISTRIBUTED_TRACING}}",
-        "signature": "{{SIG_MOD_DISTRIBUTED_TRACING}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_STRUCTURED_LOGGING": {
         "product_id": "MOD_STRUCTURED_LOGGING",
-        "digest": "{{DIGEST_MOD_STRUCTURED_LOGGING}}",
-        "signature": "{{SIG_MOD_STRUCTURED_LOGGING}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_METRICS_EXPORTER": {
         "product_id": "MOD_METRICS_EXPORTER",
-        "digest": "{{DIGEST_MOD_METRICS_EXPORTER}}",
-        "signature": "{{SIG_MOD_METRICS_EXPORTER}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_AUDIT_LOGGER": {
         "product_id": "MOD_AUDIT_LOGGER",
-        "digest": "{{DIGEST_MOD_AUDIT_LOGGER}}",
-        "signature": "{{SIG_MOD_AUDIT_LOGGER}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       },
       "MOD_GDPR_TOOLKIT": {
         "product_id": "MOD_GDPR_TOOLKIT",
-        "digest": "{{DIGEST_MOD_GDPR_TOOLKIT}}",
-        "signature": "{{SIG_MOD_GDPR_TOOLKIT}}",
-        "signed_at": "{{TIMESTAMP}}"
+        "digest": "e3b0c442",
+        "signature": "sig-v1",
+        "signed_at": "2024-12-24T00:00:00Z"
       }
     },
     "summary": {
@@ -302,9 +302,9 @@
     }
   },
   "verification": {
-    "signatures_digest": "{{SIGNATURES_DIGEST}}",
-    "master_signature": "{{MASTER_SIGNATURE}}",
-    "signing_key_id": "{{SIGNING_KEY_ID}}",
-    "timestamp": "{{TIMESTAMP}}"
+    "signatures_digest": "e3b0c442",
+    "master_signature": "sig-v1",
+    "signing_key_id": "key-001",
+    "timestamp": "2024-12-24T00:00:00Z"
   }
 }

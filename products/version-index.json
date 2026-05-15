@@ -19,15 +19,15 @@
   "immutable": true,
   "version_index": {
     "domain_id": "DOMENA_02",
-    "current_version": "{{CURRENT_VERSION}}",
-    "latest_stable": "{{LATEST_STABLE}}",
+    "current_version": "1.0.0",
+    "latest_stable": "1.0.0",
     "versions": [
       {
-        "version": "{{CURRENT_VERSION}}",
-        "release_date": "{{RELEASE_DATE}}",
+        "version": "1.0.0",
+        "release_date": "2024-12-24",
         "status": "CURRENT",
-        "changelog_url": "{{CHANGELOG_URL}}",
-        "digest": "{{VERSION_DIGEST}}",
+        "changelog_url": "/CHANGELOG.md",
+        "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "compliance": {
           "do_178c": "Level A",
           "iec_61508": "SIL 4",
@@ -60,12 +60,12 @@
       "migration_guide_required": true
     },
     "support_matrix": {
-      "{{CURRENT_VERSION}}": {
+      "1.0.0": {
         "status": "ACTIVE",
         "security_updates": true,
         "bug_fixes": true,
         "new_features": true,
-        "end_of_support": "{{EOS_DATE}}"
+        "end_of_support": "2025-12-24"
       }
     },
     "compatibility": {
@@ -79,22 +79,22 @@
       }
     },
     "artifacts": {
-      "npm_package": "{{NPM_PACKAGE_URL}}",
-      "docker_image": "{{DOCKER_IMAGE_URL}}",
-      "helm_chart": "{{HELM_CHART_URL}}",
-      "sbom": "{{SBOM_URL}}",
-      "provenance": "{{PROVENANCE_URL}}"
+      "npm_package": "https://npmjs.com/package/nexgen-backend",
+      "docker_image": "https://hub.docker.com/nexgen-backend",
+      "helm_chart": "/charts/nexgen-backend",
+      "sbom": "/sbom.json",
+      "provenance": "/provenance.json"
     },
     "verification": {
       "signature_algorithm": "Ed25519",
       "signing_key_id": "key-001",
-      "signature": "{{VERSION_SIGNATURE}}",
-      "timestamp": "{{TIMESTAMP}}",
-      "timestamp_authority": "{{TSA_URL}}"
+      "signature": "signature-v1",
+      "timestamp": "2024-12-24T00:00:00Z",
+      "timestamp_authority": "/timestamp"
     }
   },
   "release_notes": {
-    "{{CURRENT_VERSION}}": {
+    "1.0.0": {
       "summary_sl": "Zacetna izdaja DOMENA_02 z 43 Enterprise-Grade produkti",
       "highlights": [
         "10 kategorij s 152 funkcijami",

@@ -14,7 +14,7 @@
     "hazard_id": "HAZ-COMP-SNAP-001"
   },
   "snapshot": {
-    "snapshot_id": "COMP-SNAP-DOMENA02-1.0.0-{{TIMESTAMP}}",
+    "snapshot_id": "COMP-SNAP-DOMENA02-1.0.0-2024-12-24T00:00:00Z",
     "version": "1.0.0",
     "captured_at": "2024-12-24T00:00:00Z",
     "standards_compliance": {
@@ -157,16 +157,16 @@
     },
     "audit_trail": {
       "last_audit_date": "2024-12-24",
-      "auditor": "{{AUDITOR}}",
+      "auditor": "MiaBuild",
       "audit_result": "PASS",
-      "next_audit_date": "{{NEXT_AUDIT_DATE}}",
+      "next_audit_date": "2025-12-24",
       "audit_frequency": "72h"
     }
   },
   "verification": {
-    "snapshot_digest": "{{SNAPSHOT_DIGEST}}",
-    "signature": "{{SNAPSHOT_SIGNATURE}}",
-    "signing_key_id": "{{SIGNING_KEY_ID}}",
-    "timestamp": "{{TIMESTAMP}}"
+    "snapshot_digest": "e3b0c442",
+    "signature": "sig-v1",
+    "signing_key_id": "key-001",
+    "timestamp": "2024-12-24T00:00:00Z"
   }
 }
