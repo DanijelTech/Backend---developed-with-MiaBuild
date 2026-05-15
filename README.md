@@ -181,7 +181,7 @@ MIT
 
 ---
 
-## Screenshots (v1.1.0)
+## Screenshots (v2.0.0)
 
 ### 1. Home
 ![Home](screenshots/01-home.png)
